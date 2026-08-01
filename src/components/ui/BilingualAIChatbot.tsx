@@ -27,7 +27,7 @@ export const BilingualAIChatbot: React.FC = () => {
       {!isChatOpen && (
         <button
           onClick={() => setIsChatOpen(true)}
-          className="fixed bottom-6 right-6 z-40 bg-[#F58220] hover:bg-[#FF8E2B] text-white p-4 rounded-full shadow-2xl flex items-center gap-2 group hover:scale-110 transition-all border-2 border-white"
+          className="fixed bottom-20 right-4 lg:bottom-6 lg:right-6 z-40 bg-[#F58220] hover:bg-[#FF8E2B] text-white p-3.5 sm:p-4 rounded-full shadow-2xl flex items-center gap-2 group hover:scale-110 transition-all border-2 border-white"
           aria-label="Open Lara Concrete Chat"
         >
           <div className="relative">
@@ -42,7 +42,7 @@ export const BilingualAIChatbot: React.FC = () => {
 
       {/* Floating Chat Window Drawer */}
       {isChatOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-full max-w-sm sm:max-w-md bg-[#1A1A1A] text-white rounded-2xl border border-white/20 shadow-2xl overflow-hidden flex flex-col h-[520px] animate-fadeIn">
+        <div className="fixed bottom-20 right-4 lg:bottom-6 lg:right-6 z-50 w-[calc(100vw-2rem)] max-w-sm sm:max-w-md bg-[#1A1A1A] text-white rounded-2xl border border-white/20 shadow-2xl overflow-hidden flex flex-col h-[480px] sm:h-[520px] animate-fadeIn">
           
           {/* Header */}
           <div className="bg-[#2D2D2D] p-4 border-b border-white/10 flex items-center justify-between">

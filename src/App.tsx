@@ -8,6 +8,7 @@ import { AdminPortal } from './pages/AdminPortal';
 import { EstimateModal } from './components/ui/EstimateModal';
 import { BilingualAIChatbot } from './components/ui/BilingualAIChatbot';
 import { FloatingBar } from './components/ui/FloatingBar';
+import { FrontendAdminBar } from './components/ui/FrontendAdminBar';
 import { CheckCircle2 } from 'lucide-react';
 
 const AppContent: React.FC = () => {
@@ -32,6 +33,7 @@ const AppContent: React.FC = () => {
         <EstimateModal />
         <BilingualAIChatbot />
         <FloatingBar />
+        <FrontendAdminBar />
 
         {/* Global Toast Notification */}
         {toastMessage && (

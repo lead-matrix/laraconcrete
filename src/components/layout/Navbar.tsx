@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Shield, Calendar, Sparkles, Menu, X, ChevronDown, Wrench, Globe, UserCheck } from 'lucide-react';
+import { Phone, Shield, Calendar, Sparkles, Menu, X, ChevronDown, Wrench, Globe, UserCheck, Bot } from 'lucide-react';
 import { useCMS } from '../../cms/useCMS';
 import { Link, useNavigate } from 'react-router-dom';
 
 export const Navbar: React.FC = () => {
-  const { openEstimateModal, language, setLanguage } = useCMS();
+  const { openEstimateModal, language, setLanguage, companyDetails, isChatOpen, setIsChatOpen } = useCMS();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
@@ -71,11 +71,11 @@ export const Navbar: React.FC = () => {
 
             {/* Hotline Phone */}
             <a
-              href="tel:3169930376"
+              href={`tel:${companyDetails.phone1.replace(/\D/g, '')}`}
               className="flex items-center gap-1.5 text-[#F58220] hover:text-[#FF8E2B] font-bold tracking-wider transition-colors"
             >
               <Phone className="w-3.5 h-3.5" />
-              <span>(316) 993-0376</span>
+              <span>{companyDetails.phone1}</span>
             </a>
           </div>
         </div>
@@ -90,16 +90,28 @@ export const Navbar: React.FC = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Logo with Lara Concrete Fleet Truck Wrap Emblem */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="bg-white p-1.5 rounded-xl shadow-lg border border-white/20 group-hover:scale-105 transition-transform">
-              <img
-                src="/lara-logo.jpg"
-                alt="Lara Concrete LLC Logo"
-                className="h-9 sm:h-10 w-auto object-contain"
-              />
-            </div>
-          </Link>
+          {/* Logo with Support Chat Button beside it */}
+          <div className="flex items-center gap-2.5">
+            <Link to="/" className="flex items-center gap-3 group">
+              <div className="bg-white p-1.5 rounded-xl shadow-lg border border-white/20 group-hover:scale-105 transition-transform">
+                <img
+                  src="/lara-logo.jpg"
+                  alt="Lara Concrete LLC Logo"
+                  className="h-8 sm:h-10 w-auto object-contain"
+                />
+              </div>
+            </Link>
+
+            {/* Support Chat Button right beside Header Logo */}
+            <button
+              onClick={() => setIsChatOpen(!isChatOpen)}
+              className="flex items-center gap-1.5 bg-[#F58220]/20 hover:bg-[#F58220] text-[#F58220] hover:text-white px-2.5 py-1.5 rounded-xl border border-[#F58220]/40 text-xs font-bold transition-all shadow-sm shrink-0"
+              aria-label="Toggle Support Chat"
+            >
+              <Bot className="w-4 h-4 text-[#F58220] group-hover:text-white" />
+              <span className="text-[11px] font-extrabold">{language === 'ES' ? 'Chat' : 'Chat Support'}</span>
+            </button>
+          </div>
 
           {/* Desktop Nav Items */}
           <div className="hidden lg:flex items-center gap-6 text-sm font-semibold text-gray-200">
