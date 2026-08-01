@@ -18,7 +18,9 @@ export const Footer: React.FC = () => {
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <img src="/lara-logo.jpg" alt="Lara Concrete LLC" className="h-12 w-auto object-contain" />
+              <div className="bg-white p-2 rounded-xl shadow-lg inline-block">
+                <img src="/lara-logo.jpg" alt="Lara Concrete LLC" className="h-11 w-auto object-contain" />
+              </div>
             </div>
 
             <p className="text-gray-400 text-sm leading-relaxed max-w-md">

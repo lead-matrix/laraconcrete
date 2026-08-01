@@ -92,11 +92,13 @@ export const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo with Lara Concrete Fleet Truck Wrap Emblem */}
           <Link to="/" className="flex items-center gap-3 group">
-            <img
-              src="/lara-logo.jpg"
-              alt="Lara Concrete LLC Logo"
-              className="h-11 w-auto object-contain group-hover:scale-105 transition-transform"
-            />
+            <div className="bg-white p-1.5 rounded-xl shadow-lg border border-white/20 group-hover:scale-105 transition-transform">
+              <img
+                src="/lara-logo.jpg"
+                alt="Lara Concrete LLC Logo"
+                className="h-9 sm:h-10 w-auto object-contain"
+              />
+            </div>
           </Link>
 
           {/* Desktop Nav Items */}
