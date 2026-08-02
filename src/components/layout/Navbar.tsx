@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Shield, Calendar, Sparkles, Menu, X, ChevronDown, Wrench, Globe, UserCheck } from 'lucide-react';
+import { Phone, Shield, Calendar, Menu, X, ChevronDown, Wrench, Globe, UserCheck } from 'lucide-react';
 import { useCMS } from '../../cms/useCMS';
 import { Link, useNavigate } from 'react-router-dom';
 
