@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { CMSContextProvider, useCMS } from './cms/useCMS';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
@@ -57,6 +58,7 @@ export default function App() {
   return (
     <CMSContextProvider>
       <AppContent />
+      <Analytics />
     </CMSContextProvider>
   );
 }
