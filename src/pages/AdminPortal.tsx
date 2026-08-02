@@ -351,6 +351,24 @@ export const AdminPortal: React.FC = () => {
                         className="w-full bg-[#1A1A1A] border border-white/10 text-white rounded-lg p-2.5 font-mono focus:border-[#F58220] focus:outline-none"
                       />
                     </div>
+                    <div>
+                      <label className="text-gray-400 font-bold block mb-1">Projects Poured Count (Hero Stat)</label>
+                      <input
+                        type="number"
+                        value={companyDetails.projectsCompleted}
+                        onChange={(e) => updateCompanyDetails({ projectsCompleted: parseInt(e.target.value) || 0 })}
+                        className="w-full bg-[#1A1A1A] border border-white/10 text-[#F58220] font-bold rounded-lg p-2.5 font-mono focus:border-[#F58220] focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-gray-400 font-bold block mb-1">Years in Business</label>
+                      <input
+                        type="number"
+                        value={companyDetails.yearsInBusiness}
+                        onChange={(e) => updateCompanyDetails({ yearsInBusiness: parseInt(e.target.value) || 0 })}
+                        className="w-full bg-[#1A1A1A] border border-white/10 text-white rounded-lg p-2.5 font-mono focus:border-[#F58220] focus:outline-none"
+                      />
+                    </div>
                   </div>
                 </div>
               )}

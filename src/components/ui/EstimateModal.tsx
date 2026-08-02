@@ -5,7 +5,7 @@ import { useCMS } from '../../cms/useCMS';
 export const EstimateModal: React.FC = () => {
   const { isEstimateModalOpen, closeEstimateModal, selectedServiceForModal, addLead } = useCMS();
   const [step, setStep] = useState<1 | 2>(1);
-  const [formData, setFormData] = useState({
+  const defaultFormData = {
     name: '',
     phone: '',
     email: '',
@@ -13,7 +13,15 @@ export const EstimateModal: React.FC = () => {
     address: '',
     sqFt: 1200,
     preferredContact: 'Call' as 'Call' | 'SMS' | 'Email'
-  });
+  };
+
+  const [formData, setFormData] = useState(defaultFormData);
+
+  const handleClose = () => {
+    setStep(1);
+    setFormData(defaultFormData);
+    closeEstimateModal();
+  };
 
   if (!isEstimateModalOpen) return null;
 
@@ -43,11 +51,9 @@ export const EstimateModal: React.FC = () => {
         
         {/* Close Button */}
         <button
-          onClick={() => {
-            setStep(1);
-            closeEstimateModal();
-          }}
+          onClick={handleClose}
           className="absolute top-4 right-4 p-2 bg-[#2D2D2D] hover:bg-white/20 rounded-full text-gray-300 hover:text-white"
+          aria-label="Close estimate modal"
         >
           <X className="w-5 h-5" />
         </button>
@@ -161,10 +167,7 @@ export const EstimateModal: React.FC = () => {
               We received your request for <strong>{formData.service}</strong>. Senior estimator Carlos Lara will reach out via {formData.preferredContact} within 15 minutes.
             </p>
             <button
-              onClick={() => {
-                setStep(1);
-                closeEstimateModal();
-              }}
+              onClick={handleClose}
               className="btn-lara-primary px-6 py-3 rounded-xl text-xs uppercase font-extrabold"
             >
               Done & Close

@@ -21,6 +21,7 @@ export interface CompanyDetails {
   address: string;
   guaranteeText: string;
   yearsInBusiness: number;
+  projectsCompleted: number;
 }
 
 export interface FAQItem {
@@ -66,7 +67,6 @@ interface CMSContextType {
   projects: ProjectShowcaseItem[];
 
   // Warranty Lookup
-  warrantySearchId: string;
   activeWarranty: WarrantyRecord | null;
   searchWarranty: (id: string) => WarrantyRecord | null;
 
@@ -102,7 +102,8 @@ const DEFAULT_COMPANY: CompanyDetails = {
   email: 'estimates@laraconcrete.com',
   address: '4100 E 21st St, Wichita, KS 67208',
   guaranteeText: 'Licensed & Insured ($2M Guarantee)',
-  yearsInBusiness: 15
+  yearsInBusiness: 15,
+  projectsCompleted: 1247
 };
 
 const DEFAULT_FAQS: FAQItem[] = [
@@ -154,7 +155,6 @@ export const CMSContextProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   const [leads, setLeads] = useState<QuoteLead[]>(INITIAL_LEADS);
   const [portalProject, setPortalProject] = useState<CustomerPortalProject>(SAMPLE_CUSTOMER_PORTAL);
   const [projects] = useState<ProjectShowcaseItem[]>(PROJECT_SHOWCASE);
-  const [warrantySearchId, setWarrantySearchId] = useState('');
   const [activeWarranty, setActiveWarranty] = useState<WarrantyRecord | null>(null);
   const [language, setLanguage] = useState<'EN' | 'ES'>('EN');
 
@@ -270,7 +270,6 @@ export const CMSContextProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   };
 
   const searchWarranty = (id: string): WarrantyRecord | null => {
-    setWarrantySearchId(id);
     const found = WARRANTY_RECORDS.find(
       (w) => w.warrantyId.toLowerCase() === id.trim().toLowerCase()
     );
@@ -309,14 +308,35 @@ export const CMSContextProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     setChatMessages((prev) => [...prev, userMsg]);
 
     setTimeout(() => {
-      let botResponse = `Thank you for asking about "${text}". At Lara Concrete LLC, we pour high-strength 4,000 PSI concrete reinforced with #4 rebar. Give us a call at ${companyDetails.phone1} or click "Get Free Estimate" to book a site visit!`;
       const lower = text.toLowerCase();
-      if (lower.includes('cost') || lower.includes('price')) {
-        botResponse = 'Our standard 4,000 PSI concrete driveways range from $11.50 to $13.50/sq ft installed including excavation, rebar, and finishing. Stamped decorative patios range from $14.50 to $18.50/sq ft.';
-      } else if (lower.includes('thickness') || lower.includes('slab')) {
-        botResponse = 'For driveways and heavy vehicles, we recommend 5 inches of 4,000 PSI concrete over a 4" aggregate base. For patios, 4 inches is standard!';
-      } else if (lower.includes('warranty')) {
-        botResponse = 'Every Lara Concrete installation comes with our 10-Year Written Structural Warranty covering major settlement, freeze-thaw scaling, and deep cracking.';
+      let botResponse = `Thank you for reaching out to Lara Concrete LLC! We pour high-strength 4,000+ PSI concrete reinforced with #4 rebar. Give us a call at ${companyDetails.phone1} or click "Get Free Estimate" below for a fast 15-min call back!`;
+
+      if (lower.includes('cost') || lower.includes('price') || lower.includes('much') || lower.includes('rate')) {
+        botResponse = '💰 Our standard 4,000 PSI broom-finish driveways run $11.50–$13.50/sq ft installed (includes excavation, rebar & finishing). Stamped decorative patios are $14.50–$18.50/sq ft. Commercial slabs from $9–$12/sq ft depending on thickness.';
+      } else if (lower.includes('thickness') || lower.includes('slab') || lower.includes('depth') || lower.includes('inch')) {
+        botResponse = '📐 For driveways & heavy vehicle areas we pour 5" thick 4,000 PSI over a 4" compacted aggregate base. Patios are standard 4". Garage shop floors with car lifts we go 5–6". Foundations are engineered per load requirements.';
+      } else if (lower.includes('warranty') || lower.includes('guarantee') || lower.includes('crack')) {
+        botResponse = '🛡️ Every Lara Concrete installation includes a 10-Year Written Structural Warranty covering major settlement, freeze-thaw scaling, deep cracking & drainage failures. Warranty ID lookup is available on our website!';
+      } else if (lower.includes('permit') || lower.includes('utility') || lower.includes('city') || lower.includes('inspect')) {
+        botResponse = '📋 Yes — Lara Concrete LLC handles all municipal building permits, city right-of-way (ROW) inspections, and 811 Kansas One-Call utility locates before any equipment touches your property. No paperwork headaches for you!';
+      } else if (lower.includes('stamp') || lower.includes('decor') || lower.includes('pattern') || lower.includes('color')) {
+        botResponse = '🎨 We offer 12+ stamped concrete patterns including Ashlar Slate, European Cobblestone, Wood Plank, Flagstone, and Herringbone Brick. Colors include charcoal, sandstone, terra cotta, and custom tints. Dual-color release agents available!';
+      } else if (lower.includes('financ') || lower.includes('payment') || lower.includes('monthly') || lower.includes('loan')) {
+        botResponse = '💳 Yes! We offer flexible financing starting at $0 down with low monthly payments. Projects as low as $149/month OAC. Apply in minutes — ask about our financing options when you call (316) 993-0376!';
+      } else if (lower.includes('how long') || lower.includes('timeline') || lower.includes('schedule') || lower.includes('when') || lower.includes('days')) {
+        botResponse = '📅 Most residential driveways (600–2,000 sq ft) take 1–2 days to form & pour, plus 7–28 days to cure. We typically schedule within 1–3 weeks of estimate approval. Weather permitting — we pour in temps above 40°F.';
+      } else if (lower.includes('repair') || lower.includes('resurface') || lower.includes('crack') || lower.includes('seal') || lower.includes('fix')) {
+        botResponse = '🔧 We offer concrete crack routing & sealing, mudjacking/slabjacking, overlay resurfacing, epoxy coating, and full removal & replacement. Send us a photo of the damage for a fast repair estimate!';
+      } else if (lower.includes('area') || lower.includes('wichita') || lower.includes('derby') || lower.includes('andover') || lower.includes('maize') || lower.includes('goddard') || lower.includes('serve')) {
+        botResponse = '📍 We serve all of Wichita and the surrounding Kansas Metro: Derby, Andover, Maize, Goddard, Bel Aire, Haysville, Mulvane, Valley Center, and Park City. Free on-site estimates anywhere in Sedgwick & Butler County!';
+      } else if (lower.includes('rebar') || lower.includes('wire mesh') || lower.includes('fiber') || lower.includes('reinforc')) {
+        botResponse = '⚙️ We use #4 Grade 60 rebar (1/2") tied on 18" centers, supported by concrete chairs — not wire mesh that sinks to the bottom. Structural fiber mesh additives are also available as a hybrid system for maximum crack resistance.';
+      } else if (lower.includes('commercial') || lower.includes('business') || lower.includes('warehouse') || lower.includes('loading') || lower.includes('dock')) {
+        botResponse = '🏭 For commercial projects we offer laser-screed flatwork, loading dock aprons, truck courts, warehouse floors (FF/FL rated), tilt-up panels, and curb & gutter work. ACI-certified flatwork finishers on every commercial pour.';
+      } else if (lower.includes('weather') || lower.includes('winter') || lower.includes('freeze') || lower.includes('rain') || lower.includes('hot')) {
+        botResponse = '🌡️ We pour concrete in temps 40°F–95°F. In cold weather we use heated blankets & accelerants. In summer heat we use ice-cooled water and retarders to extend workability. Rain within 4–8 hours of a pour can damage the finish — we reschedule to protect quality.';
+      } else if (lower.includes('hola') || lower.includes('habla') || lower.includes('español') || lower.includes('espanol') || lower.includes('spanish')) {
+        botResponse = '¡Hola! Sí, hablamos español. Estamos listos para ayudarle con su proyecto de concreto. Llámenos al (316) 993-0376 o haga clic en el botón de idioma arriba para cambiar a Español.';
       }
 
       const botMsg: ChatMessage = {
@@ -350,7 +370,6 @@ export const CMSContextProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         portalProject,
         updatePortalStep,
         projects,
-        warrantySearchId,
         activeWarranty,
         searchWarranty,
         language,

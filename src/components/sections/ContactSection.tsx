@@ -240,14 +240,31 @@ export const ContactSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Map Placeholder Graphic */}
-            <div className="h-56 bg-[#1A1A1A] rounded-2xl border border-white/10 overflow-hidden relative flex items-center justify-center">
-              <img src="https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?auto=format&fit=crop&w=800&q=80" alt="Map Location" className="w-full h-full object-cover opacity-50" />
-              <div className="absolute bg-[#1A1A1A]/90 p-4 rounded-xl border border-[#F58220] text-center">
-                <MapPin className="w-6 h-6 text-[#F58220] mx-auto mb-1 animate-bounce" />
-                <span className="font-extrabold text-xs text-white block">LARA CONCRETE HQ</span>
-                <span className="text-[10px] text-gray-400">Dispatching to all Kansas Metro Areas</span>
+            {/* Google Maps Embed */}
+            <div className="h-56 bg-[#1A1A1A] rounded-2xl border border-white/10 overflow-hidden relative shadow-xl">
+              <iframe
+                title="Lara Concrete LLC Location - 4100 E 21st St Wichita KS"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3141.263!2d-97.29!3d37.693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87bae4c0b1234567%3A0xabc123def456!2s4100+E+21st+St%2C+Wichita%2C+KS+67208!5e0!3m2!1sen!2sus!4v1690000000000!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: 'invert(0.9) hue-rotate(180deg) saturate(0.7) brightness(0.8)' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              {/* Overlay badge */}
+              <div className="absolute top-3 left-3 bg-[#1A1A1A]/95 backdrop-blur-md border border-[#F58220]/50 px-3 py-2 rounded-xl shadow-xl pointer-events-none">
+                <p className="font-extrabold text-[11px] text-white leading-tight">LARA CONCRETE HQ</p>
+                <p className="text-[10px] text-gray-400">4100 E 21st St, Wichita KS</p>
               </div>
+              <a
+                href="https://maps.google.com/?q=4100+E+21st+St+Wichita+KS+67208"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-3 right-3 bg-[#F58220] hover:bg-[#FF8E2B] text-white text-[10px] font-bold px-3 py-1.5 rounded-lg shadow-lg transition-colors"
+              >
+                Get Directions →
+              </a>
             </div>
 
           </div>

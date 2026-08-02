@@ -3,7 +3,7 @@ import { Phone, Shield, Star, Award, CheckCircle2, ChevronRight, Wrench, Truck }
 import { useCMS } from '../../cms/useCMS';
 
 export const Hero: React.FC = () => {
-  const { openEstimateModal, language } = useCMS();
+  const { openEstimateModal, language, companyDetails } = useCMS();
 
   return (
     <section id="hero" className="relative bg-[#1A1A1A] text-white pt-12 pb-20 lg:pt-16 lg:pb-28 overflow-hidden border-b border-white/10">
@@ -90,7 +90,7 @@ export const Hero: React.FC = () => {
                   ACI
                 </div>
               </div>
-              <span>Over <strong className="text-white">1,247+</strong> projects poured in 2026. 15-min estimator call back guarantee.</span>
+              <span>Over <strong className="text-white">{companyDetails.projectsCompleted.toLocaleString()}+</strong> projects poured in 2026. 15-min estimator call back guarantee.</span>
             </div>
           </div>
 

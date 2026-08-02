@@ -126,6 +126,9 @@ export const Navbar: React.FC = () => {
             <div className="relative group">
               <button
                 onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+                aria-expanded={servicesDropdownOpen}
+                aria-haspopup="true"
+                aria-label="Toggle services submenu"
                 className="flex items-center gap-1 hover:text-[#F58220] transition-colors py-2"
               >
                 <span>{language === 'ES' ? 'Servicios' : 'Services'}</span>

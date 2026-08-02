@@ -8,6 +8,7 @@ import { AdminPortal } from './pages/AdminPortal';
 import { EstimateModal } from './components/ui/EstimateModal';
 import { BilingualAIChatbot } from './components/ui/BilingualAIChatbot';
 import { FloatingBar } from './components/ui/FloatingBar';
+import { AdminPinGate } from './components/ui/AdminPinGate';
 import { CheckCircle2 } from 'lucide-react';
 
 const AppContent: React.FC = () => {
@@ -21,7 +22,14 @@ const AppContent: React.FC = () => {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/admin" element={<AdminPortal />} />
+            <Route
+              path="/admin"
+              element={
+                <AdminPinGate>
+                  <AdminPortal />
+                </AdminPinGate>
+              }
+            />
             <Route path="*" element={<Home />} />
           </Routes>
         </main>

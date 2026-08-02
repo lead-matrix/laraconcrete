@@ -39,6 +39,11 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
+/* Input Focus Ring Clean Reset */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+}
+
 /* Premium Custom Scrollbars */
 ::-webkit-scrollbar {
   width: 10px;
