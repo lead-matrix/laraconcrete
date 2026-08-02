@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Shield, Calendar, Sparkles, Menu, X, ChevronDown, Wrench, Globe, UserCheck, Bot } from 'lucide-react';
+import { Phone, Shield, Calendar, Sparkles, Menu, X, ChevronDown, Wrench, Globe, UserCheck } from 'lucide-react';
 import { useCMS } from '../../cms/useCMS';
 import { Link, useNavigate } from 'react-router-dom';
 
 export const Navbar: React.FC = () => {
-  const { openEstimateModal, language, setLanguage, companyDetails, isChatOpen, setIsChatOpen } = useCMS();
+  const { openEstimateModal, language, setLanguage, companyDetails } = useCMS();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
@@ -85,36 +85,26 @@ export const Navbar: React.FC = () => {
       <nav
         className={`transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#2D2D2D]/95 backdrop-blur-md shadow-2xl py-3 border-b border-white/10'
-            : 'bg-[#2D2D2D] py-4 border-b border-white/10'
+            ? 'bg-white/95 backdrop-blur-md shadow-lg py-3 border-b border-gray-200/80'
+            : 'bg-white py-4 border-b border-gray-200/60'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Logo with Support Chat Button beside it */}
+          {/* Brand Logo */}
           <div className="flex items-center gap-2.5">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="bg-white p-1.5 rounded-xl shadow-lg border border-white/20 group-hover:scale-105 transition-transform">
+              <div className="p-1 rounded-xl group-hover:scale-105 transition-transform duration-300">
                 <img
                   src="/lara-logo.jpg"
                   alt="Lara Concrete LLC Logo"
-                  className="h-8 sm:h-10 w-auto object-contain"
+                  className="h-9 sm:h-11 w-auto object-contain"
                 />
               </div>
             </Link>
-
-            {/* Support Chat Button right beside Header Logo */}
-            <button
-              onClick={() => setIsChatOpen(!isChatOpen)}
-              className="flex items-center gap-1.5 bg-[#F58220]/20 hover:bg-[#F58220] text-[#F58220] hover:text-white px-2.5 py-1.5 rounded-xl border border-[#F58220]/40 text-xs font-bold transition-all shadow-sm shrink-0"
-              aria-label="Toggle Support Chat"
-            >
-              <Bot className="w-4 h-4 text-[#F58220] group-hover:text-white" />
-              <span className="text-[11px] font-extrabold">{language === 'ES' ? 'Chat' : 'Chat Support'}</span>
-            </button>
           </div>
 
           {/* Desktop Nav Items */}
-          <div className="hidden lg:flex items-center gap-6 text-sm font-semibold text-gray-200">
+          <div className="hidden lg:flex items-center gap-7 text-sm font-bold text-[#1F2937]">
             <button
               onClick={() => scrollToSection('hero')}
               className="hover:text-[#F58220] transition-colors"
@@ -222,7 +212,7 @@ export const Navbar: React.FC = () => {
 
             <Link
               to="/admin"
-              className="text-xs bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white px-2.5 py-1 rounded-md transition-colors"
+              className="text-xs bg-[#1F2937] hover:bg-[#F58220] text-white px-3 py-1.5 rounded-lg font-bold transition-colors shadow-sm"
             >
               CRM Admin
             </Link>
@@ -232,7 +222,7 @@ export const Navbar: React.FC = () => {
           <div className="hidden sm:flex items-center gap-3">
             <a
               href="tel:3169930376"
-              className="btn-lara-secondary px-4 py-2 rounded-lg text-xs uppercase tracking-wider flex items-center gap-1.5"
+              className="btn-lara-secondary px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider flex items-center gap-1.5"
             >
               <Phone className="w-3.5 h-3.5 text-[#F58220]" />
               <span>Call Now</span>
@@ -240,7 +230,7 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => openEstimateModal()}
-              className="btn-lara-primary px-5 py-2.5 rounded-lg text-xs uppercase tracking-wider flex items-center gap-1.5"
+              className="btn-lara-primary px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider flex items-center gap-1.5"
             >
               <Calendar className="w-3.5 h-3.5" />
               <span>{language === 'ES' ? 'Presupuesto Gratis' : 'Get Free Estimate'}</span>
@@ -250,7 +240,7 @@ export const Navbar: React.FC = () => {
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg bg-white/10 text-white hover:bg-white/20 transition-colors"
+            className="lg:hidden p-2 rounded-xl bg-gray-100 text-[#1F2937] hover:bg-[#F58220] hover:text-white transition-colors border border-gray-200"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

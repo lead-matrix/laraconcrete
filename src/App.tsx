@@ -17,7 +17,7 @@ const AppContent: React.FC = () => {
 
   return (
     <Router>
-      <div className="min-h-screen flex flex-col relative bg-[#F6F6F6] text-[#2D2D2D] selection:bg-[#F58220] selection:text-white">
+      <div className="min-h-screen flex flex-col relative bg-white text-[#1F2937] selection:bg-[#F58220] selection:text-white">
         <Navbar />
 
         <main className="flex-grow">

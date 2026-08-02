@@ -47,7 +47,7 @@ export const ServicesSection: React.FC = () => {
     : services.filter((s) => s.category === activeFilter);
 
   return (
-    <section id="services" className="py-20 bg-[#F6F6F6] text-[#2D2D2D] relative">
+    <section id="services" className="py-20 bg-[#F8FAFC] text-[#1F2937] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -55,7 +55,7 @@ export const ServicesSection: React.FC = () => {
           <span className="bg-[#F58220]/15 text-[#F58220] border border-[#F58220]/30 text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block">
             Full-Spectrum Concrete Contractors
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#2D2D2D]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#1F2937]">
             Precision Engineering for Every Pour
           </h2>
           <p className="text-gray-600 text-base sm:text-lg">

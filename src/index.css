@@ -22,16 +22,21 @@
 /* Base resets & typography */
 html {
   scroll-behavior: smooth;
-  background-color: #F6F6F6;
-  color: #2D2D2D;
+  background-color: #FFFFFF;
+  color: #1F2937;
   font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  background: #F6F6F6;
+  background: #FFFFFF;
+  color: #1F2937;
+  touch-action: manipulation;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -66,15 +71,15 @@ input:focus, select:focus, textarea:focus {
 
 /* Concrete Texture & Pattern Backgrounds */
 .bg-concrete-pattern {
-  background-color: #2D2D2D;
-  background-image: radial-gradient(rgba(245, 130, 32, 0.15) 1px, transparent 0), radial-gradient(rgba(255, 255, 255, 0.05) 1px, #2D2D2D 1px);
+  background-color: #1F2937;
+  background-image: radial-gradient(rgba(245, 130, 32, 0.15) 1px, transparent 0), radial-gradient(rgba(255, 255, 255, 0.05) 1px, #1F2937 1px);
   background-size: 24px 24px;
   background-position: 0 0, 12px 12px;
 }
 
 .bg-concrete-light {
-  background-color: #F6F6F6;
-  background-image: radial-gradient(rgba(45, 45, 45, 0.06) 1px, transparent 0);
+  background-color: #F8FAFC;
+  background-image: radial-gradient(rgba(31, 41, 55, 0.06) 1px, transparent 0);
   background-size: 20px 20px;
 }
 
