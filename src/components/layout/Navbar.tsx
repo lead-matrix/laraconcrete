@@ -12,11 +12,7 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 40);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -25,8 +21,7 @@ export const Navbar: React.FC = () => {
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
-    
-    // If not on homepage, navigate home first
+
     if (window.location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
@@ -37,9 +32,7 @@ export const Navbar: React.FC = () => {
     }
 
     const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -60,7 +53,6 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            {/* Language Switcher */}
             <button
               onClick={() => setLanguage(language === 'EN' ? 'ES' : 'EN')}
               className="flex items-center gap-1 text-xs bg-white/10 hover:bg-white/20 px-2 py-0.5 rounded text-gray-200 transition-colors"
@@ -69,7 +61,6 @@ export const Navbar: React.FC = () => {
               <span>{language === 'EN' ? 'ESPAÑOL' : 'ENGLISH'}</span>
             </button>
 
-            {/* Hotline Phone */}
             <a
               href={`tel:${companyDetails.phone1.replace(/\D/g, '')}`}
               className="flex items-center gap-1.5 text-[#F58220] hover:text-[#FF8E2B] font-bold tracking-wider transition-colors"
@@ -81,7 +72,7 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Sticky Navbar */}
+      {/* Main Sticky Navbar — 3-Column: Left Nav | Center Logo | Right CTAs */}
       <nav
         className={`transition-all duration-300 ${
           isScrolled
@@ -89,7 +80,6 @@ export const Navbar: React.FC = () => {
             : 'bg-white py-3 border-b border-gray-100'
         }`}
       >
-        {/* 3-Column Grid: Left Nav | Center Logo | Right CTAs */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 items-center">
 
           {/* ── LEFT: Navigation Links ── */}
@@ -135,7 +125,9 @@ export const Navbar: React.FC = () => {
                       className="w-full text-left px-2 py-1.5 text-xs text-gray-300 hover:bg-[#F58220]/20 hover:text-white rounded transition-colors flex items-center justify-between"
                     >
                       <span>{s.label}</span>
-                      {s.popular && <span className="text-[10px] bg-[#F58220] text-white px-1.5 rounded font-bold">Popular</span>}
+                      {s.popular && (
+                        <span className="text-[10px] bg-[#F58220] text-white px-1.5 rounded font-bold">Popular</span>
+                      )}
                     </button>
                   ))}
                 </div>
@@ -166,21 +158,19 @@ export const Navbar: React.FC = () => {
             </button>
           </div>
 
-          {/* ── CENTER: Logo (bigger, centered) ── */}
+          {/* ── CENTER: Logo (bigger, perfectly centered) ── */}
           <div className="flex justify-center items-center">
             <Link to="/" className="group flex items-center" aria-label="Lara Concrete LLC Home">
               <div className={`transition-all duration-300 ${isScrolled ? 'py-1' : 'py-1.5'}`}>
                 <img
                   src="/lara-logo.jpg"
                   alt="Lara Concrete LLC"
-                  className={`w-auto object-contain transition-all duration-300 ${
+                  className={`w-auto object-contain transition-all duration-300 group-hover:scale-105 drop-shadow-sm ${
                     isScrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'
-                  } group-hover:scale-105 drop-shadow-sm`}
+                  }`}
                 />
               </div>
             </Link>
-
-            {/* Mobile: Logo + Hamburger side-by-side */}
           </div>
 
           {/* ── RIGHT: CTA Buttons + Admin ── */}
@@ -250,7 +240,7 @@ export const Navbar: React.FC = () => {
             <div className="grid grid-cols-2 gap-2 text-sm font-semibold">
               {[
                 { label: language === 'ES' ? 'Inicio' : 'Home', section: 'hero' },
-                { label: language === 'ES' ? 'Servicios' : 'Services (14)', section: 'services' },
+                { label: language === 'ES' ? 'Servicios (14)' : 'Services (14)', section: 'services' },
                 { label: 'CAD Estimator', section: 'cad-estimator', accent: true },
                 { label: 'Photo Estimator', section: 'photo-estimator', accent: true },
                 { label: 'Customer Portal', section: 'customer-portal' },
@@ -314,122 +304,4 @@ export const Navbar: React.FC = () => {
       )}
     </header>
   );
-};
-
-          {/* Brand Logo */}
-          <div className="flex items-center gap-2.5">
-            <Link to="/" className="flex items-center gap-3 group">
-              <div className="p-1 rounded-xl group-hover:scale-105 transition-transform duration-300">
-                <img
-                  src="/lara-logo.jpg"
-                  alt="Lara Concrete LLC Logo"
-                  className="h-9 sm:h-11 w-auto object-contain"
-                />
-              </div>
-            </Link>
-          </div>
-
-          {/* Desktop Nav Items */}
-          <div className="hidden lg:flex items-center gap-7 text-sm font-bold text-[#1F2937]">
-            <button
-              onClick={() => scrollToSection('hero')}
-              className="hover:text-[#F58220] transition-colors"
-            >
-              {language === 'ES' ? 'Inicio' : 'Home'}
-            </button>
-
-            {/* Services Dropdown */}
-            <div className="relative group">
-              <button
-                onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-                aria-expanded={servicesDropdownOpen}
-                aria-haspopup="true"
-                aria-label="Toggle services submenu"
-                className="flex items-center gap-1 hover:text-[#F58220] transition-colors py-2"
-              >
-                <span>{language === 'ES' ? 'Servicios' : 'Services'}</span>
-                <ChevronDown className="w-4 h-4 text-gray-400 group-hover:text-[#F58220] transition-colors" />
-              </button>
-
-              <div className="absolute top-full left-0 w-72 bg-[#1A1A1A] border border-white/10 rounded-xl shadow-2xl p-3 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 z-50">
-                <div className="text-xs uppercase font-bold text-[#F58220] px-2 py-1 tracking-wider border-b border-white/10 mb-1">
-                  14 Core Concrete Services
-                </div>
-                <div className="max-h-64 overflow-y-auto space-y-1 pr-1">
-                  <button
-                    onClick={() => scrollToSection('services')}
-                    className="w-full text-left px-2 py-1.5 text-xs text-gray-300 hover:bg-[#F58220]/20 hover:text-white rounded transition-colors flex items-center justify-between"
-                  >
-                    <span>Concrete Driveways</span>
-                    <span className="text-[10px] bg-[#F58220] text-white px-1.5 rounded font-bold">Popular</span>
-                  </button>
-                  <button
-                    onClick={() => scrollToSection('services')}
-                    className="w-full text-left px-2 py-1.5 text-xs text-gray-300 hover:bg-[#F58220]/20 hover:text-white rounded transition-colors"
-                  >
-                    Patios & Outdoor Living
-                  </button>
-                  <button
-                    onClick={() => scrollToSection('services')}
-                    className="w-full text-left px-2 py-1.5 text-xs text-gray-300 hover:bg-[#F58220]/20 hover:text-white rounded transition-colors"
-                  >
-                    Stamped & Decorative
-                  </button>
-                  <button
-                    onClick={() => scrollToSection('services')}
-                    className="w-full text-left px-2 py-1.5 text-xs text-gray-300 hover:bg-[#F58220]/20 hover:text-white rounded transition-colors"
-                  >
-                    Foundations & Slabs
-                  </button>
-                  <button
-                    onClick={() => scrollToSection('services')}
-                    className="w-full text-left px-2 py-1.5 text-xs text-gray-300 hover:bg-[#F58220]/20 hover:text-white rounded transition-colors"
-                  >
-                    Commercial Concrete
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <button
-              onClick={() => scrollToSection('cad-estimator')}
-              className="hover:text-[#F58220] transition-colors flex items-center gap-1"
-            >
-              <Wrench className="w-3.5 h-3.5 text-[#F58220]" />
-              <span>CAD Estimator</span>
-            </button>
-
-            <button
-              onClick={() => scrollToSection('photo-estimator')}
-              className="hover:text-[#F58220] transition-colors flex items-center gap-1"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-[#F58220]" />
-              <span>Photo Estimator</span>
-            </button>
-
-            <button
-              onClick={() => scrollToSection('customer-portal')}
-              className="hover:text-[#F58220] transition-colors flex items-center gap-1"
-            >
-              <UserCheck className="w-3.5 h-3.5 text-[#F58220]" />
-              <span>Portal</span>
-            </button>
-
-            <button
-              onClick={() => scrollToSection('fleet')}
-              className="hover:text-[#F58220] transition-colors"
-            >
-              {language === 'ES' ? 'Flota' : 'Fleet'}
-            </button>
-
-            <button
-              onClick={() => scrollToSection('projects')}
-              className="hover:text-[#F58220] transition-colors"
-            >
-              {language === 'ES' ? 'Proyectos' : 'Projects'}
-            </button>
-
-            <button
-              onClick={() => scrollToSection('blog')}
-              className="hover:text-[#F58220] transition-colors"
 };
