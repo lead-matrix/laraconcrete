@@ -7,22 +7,60 @@ import { SEOMetadata } from '../components/ui/SEOMetadata';
 // Above-fold sections load eagerly for best LCP performance
 // Below-fold sections are lazy-loaded to reduce initial bundle parse time
 
-const CADConcreteEstimator = lazy(() => import('../components/sections/CADConcreteEstimator').then(m => ({ default: m.CADConcreteEstimator })));
-const AIVisionEstimator = lazy(() => import('../components/sections/AIVisionEstimator').then(m => ({ default: m.AIVisionEstimator })));
-const CustomerPortalSection = lazy(() => import('../components/sections/CustomerPortalSection').then(m => ({ default: m.CustomerPortalSection })));
-const FleetShowcase = lazy(() => import('../components/sections/FleetShowcase').then(m => ({ default: m.FleetShowcase })));
-const ProjectShowcase = lazy(() => import('../components/sections/ProjectShowcase').then(m => ({ default: m.ProjectShowcase })));
-const MaterialLibrary = lazy(() => import('../components/sections/MaterialLibrary').then(m => ({ default: m.MaterialLibrary })));
-const WarrantyCenter = lazy(() => import('../components/sections/WarrantyCenter').then(m => ({ default: m.WarrantyCenter })));
-const FinancingSection = lazy(() => import('../components/sections/FinancingSection').then(m => ({ default: m.FinancingSection })));
-const LocalSEOCityEngine = lazy(() => import('../components/sections/LocalSEOCityEngine').then(m => ({ default: m.LocalSEOCityEngine })));
-const ProcessTimeline = lazy(() => import('../components/sections/ProcessTimeline').then(m => ({ default: m.ProcessTimeline })));
-const WhyChooseUs = lazy(() => import('../components/sections/WhyChooseUs').then(m => ({ default: m.WhyChooseUs })));
-const AboutUs = lazy(() => import('../components/sections/AboutUs').then(m => ({ default: m.AboutUs })));
-const Testimonials = lazy(() => import('../components/sections/Testimonials').then(m => ({ default: m.Testimonials })));
-const FAQSection = lazy(() => import('../components/sections/FAQSection').then(m => ({ default: m.FAQSection })));
-const BlogSection = lazy(() => import('../components/sections/BlogSection').then(m => ({ default: m.BlogSection })));
-const ContactSection = lazy(() => import('../components/sections/ContactSection').then(m => ({ default: m.ContactSection })));
+const CADConcreteEstimator = lazy(() =>
+  import('../components/sections/CADConcreteEstimator').then((m) => ({
+    default: m.CADConcreteEstimator
+  }))
+);
+const AIVisionEstimator = lazy(() =>
+  import('../components/sections/AIVisionEstimator').then((m) => ({ default: m.AIVisionEstimator }))
+);
+const CustomerPortalSection = lazy(() =>
+  import('../components/sections/CustomerPortalSection').then((m) => ({
+    default: m.CustomerPortalSection
+  }))
+);
+const FleetShowcase = lazy(() =>
+  import('../components/sections/FleetShowcase').then((m) => ({ default: m.FleetShowcase }))
+);
+const ProjectShowcase = lazy(() =>
+  import('../components/sections/ProjectShowcase').then((m) => ({ default: m.ProjectShowcase }))
+);
+const MaterialLibrary = lazy(() =>
+  import('../components/sections/MaterialLibrary').then((m) => ({ default: m.MaterialLibrary }))
+);
+const WarrantyCenter = lazy(() =>
+  import('../components/sections/WarrantyCenter').then((m) => ({ default: m.WarrantyCenter }))
+);
+const FinancingSection = lazy(() =>
+  import('../components/sections/FinancingSection').then((m) => ({ default: m.FinancingSection }))
+);
+const LocalSEOCityEngine = lazy(() =>
+  import('../components/sections/LocalSEOCityEngine').then((m) => ({
+    default: m.LocalSEOCityEngine
+  }))
+);
+const ProcessTimeline = lazy(() =>
+  import('../components/sections/ProcessTimeline').then((m) => ({ default: m.ProcessTimeline }))
+);
+const WhyChooseUs = lazy(() =>
+  import('../components/sections/WhyChooseUs').then((m) => ({ default: m.WhyChooseUs }))
+);
+const AboutUs = lazy(() =>
+  import('../components/sections/AboutUs').then((m) => ({ default: m.AboutUs }))
+);
+const Testimonials = lazy(() =>
+  import('../components/sections/Testimonials').then((m) => ({ default: m.Testimonials }))
+);
+const FAQSection = lazy(() =>
+  import('../components/sections/FAQSection').then((m) => ({ default: m.FAQSection }))
+);
+const BlogSection = lazy(() =>
+  import('../components/sections/BlogSection').then((m) => ({ default: m.BlogSection }))
+);
+const ContactSection = lazy(() =>
+  import('../components/sections/ContactSection').then((m) => ({ default: m.ContactSection }))
+);
 
 /** Minimal skeleton shown while lazy sections load */
 const SectionSkeleton: React.FC = () => (

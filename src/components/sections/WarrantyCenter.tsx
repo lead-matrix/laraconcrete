@@ -14,13 +14,17 @@ export const WarrantyCenter: React.FC = () => {
 
   const handleClaim = () => {
     setClaimSubmitted(true);
-    showToast('Warranty claim inspection request submitted! An inspector will visit your site within 48 hours.');
+    showToast(
+      'Warranty claim inspection request submitted! An inspector will visit your site within 48 hours.'
+    );
   };
 
   return (
-    <section id="warranty-center" className="py-20 bg-[#2D2D2D] text-white relative border-b border-white/10 overflow-hidden">
+    <section
+      id="warranty-center"
+      className="py-20 bg-[#2D2D2D] text-white relative border-b border-white/10 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
           <div className="inline-flex items-center gap-2 bg-[#F58220]/20 text-[#F58220] border border-[#F58220]/40 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">
@@ -31,13 +35,17 @@ export const WarrantyCenter: React.FC = () => {
             Warranty Certificate Lookup & Claims Portal
           </h2>
           <p className="text-gray-300 text-base sm:text-lg">
-            Every Lara Concrete pour includes a written 10-Year Structural Crack & Settlement Warranty. Enter your Certificate ID below to view coverage details.
+            Every Lara Concrete pour includes a written 10-Year Structural Crack & Settlement
+            Warranty. Enter your Certificate ID below to view coverage details.
           </p>
         </div>
 
         {/* Search Bar Container */}
         <div className="max-w-xl mx-auto mb-10">
-          <form onSubmit={handleSearch} className="flex gap-2 bg-[#1A1A1A] p-2 rounded-2xl border border-white/20 shadow-2xl">
+          <form
+            onSubmit={handleSearch}
+            className="flex gap-2 bg-[#1A1A1A] p-2 rounded-2xl border border-white/20 shadow-2xl"
+          >
             <input
               type="text"
               placeholder="Enter Warranty Certificate ID (e.g. LARA-W-2026-9812)"
@@ -54,7 +62,10 @@ export const WarrantyCenter: React.FC = () => {
             </button>
           </form>
           <p className="text-center text-[10px] text-gray-400 mt-2 font-medium">
-            Sample Warranty ID: <code className="text-[#F58220] bg-white/5 px-1.5 py-0.5 rounded font-bold">LARA-W-2026-9812</code>
+            Sample Warranty ID:{' '}
+            <code className="text-[#F58220] bg-white/5 px-1.5 py-0.5 rounded font-bold">
+              LARA-W-2026-9812
+            </code>
           </p>
         </div>
 
@@ -66,8 +77,12 @@ export const WarrantyCenter: React.FC = () => {
                 <span className="text-[10px] bg-[#F58220]/20 text-[#F58220] font-black px-2.5 py-1 rounded border border-[#F58220]/40 uppercase tracking-widest">
                   OFFICIAL CERTIFICATE #{activeWarranty.warrantyId}
                 </span>
-                <h3 className="text-2xl font-black text-white mt-1">{activeWarranty.customerName}</h3>
-                <p className="text-xs text-gray-400 font-medium">{activeWarranty.propertyAddress}</p>
+                <h3 className="text-2xl font-black text-white mt-1">
+                  {activeWarranty.customerName}
+                </h3>
+                <p className="text-xs text-gray-400 font-medium">
+                  {activeWarranty.propertyAddress}
+                </p>
               </div>
 
               <div className="text-right">
@@ -75,7 +90,9 @@ export const WarrantyCenter: React.FC = () => {
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   {activeWarranty.status} ({activeWarranty.coverageYears}-Year Structural)
                 </span>
-                <p className="text-[10px] text-gray-400 mt-1">Completion Date: {activeWarranty.completionDate}</p>
+                <p className="text-[10px] text-gray-400 mt-1">
+                  Completion Date: {activeWarranty.completionDate}
+                </p>
               </div>
             </div>
 
@@ -85,7 +102,10 @@ export const WarrantyCenter: React.FC = () => {
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 {activeWarranty.coverageDetails.map((item, idx) => (
-                  <div key={idx} className="bg-[#2D2D2D] p-3 rounded-xl border border-white/10 flex items-start gap-2">
+                  <div
+                    key={idx}
+                    className="bg-[#2D2D2D] p-3 rounded-xl border border-white/10 flex items-start gap-2"
+                  >
                     <CheckCircle2 className="w-4 h-4 text-[#F58220] shrink-0 mt-0.5" />
                     <span className="text-gray-200 font-medium">{item}</span>
                   </div>
@@ -94,24 +114,30 @@ export const WarrantyCenter: React.FC = () => {
             </div>
 
             <div className="pt-4 border-t border-white/10 flex justify-between items-center">
-              <span className="text-xs text-gray-400">Need a free site inspection under warranty?</span>
+              <span className="text-xs text-gray-400">
+                Need a free site inspection under warranty?
+              </span>
               <button
                 onClick={handleClaim}
                 disabled={claimSubmitted}
                 className="btn-lara-secondary px-5 py-2.5 rounded-xl text-xs uppercase font-extrabold flex items-center gap-1.5"
               >
                 <AlertCircle className="w-4 h-4 text-[#F58220]" />
-                <span>{claimSubmitted ? 'Claim Inspection Scheduled' : 'Submit Warranty Claim'}</span>
+                <span>
+                  {claimSubmitted ? 'Claim Inspection Scheduled' : 'Submit Warranty Claim'}
+                </span>
               </button>
             </div>
           </div>
         ) : (
           <div className="max-w-md mx-auto text-center p-8 bg-[#1A1A1A] rounded-2xl border border-white/10 text-gray-400 text-xs">
             <Shield className="w-8 h-8 text-[#F58220] mx-auto mb-2 opacity-50" />
-            <p>Click "Lookup" above or search <code className="text-white">LARA-W-2026-9812</code> to test the live certificate inspector.</p>
+            <p>
+              Click "Lookup" above or search <code className="text-white">LARA-W-2026-9812</code> to
+              test the live certificate inspector.
+            </p>
           </div>
         )}
-
       </div>
     </section>
   );

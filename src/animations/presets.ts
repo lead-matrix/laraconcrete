@@ -2,7 +2,7 @@ import type { Variants } from 'framer-motion';
 
 export const fadeIn: Variants = {
   hidden: { opacity: 0 },
-  visible: { 
+  visible: {
     opacity: 1,
     transition: { duration: 0.5, ease: 'easeOut' }
   }
@@ -10,8 +10,8 @@ export const fadeIn: Variants = {
 
 export const fadeUp: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } // Custom cubic-bezier for premium feel
   }
@@ -19,9 +19,9 @@ export const fadeUp: Variants = {
 
 export const blurIn: Variants = {
   hidden: { opacity: 0, scale: 0.96, filter: 'blur(8px)' },
-  visible: { 
-    opacity: 1, 
-    scale: 1, 
+  visible: {
+    opacity: 1,
+    scale: 1,
     filter: 'blur(0px)',
     transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
   }
@@ -29,8 +29,8 @@ export const blurIn: Variants = {
 
 export const slideLeft: Variants = {
   hidden: { opacity: 0, x: 30 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
     transition: { duration: 0.5, ease: 'easeOut' }
   }
@@ -38,8 +38,8 @@ export const slideLeft: Variants = {
 
 export const slideRight: Variants = {
   hidden: { opacity: 0, x: -30 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
     transition: { duration: 0.5, ease: 'easeOut' }
   }
@@ -47,8 +47,8 @@ export const slideRight: Variants = {
 
 export const scale: Variants = {
   hidden: { opacity: 0, scale: 0.9 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     scale: 1,
     transition: { duration: 0.4, ease: 'easeOut' }
   }

@@ -24,7 +24,6 @@ export const RoiCalc: React.FC = () => {
 
   return (
     <div className="glass-panel rounded-3xl p-6 md:p-8 border border-white/5 grid grid-cols-1 lg:grid-cols-12 gap-8">
-      
       {/* Left Column: Sliders */}
       <div className="lg:col-span-7 space-y-6">
         <div className="flex items-center space-x-2 text-emerald-400 mb-2">
@@ -103,7 +102,6 @@ export const RoiCalc: React.FC = () => {
 
       {/* Right Column: Outcomes display */}
       <div className="lg:col-span-5 flex flex-col justify-between p-6 rounded-2xl bg-[#061e16]/30 border border-emerald-500/10">
-        
         {/* Math Summary */}
         <div className="space-y-6">
           <div>
@@ -122,11 +120,15 @@ export const RoiCalc: React.FC = () => {
           <div className="grid grid-cols-2 gap-4 text-xs font-mono">
             <div>
               <span className="text-gray-500 block mb-1">Current Revenue:</span>
-              <span className="text-gray-300 font-bold">${Math.round(currentRevenue).toLocaleString()}</span>
+              <span className="text-gray-300 font-bold">
+                ${Math.round(currentRevenue).toLocaleString()}
+              </span>
             </div>
             <div>
               <span className="text-emerald-500 block mb-1">Optimized Revenue:</span>
-              <span className="text-emerald-300 font-bold">${Math.round(newRevenue).toLocaleString()}</span>
+              <span className="text-emerald-300 font-bold">
+                ${Math.round(newRevenue).toLocaleString()}
+              </span>
             </div>
           </div>
 
@@ -154,9 +156,7 @@ export const RoiCalc: React.FC = () => {
             +${Math.round(yearlyUplift).toLocaleString()}/year
           </div>
         </div>
-
       </div>
-
     </div>
   );
 };

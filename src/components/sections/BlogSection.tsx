@@ -17,12 +17,14 @@ export const BlogSection: React.FC = () => {
   ];
 
   return (
-    <section id="blog" className="py-20 bg-[#1A1A1A] text-white relative border-b border-white/10 overflow-hidden">
+    <section
+      id="blog"
+      className="py-20 bg-[#1A1A1A] text-white relative border-b border-white/10 overflow-hidden"
+    >
       {/* Texture */}
       <div className="absolute inset-0 bg-concrete-pattern opacity-30 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
           <div className="inline-flex items-center gap-2 bg-[#F58220]/20 text-[#F58220] border border-[#F58220]/40 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">
@@ -33,13 +35,17 @@ export const BlogSection: React.FC = () => {
             Expert Guides, Tips & Construction Specs
           </h2>
           <p className="text-gray-300 text-base sm:text-lg">
-            Learn from master concrete engineers before starting your driveway, patio, or foundation project.
+            Learn from master concrete engineers before starting your driveway, patio, or foundation
+            project.
           </p>
 
           {/* Quick Topic Chips */}
           <div className="flex flex-wrap justify-center gap-2 pt-2">
             {topicsList.map((t, i) => (
-              <span key={i} className="text-[10px] bg-[#2D2D2D] text-gray-300 px-2.5 py-1 rounded-full border border-white/10">
+              <span
+                key={i}
+                className="text-[10px] bg-[#2D2D2D] text-gray-300 px-2.5 py-1 rounded-full border border-white/10"
+              >
                 #{t}
               </span>
             ))}
@@ -69,7 +75,9 @@ export const BlogSection: React.FC = () => {
 
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div>
-                  <span className="text-[10px] text-gray-400 font-bold uppercase">{article.publishDate} • By {article.author}</span>
+                  <span className="text-[10px] text-gray-400 font-bold uppercase">
+                    {article.publishDate} • By {article.author}
+                  </span>
                   <h3 className="text-base font-black text-white group-hover:text-[#F58220] transition-colors mt-1">
                     {article.title}
                   </h3>
@@ -81,7 +89,10 @@ export const BlogSection: React.FC = () => {
                 <div className="pt-2 border-t border-white/10 flex justify-between items-center">
                   <div className="flex gap-1">
                     {article.tags.slice(0, 2).map((t, idx) => (
-                      <span key={idx} className="text-[9px] bg-[#1A1A1A] text-gray-400 px-1.5 py-0.5 rounded">
+                      <span
+                        key={idx}
+                        className="text-[9px] bg-[#1A1A1A] text-gray-400 px-1.5 py-0.5 rounded"
+                      >
                         #{t}
                       </span>
                     ))}
@@ -98,7 +109,6 @@ export const BlogSection: React.FC = () => {
             </div>
           ))}
         </div>
-
       </div>
 
       {/* Article Reader Modal */}
@@ -117,16 +127,21 @@ export const BlogSection: React.FC = () => {
             </span>
 
             <h2 className="text-2xl font-black text-white mt-3 mb-2">{selectedArticle.title}</h2>
-            <p className="text-xs text-gray-400 font-medium mb-4">{selectedArticle.publishDate} • {selectedArticle.readTime} • By {selectedArticle.author}</p>
+            <p className="text-xs text-gray-400 font-medium mb-4">
+              {selectedArticle.publishDate} • {selectedArticle.readTime} • By{' '}
+              {selectedArticle.author}
+            </p>
 
             <div className="h-60 rounded-xl overflow-hidden mb-6 bg-[#2D2D2D]">
-              <img src={selectedArticle.heroImage} alt={selectedArticle.title} className="w-full h-full object-cover" />
+              <img
+                src={selectedArticle.heroImage}
+                alt={selectedArticle.title}
+                className="w-full h-full object-cover"
+              />
             </div>
 
             <div className="prose prose-invert max-w-none text-xs leading-relaxed space-y-4 text-gray-200">
-              <div whitespace-pre-line="true">
-                {selectedArticle.contentMarkdown}
-              </div>
+              <div whitespace-pre-line="true">{selectedArticle.contentMarkdown}</div>
             </div>
 
             <div className="pt-6 mt-6 border-t border-white/10 flex justify-end">

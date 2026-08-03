@@ -37,7 +37,7 @@ export const EstimateModal: React.FC = () => {
       city: 'Wichita',
       serviceType: formData.service || 'Concrete Driveways',
       estimatedSqFt: Number(formData.sqFt),
-      estimatedBudget: Number(formData.sqFt) * 12.50,
+      estimatedBudget: Number(formData.sqFt) * 12.5,
       preferredContact: formData.preferredContact,
       notes: `Modal Request: ${formData.service} (${formData.sqFt} sq ft)`
     });
@@ -48,7 +48,6 @@ export const EstimateModal: React.FC = () => {
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
       <div className="bg-[#1A1A1A] text-white border-2 border-[#F58220] rounded-2xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl animate-fadeIn">
-        
         {/* Close Button */}
         <button
           onClick={handleClose}
@@ -101,7 +100,9 @@ export const EstimateModal: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-300 font-extrabold mb-1">Concrete Service</label>
+                  <label className="block text-gray-300 font-extrabold mb-1">
+                    Concrete Service
+                  </label>
                   <select
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
@@ -118,7 +119,9 @@ export const EstimateModal: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-gray-300 font-extrabold mb-1">Property Address / City</label>
+                <label className="block text-gray-300 font-extrabold mb-1">
+                  Property Address / City
+                </label>
                 <input
                   type="text"
                   placeholder="e.g. 1420 Eastborough Ln, Wichita"
@@ -129,7 +132,9 @@ export const EstimateModal: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-gray-300 font-extrabold mb-1">Preferred Contact Method</label>
+                <label className="block text-gray-300 font-extrabold mb-1">
+                  Preferred Contact Method
+                </label>
                 <div className="grid grid-cols-3 gap-2">
                   {(['Call', 'SMS', 'Email'] as const).map((method) => (
                     <button
@@ -164,7 +169,8 @@ export const EstimateModal: React.FC = () => {
             </div>
             <h3 className="text-2xl font-black text-white">Quote Request Received!</h3>
             <p className="text-xs text-gray-300 leading-relaxed">
-              We received your request for <strong>{formData.service}</strong>. Senior estimator Carlos Lara will reach out via {formData.preferredContact} within 15 minutes.
+              We received your request for <strong>{formData.service}</strong>. Senior estimator
+              Carlos Lara will reach out via {formData.preferredContact} within 15 minutes.
             </p>
             <button
               onClick={handleClose}
@@ -174,7 +180,6 @@ export const EstimateModal: React.FC = () => {
             </button>
           </div>
         )}
-
       </div>
     </div>
   );

@@ -6,17 +6,20 @@ export const MaterialLibrary: React.FC = () => {
   const [selectedCat, setSelectedCat] = useState<string>('All');
 
   const categories = ['All', 'PSI Mix', 'Reinforcement', 'Stamp Pattern'];
-  const filteredMaterials = selectedCat === 'All'
-    ? MATERIAL_ITEMS
-    : MATERIAL_ITEMS.filter((m) => m.category === selectedCat);
+  const filteredMaterials =
+    selectedCat === 'All'
+      ? MATERIAL_ITEMS
+      : MATERIAL_ITEMS.filter((m) => m.category === selectedCat);
 
   return (
-    <section id="materials" className="py-20 bg-[#1A1A1A] text-white relative border-b border-white/10 overflow-hidden">
+    <section
+      id="materials"
+      className="py-20 bg-[#1A1A1A] text-white relative border-b border-white/10 overflow-hidden"
+    >
       {/* Texture */}
       <div className="absolute inset-0 bg-concrete-pattern opacity-30 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
           <div className="inline-flex items-center gap-2 bg-[#F58220]/20 text-[#F58220] border border-[#F58220]/40 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">
@@ -27,7 +30,8 @@ export const MaterialLibrary: React.FC = () => {
             Engineered High-PSI Mixes & Stamp Finishes
           </h2>
           <p className="text-gray-300 text-base sm:text-lg">
-            Compare concrete compressive strengths, steel rebar grades, fiber mesh matrices, and architectural stamp patterns before you pour.
+            Compare concrete compressive strengths, steel rebar grades, fiber mesh matrices, and
+            architectural stamp patterns before you pour.
           </p>
 
           {/* Filter Pills */}
@@ -77,11 +81,15 @@ export const MaterialLibrary: React.FC = () => {
 
                 <div className="space-y-2 pt-2 border-t border-white/10 text-xs">
                   <div className="bg-[#1A1A1A] p-2 rounded-lg">
-                    <span className="text-gray-400 text-[9px] font-bold block uppercase">Engineering Specs</span>
+                    <span className="text-gray-400 text-[9px] font-bold block uppercase">
+                      Engineering Specs
+                    </span>
                     <span className="text-gray-200 font-medium">{mat.specs}</span>
                   </div>
                   <div className="bg-[#1A1A1A] p-2 rounded-lg">
-                    <span className="text-gray-400 text-[9px] font-bold block uppercase">Recommended Application</span>
+                    <span className="text-gray-400 text-[9px] font-bold block uppercase">
+                      Recommended Application
+                    </span>
                     <span className="text-[#F58220] font-bold">{mat.recommendedUse}</span>
                   </div>
                 </div>
@@ -89,7 +97,6 @@ export const MaterialLibrary: React.FC = () => {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

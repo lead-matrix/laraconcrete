@@ -21,14 +21,16 @@ export const FAQSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 bg-[#2D2D2D] text-white relative border-b border-white/10 overflow-hidden">
+    <section
+      id="faq"
+      className="py-20 bg-[#2D2D2D] text-white relative border-b border-white/10 overflow-hidden"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         <div className="text-center space-y-4 mb-14">
           <div className="inline-flex items-center gap-2 bg-[#F58220]/20 text-[#F58220] border border-[#F58220]/40 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">
             <HelpCircle className="w-3.5 h-3.5" />
@@ -38,7 +40,8 @@ export const FAQSection: React.FC = () => {
             Everything You Need To Know
           </h2>
           <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto">
-            Honest answers regarding concrete pricing, thickness specifications, rebar reinforcement, curing timelines, and warranty guarantees.
+            Honest answers regarding concrete pricing, thickness specifications, rebar
+            reinforcement, curing timelines, and warranty guarantees.
           </p>
         </div>
 
@@ -77,7 +80,6 @@ export const FAQSection: React.FC = () => {
             );
           })}
         </div>
-
       </div>
     </section>
   );

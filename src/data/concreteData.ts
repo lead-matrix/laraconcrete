@@ -16,224 +16,336 @@ export const CONCRETE_SERVICES: ConcreteService[] = [
     title: 'Concrete Driveways',
     slug: 'concrete-driveways',
     category: 'residential',
-    shortDesc: 'Heavy-duty rebar-reinforced poured concrete driveways built to withstand high loads & freeze-thaw cycles.',
-    fullDesc: 'Lara Concrete LLC installs precision-engineered driveways built with 4,000+ PSI fiber-reinforced concrete, 1/2-inch rebar grids on 18-inch centers, and laser-guided pitch for flawless drainage.',
+    shortDesc:
+      'Heavy-duty rebar-reinforced poured concrete driveways built to withstand high loads & freeze-thaw cycles.',
+    fullDesc:
+      'Lara Concrete LLC installs precision-engineered driveways built with 4,000+ PSI fiber-reinforced concrete, 1/2-inch rebar grids on 18-inch centers, and laser-guided pitch for flawless drainage.',
     iconName: 'Car',
     popular: true,
-    basePricePerSqFt: 11.50,
+    basePricePerSqFt: 11.5,
     typicalThicknessInches: 5,
     rebarOptions: ['#4 Rebar @ 18" O.C.', '#4 Rebar @ 12" O.C.', 'Fiber Mesh + Rebar Hybrid'],
     finishTypes: ['Broom Finish', 'Stamped Border', 'Exposed Aggregate', 'Picture-Frame Border'],
-    features: ['4000 PSI High Strength Mix', 'Expansion Joints every 10-12 ft', 'Heavy Vehicle Load Tolerant', '10-Year Structural Warranty'],
-    image: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=1000&q=80'
+    features: [
+      '4000 PSI High Strength Mix',
+      'Expansion Joints every 10-12 ft',
+      'Heavy Vehicle Load Tolerant',
+      '10-Year Structural Warranty'
+    ],
+    image:
+      'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=1000&q=80'
   },
   {
     id: 'srv-2',
     title: 'Patios & Outdoor Living',
     slug: 'patios-outdoor-living',
     category: 'residential',
-    shortDesc: 'Custom architectural outdoor patios featuring stained, stamped, and hand-troweled decorative finishes.',
-    fullDesc: 'Transform your backyard into a luxury oasis. Our patio installations feature integrated drainage, fire pit pads, hot tub reinforced slabs, and custom slate/wood-plank textures.',
+    shortDesc:
+      'Custom architectural outdoor patios featuring stained, stamped, and hand-troweled decorative finishes.',
+    fullDesc:
+      'Transform your backyard into a luxury oasis. Our patio installations feature integrated drainage, fire pit pads, hot tub reinforced slabs, and custom slate/wood-plank textures.',
     iconName: 'Sun',
     popular: true,
-    basePricePerSqFt: 13.00,
+    basePricePerSqFt: 13.0,
     typicalThicknessInches: 4,
     rebarOptions: ['#3 Rebar @ 18" O.C.', 'Fiber Reinforcement Mesh'],
     finishTypes: ['Ashlar Slate Stamp', 'Wood Plank Stamp', 'Acid Stain Tint', 'Smooth Trowel'],
-    features: ['UV Sealer Protection', 'Anti-Slip Texture Additives', 'Integrated Curve Layouts', 'Custom Border Colors'],
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80'
+    features: [
+      'UV Sealer Protection',
+      'Anti-Slip Texture Additives',
+      'Integrated Curve Layouts',
+      'Custom Border Colors'
+    ],
+    image:
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80'
   },
   {
     id: 'srv-3',
     title: 'Sidewalks & Walkways',
     slug: 'sidewalks-walkways',
     category: 'residential',
-    shortDesc: 'ADA compliant, non-slip concrete walkways designed for safety, accessibility, and curb appeal.',
-    fullDesc: 'From front entryway paths to municipal walkways, Lara Concrete delivers clean, uniform expansion control jointing and smooth transitions.',
+    shortDesc:
+      'ADA compliant, non-slip concrete walkways designed for safety, accessibility, and curb appeal.',
+    fullDesc:
+      'From front entryway paths to municipal walkways, Lara Concrete delivers clean, uniform expansion control jointing and smooth transitions.',
     iconName: 'Footprints',
     popular: false,
-    basePricePerSqFt: 9.50,
+    basePricePerSqFt: 9.5,
     typicalThicknessInches: 4,
     rebarOptions: ['Fiber Mesh Reinforcement', '#3 Rebar Grid'],
     finishTypes: ['Standard Broom', 'Decorative Salt Finish', 'Stamped Perimeter'],
-    features: ['ADA Ramp Compliant', 'Precision Slope for Runoff', 'Clean Saw-Cut Control Joints', 'Fast 48hr Cure Time'],
-    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80'
+    features: [
+      'ADA Ramp Compliant',
+      'Precision Slope for Runoff',
+      'Clean Saw-Cut Control Joints',
+      'Fast 48hr Cure Time'
+    ],
+    image:
+      'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80'
   },
   {
     id: 'srv-4',
     title: 'Foundations & Footings',
     slug: 'foundations-footings',
     category: 'structural',
-    shortDesc: 'Monolithic slabs, stem walls, and deep continuous footings for residential additions & custom homes.',
-    fullDesc: 'Engineered foundation pour with laser level precision. We handle soil compaction, moisture vapor barriers, anchor bolts, and steel rebar cages.',
+    shortDesc:
+      'Monolithic slabs, stem walls, and deep continuous footings for residential additions & custom homes.',
+    fullDesc:
+      'Engineered foundation pour with laser level precision. We handle soil compaction, moisture vapor barriers, anchor bolts, and steel rebar cages.',
     iconName: 'Building',
     popular: true,
-    basePricePerSqFt: 16.00,
+    basePricePerSqFt: 16.0,
     typicalThicknessInches: 6,
     rebarOptions: ['#5 Rebar Cage Grid', 'Double Rebar Mat System'],
     finishTypes: ['Power Trowel Float', 'Screed Level'],
-    features: ['Laser Screed Precision (1/16" Tolerance)', 'Vapor Barrier 15-mil Stego Wrap', 'Engineered Soil Compaction Inspection', 'Code Certified Anchoring'],
-    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1000&q=80'
+    features: [
+      'Laser Screed Precision (1/16" Tolerance)',
+      'Vapor Barrier 15-mil Stego Wrap',
+      'Engineered Soil Compaction Inspection',
+      'Code Certified Anchoring'
+    ],
+    image:
+      'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1000&q=80'
   },
   {
     id: 'srv-5',
     title: 'Garage Slabs & Shop Floors',
     slug: 'garage-slabs-shop-floors',
     category: 'structural',
-    shortDesc: 'Heavy-duty 5000 PSI reinforced shop floors engineered for car lifts, heavy tools & oil spill protection.',
-    fullDesc: 'High-density power-troweled garage slabs designed for vehicle storage, epoxy coating prep, and heavy impact resistance.',
+    shortDesc:
+      'Heavy-duty 5000 PSI reinforced shop floors engineered for car lifts, heavy tools & oil spill protection.',
+    fullDesc:
+      'High-density power-troweled garage slabs designed for vehicle storage, epoxy coating prep, and heavy impact resistance.',
     iconName: 'Warehouse',
     popular: false,
-    basePricePerSqFt: 12.50,
+    basePricePerSqFt: 12.5,
     typicalThicknessInches: 5,
     rebarOptions: ['#4 Rebar @ 12" O.C.', 'Synthetic Structural Fiber + Rebar'],
     finishTypes: ['Hard-Trowel Burnished', 'Epoxy Ready Finish'],
-    features: ['Chemical & Oil Spill Resistant', 'Lift Anchor Tolerances', 'Sloped Drain Pitching', 'Monolithic Curb Lip Pour'],
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80'
+    features: [
+      'Chemical & Oil Spill Resistant',
+      'Lift Anchor Tolerances',
+      'Sloped Drain Pitching',
+      'Monolithic Curb Lip Pour'
+    ],
+    image:
+      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80'
   },
   {
     id: 'srv-6',
     title: 'Stamped Concrete',
     slug: 'stamped-concrete',
     category: 'decorative',
-    shortDesc: 'Architectural patterned concrete mimicking natural slate, European cobblestone, flagstone, & wood plank.',
-    fullDesc: 'Our master stamp artisans use dual-color release agents, hand-carved detail touch-ups, and clear acrylic deep-penetrating sealers.',
+    shortDesc:
+      'Architectural patterned concrete mimicking natural slate, European cobblestone, flagstone, & wood plank.',
+    fullDesc:
+      'Our master stamp artisans use dual-color release agents, hand-carved detail touch-ups, and clear acrylic deep-penetrating sealers.',
     iconName: 'Sparkles',
     popular: true,
-    basePricePerSqFt: 15.50,
+    basePricePerSqFt: 15.5,
     typicalThicknessInches: 4,
     rebarOptions: ['Fiber Mesh + #3 Rebar'],
     finishTypes: ['Ashlar Slate', 'Roman Cobble', 'Wood Grain', 'Granite Flagstone'],
-    features: ['Integral Color Infusion', 'High-Gloss Acrylic Sealer', 'UV Fade Resistant Colors', 'Custom Color Matching'],
-    image: 'https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=1000&q=80'
+    features: [
+      'Integral Color Infusion',
+      'High-Gloss Acrylic Sealer',
+      'UV Fade Resistant Colors',
+      'Custom Color Matching'
+    ],
+    image:
+      'https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=1000&q=80'
   },
   {
     id: 'srv-7',
     title: 'Decorative & Stained Concrete',
     slug: 'decorative-stained-concrete',
     category: 'decorative',
-    shortDesc: 'Vibrant acid-stained, water-based colored, and polished concrete surfaces for indoor and outdoor spaces.',
-    fullDesc: 'Create rich earth tones, marbled textures, and metallic polished finishes with custom chemical staining and micro-toppings.',
+    shortDesc:
+      'Vibrant acid-stained, water-based colored, and polished concrete surfaces for indoor and outdoor spaces.',
+    fullDesc:
+      'Create rich earth tones, marbled textures, and metallic polished finishes with custom chemical staining and micro-toppings.',
     iconName: 'Palette',
     popular: false,
-    basePricePerSqFt: 14.00,
+    basePricePerSqFt: 14.0,
     typicalThicknessInches: 4,
     rebarOptions: ['Fiber Reinforced'],
     finishTypes: ['Acid Stain', 'Dye Tint', 'High Polish 800-Grit'],
-    features: ['Permanent Color Fusion', 'Seamless Floor Aesthetic', 'Low Maintenance Polish', 'Stain Resistant Armor Coat'],
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80'
+    features: [
+      'Permanent Color Fusion',
+      'Seamless Floor Aesthetic',
+      'Low Maintenance Polish',
+      'Stain Resistant Armor Coat'
+    ],
+    image:
+      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80'
   },
   {
     id: 'srv-8',
     title: 'Concrete Repair & Resurfacing',
     slug: 'concrete-repair-resurfacing',
     category: 'residential',
-    shortDesc: 'Polyurethane crack injection, polymer overlay resurfacing, and slab leveling for aging concrete.',
-    fullDesc: 'Don\'t tear it down if you don\'t have to! Our structural polymer overlays restore pitted, spalled, and cracked slabs to like-new condition at half the cost of replacement.',
+    shortDesc:
+      'Polyurethane crack injection, polymer overlay resurfacing, and slab leveling for aging concrete.',
+    fullDesc:
+      "Don't tear it down if you don't have to! Our structural polymer overlays restore pitted, spalled, and cracked slabs to like-new condition at half the cost of replacement.",
     iconName: 'Hammer',
     popular: false,
-    basePricePerSqFt: 7.50,
+    basePricePerSqFt: 7.5,
     typicalThicknessInches: 1,
     rebarOptions: ['Polymer Bonding Agent'],
     finishTypes: ['Micro-Topping Broom', 'Spray-Deck Texture'],
-    features: ['Structural Epoxy Crack Weld', 'Color Match Overlay', 'Non-Shrink Grout Injection', 'Prevents Water Freeze Damage'],
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80'
+    features: [
+      'Structural Epoxy Crack Weld',
+      'Color Match Overlay',
+      'Non-Shrink Grout Injection',
+      'Prevents Water Freeze Damage'
+    ],
+    image:
+      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80'
   },
   {
     id: 'srv-9',
     title: 'Retaining Walls & Earth Support',
     slug: 'retaining-walls',
     category: 'structural',
-    shortDesc: 'Heavy poured concrete and engineered block retaining walls for soil retention and terrace landscaping.',
-    fullDesc: 'Engineered continuous pour retaining walls with embedded geogrid, drainage gravel backfill, and weeping tile systems to handle earth pressure.',
+    shortDesc:
+      'Heavy poured concrete and engineered block retaining walls for soil retention and terrace landscaping.',
+    fullDesc:
+      'Engineered continuous pour retaining walls with embedded geogrid, drainage gravel backfill, and weeping tile systems to handle earth pressure.',
     iconName: 'Layers',
     popular: false,
-    basePricePerSqFt: 22.00,
+    basePricePerSqFt: 22.0,
     typicalThicknessInches: 8,
     rebarOptions: ['#5 Vertical Rebar @ 12" O.C.', '#4 Horizontal Rebar Cages'],
     finishTypes: ['Form-Liner Stone Face', 'Smooth Architectural Concrete'],
-    features: ['Engineered Soil Load Calculations', 'Perforated Weep Hole Drainage', 'Parapet Cap Finish', '50-Year Structural Rating'],
-    image: 'https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=1000&q=80'
+    features: [
+      'Engineered Soil Load Calculations',
+      'Perforated Weep Hole Drainage',
+      'Parapet Cap Finish',
+      '50-Year Structural Rating'
+    ],
+    image:
+      'https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=1000&q=80'
   },
   {
     id: 'srv-10',
     title: 'Commercial Concrete',
     slug: 'commercial-concrete',
     category: 'commercial',
-    shortDesc: 'High-volume commercial slabs, loading docks, dumpster pads, and parking apron construction.',
-    fullDesc: 'Lara Concrete LLC mobilizes heavy equipment, laser screeds, and 100+ yard daily pour capability for commercial contractors and developers.',
+    shortDesc:
+      'High-volume commercial slabs, loading docks, dumpster pads, and parking apron construction.',
+    fullDesc:
+      'Lara Concrete LLC mobilizes heavy equipment, laser screeds, and 100+ yard daily pour capability for commercial contractors and developers.',
     iconName: 'Building2',
     popular: true,
-    basePricePerSqFt: 14.50,
+    basePricePerSqFt: 14.5,
     typicalThicknessInches: 6,
     rebarOptions: ['Double #5 Rebar Grid', 'Structural Steel Mesh'],
     finishTypes: ['Machine Power Trowel', 'Heavy Duty Broom'],
-    features: ['Laser Screed Flatness (FF/FL Rated)', '6000 PSI High Load Concrete', 'Commercial Loading Dock Bumpers', 'OSHA Safety Certified Crew'],
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80'
+    features: [
+      'Laser Screed Flatness (FF/FL Rated)',
+      '6000 PSI High Load Concrete',
+      'Commercial Loading Dock Bumpers',
+      'OSHA Safety Certified Crew'
+    ],
+    image:
+      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80'
   },
   {
     id: 'srv-11',
     title: 'Parking Lots & Pavements',
     slug: 'parking-lots-pavements',
     category: 'commercial',
-    shortDesc: 'Durable reinforced concrete parking lots, ADA aprons, and commercial striping ready pavements.',
-    fullDesc: 'Concrete parking lots outlast asphalt by decades with lower life-cycle maintenance costs. Complete with extruded curbs and gutter lines.',
+    shortDesc:
+      'Durable reinforced concrete parking lots, ADA aprons, and commercial striping ready pavements.',
+    fullDesc:
+      'Concrete parking lots outlast asphalt by decades with lower life-cycle maintenance costs. Complete with extruded curbs and gutter lines.',
     iconName: 'Shield',
     popular: false,
-    basePricePerSqFt: 13.50,
+    basePricePerSqFt: 13.5,
     typicalThicknessInches: 6,
     rebarOptions: ['#4 Rebar Grid @ 18"'],
     finishTypes: ['Coarse Heavy Broom'],
-    features: ['Extruded Concrete Curbs', 'Bollard Hole Coring', 'Catch Basin Drainage Ties', 'Heavy Fleet Transport Tolerant'],
-    image: 'https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?auto=format&fit=crop&w=1000&q=80'
+    features: [
+      'Extruded Concrete Curbs',
+      'Bollard Hole Coring',
+      'Catch Basin Drainage Ties',
+      'Heavy Fleet Transport Tolerant'
+    ],
+    image:
+      'https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?auto=format&fit=crop&w=1000&q=80'
   },
   {
     id: 'srv-12',
     title: 'Concrete Removal & Demolition',
     slug: 'concrete-removal-demolition',
     category: 'structural',
-    shortDesc: 'Hydraulic breaker excavation, eco-friendly concrete crushing, and complete site haul-off.',
-    fullDesc: 'Fast demolition with skid steer breakers, excavator attachments, and eco-friendly haul-off to crushing recycling plants.',
+    shortDesc:
+      'Hydraulic breaker excavation, eco-friendly concrete crushing, and complete site haul-off.',
+    fullDesc:
+      'Fast demolition with skid steer breakers, excavator attachments, and eco-friendly haul-off to crushing recycling plants.',
     iconName: 'Truck',
     popular: false,
-    basePricePerSqFt: 4.50,
+    basePricePerSqFt: 4.5,
     typicalThicknessInches: 4,
     rebarOptions: ['N/A Demolition'],
     finishTypes: ['Graded Soil Subbase'],
-    features: ['Dust Suppression Water Spray', '100% Recycled Concrete Aggregate', 'Utility Line Soft Digging', 'Clean Property Site Guarantee'],
-    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1000&q=80'
+    features: [
+      'Dust Suppression Water Spray',
+      '100% Recycled Concrete Aggregate',
+      'Utility Line Soft Digging',
+      'Clean Property Site Guarantee'
+    ],
+    image:
+      'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1000&q=80'
   },
   {
     id: 'srv-13',
     title: 'Excavation & Site Preparation',
     slug: 'excavation-site-prep',
     category: 'structural',
-    shortDesc: 'Precision laser grading, subbase compaction, gravel base layment, and soil stabilization.',
-    fullDesc: 'A foundation is only as good as the ground under it. We excavate organic topsoil, install 4" of crushed CA-6 limestone gravel, and compact to 98% Proctor density.',
+    shortDesc:
+      'Precision laser grading, subbase compaction, gravel base layment, and soil stabilization.',
+    fullDesc:
+      'A foundation is only as good as the ground under it. We excavate organic topsoil, install 4" of crushed CA-6 limestone gravel, and compact to 98% Proctor density.',
     iconName: 'Wrench',
     popular: false,
-    basePricePerSqFt: 3.50,
+    basePricePerSqFt: 3.5,
     typicalThicknessInches: 6,
     rebarOptions: ['Subbase Only'],
     finishTypes: ['98% Proctor Compacted Gravel'],
-    features: ['Laser Transit Slope Grading', 'Sub-Drainage Tile Laying', 'Vibratory Roller Compaction', 'Geotextile Fabric Underlayment'],
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80'
+    features: [
+      'Laser Transit Slope Grading',
+      'Sub-Drainage Tile Laying',
+      'Vibratory Roller Compaction',
+      'Geotextile Fabric Underlayment'
+    ],
+    image:
+      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80'
   },
   {
     id: 'srv-14',
     title: 'Custom Architectural Projects',
     slug: 'custom-architectural-projects',
     category: 'decorative',
-    shortDesc: 'Custom concrete countertops, fire pits, pool decks, outdoor steps, and artistic features.',
-    fullDesc: 'If you can draw it, Lara Concrete can pour it. Custom GFRC (Glass Fiber Reinforced Concrete) architectural designs engineered for luxury outdoor spaces.',
+    shortDesc:
+      'Custom concrete countertops, fire pits, pool decks, outdoor steps, and artistic features.',
+    fullDesc:
+      'If you can draw it, Lara Concrete can pour it. Custom GFRC (Glass Fiber Reinforced Concrete) architectural designs engineered for luxury outdoor spaces.',
     iconName: 'Award',
     popular: true,
-    basePricePerSqFt: 18.00,
+    basePricePerSqFt: 18.0,
     typicalThicknessInches: 4,
     rebarOptions: ['GFRC Fiber Matrix'],
     finishTypes: ['Hand Polish', 'Custom Inlay Stone', 'Cast-in-Place Stamped'],
-    features: ['Custom Molds & Formwork', 'Integrated LED Lighting Channels', 'Stain Guard Sealer', 'One-of-a-Kind Artisanship'],
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80'
+    features: [
+      'Custom Molds & Formwork',
+      'Integrated LED Lighting Channels',
+      'Stain Guard Sealer',
+      'One-of-a-Kind Artisanship'
+    ],
+    image:
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80'
   }
 ];
 
@@ -248,11 +360,21 @@ export const PROJECT_SHOWCASE: ProjectShowcaseItem[] = [
     durationDays: 4,
     costRange: '$32,000 - $36,000',
     completionDate: 'June 2026',
-    materialsUsed: ['4500 PSI High Mix', '#4 Rebar 12" O.C.', 'Ashlar Slate Stamp', 'Charcoal Integral Color', 'High-Gloss Acrylic Sealer'],
-    beforeImage: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=1000&q=80',
-    duringImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1000&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=1000&q=80',
-    droneViewImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
+    materialsUsed: [
+      '4500 PSI High Mix',
+      '#4 Rebar 12" O.C.',
+      'Ashlar Slate Stamp',
+      'Charcoal Integral Color',
+      'High-Gloss Acrylic Sealer'
+    ],
+    beforeImage:
+      'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=1000&q=80',
+    duringImage:
+      'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1000&q=80',
+    afterImage:
+      'https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=1000&q=80',
+    droneViewImage:
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
     customerReview: {
       author: 'Robert & Elena Vance',
       rating: 5,
@@ -270,10 +392,19 @@ export const PROJECT_SHOWCASE: ProjectShowcaseItem[] = [
     durationDays: 3,
     costRange: '$16,500 - $19,000',
     completionDate: 'May 2026',
-    materialsUsed: ['4000 PSI Mix', 'Fiber Mesh Matrix', 'Wood Grain Plank Stamp', 'Desert Tan Stain', 'Anti-Slip Silane Sealer'],
-    beforeImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80',
-    duringImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
+    materialsUsed: [
+      '4000 PSI Mix',
+      'Fiber Mesh Matrix',
+      'Wood Grain Plank Stamp',
+      'Desert Tan Stain',
+      'Anti-Slip Silane Sealer'
+    ],
+    beforeImage:
+      'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80',
+    duringImage:
+      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80',
+    afterImage:
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
     customerReview: {
       author: 'Marcus Sterling',
       rating: 5,
@@ -291,11 +422,20 @@ export const PROJECT_SHOWCASE: ProjectShowcaseItem[] = [
     durationDays: 6,
     costRange: '$98,000 - $110,000',
     completionDate: 'April 2026',
-    materialsUsed: ['5000 PSI Heavy Duty Mix', 'Double #5 Rebar Cage', 'Laser Screed Finish', 'Steel Edge Dock Armoring'],
-    beforeImage: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80',
-    duringImage: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?auto=format&fit=crop&w=1000&q=80',
-    droneViewImage: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80',
+    materialsUsed: [
+      '5000 PSI Heavy Duty Mix',
+      'Double #5 Rebar Cage',
+      'Laser Screed Finish',
+      'Steel Edge Dock Armoring'
+    ],
+    beforeImage:
+      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80',
+    duringImage:
+      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80',
+    afterImage:
+      'https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?auto=format&fit=crop&w=1000&q=80',
+    droneViewImage:
+      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80',
     customerReview: {
       author: 'Apex Logistics Operations',
       rating: 5,
@@ -313,10 +453,18 @@ export const PROJECT_SHOWCASE: ProjectShowcaseItem[] = [
     durationDays: 5,
     costRange: '$48,000 - $54,000',
     completionDate: 'March 2026',
-    materialsUsed: ['4500 PSI Engineered Mix', '#5 Continuous Rebar', 'Stego Wrap 15-Mil Vapor Barrier', 'Laser Screed Leveling'],
-    beforeImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1000&q=80',
-    duringImage: 'https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=1000&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80',
+    materialsUsed: [
+      '4500 PSI Engineered Mix',
+      '#5 Continuous Rebar',
+      'Stego Wrap 15-Mil Vapor Barrier',
+      'Laser Screed Leveling'
+    ],
+    beforeImage:
+      'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1000&q=80',
+    duringImage:
+      'https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=1000&q=80',
+    afterImage:
+      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80',
     customerReview: {
       author: 'Heritage Custom Builders',
       rating: 5,
@@ -334,9 +482,11 @@ export const FLEET_ITEMS: FleetItem[] = [
     specs: '6.7L PowerStroke Turbo Diesel | 19,500 lbs GVWR',
     capacity: 'Tows 24,000 lbs Heavy Equipment',
     livery: 'Signature Lara Orange (#F58220) & Dark Charcoal Wrap',
-    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1000&q=80',
+    image:
+      'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1000&q=80',
     safetyScore: '100% DOT Compliant',
-    description: 'Custom-wrapped service command vehicle equipped with onboard hydraulic tools, generator power, and job site communications.'
+    description:
+      'Custom-wrapped service command vehicle equipped with onboard hydraulic tools, generator power, and job site communications.'
   },
   {
     id: 'flt-2',
@@ -345,9 +495,11 @@ export const FLEET_ITEMS: FleetItem[] = [
     specs: 'Dual 10,000 lb Axles | Custom Tool Lockers',
     capacity: 'Carries Concrete Stamps, Laser Screeds & Power Trowels',
     livery: 'Full Fleet Orange & Steel Gray Branding',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80',
+    image:
+      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80',
     safetyScore: '100% Insured & Inspected',
-    description: 'Houses mobile stamp matrix inventory, fiber mixing hoppers, diamond blade saws, and high-pressure washing gear.'
+    description:
+      'Houses mobile stamp matrix inventory, fiber mixing hoppers, diamond blade saws, and high-pressure washing gear.'
   },
   {
     id: 'flt-3',
@@ -356,9 +508,11 @@ export const FLEET_ITEMS: FleetItem[] = [
     specs: '3D Laser Profiler | 10ft Screed Head',
     capacity: 'Pours 50,000 sq ft/day with Ff/Fl Flatness',
     livery: 'Industrial Orange Armor',
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80',
+    image:
+      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80',
     safetyScore: 'Precision Calibrated',
-    description: 'Ensures laser-guided sub-millimeter flatness on commercial slabs and high-end residential garage floors.'
+    description:
+      'Ensures laser-guided sub-millimeter flatness on commercial slabs and high-end residential garage floors.'
   },
   {
     id: 'flt-4',
@@ -367,9 +521,11 @@ export const FLEET_ITEMS: FleetItem[] = [
     specs: '92 HP Turbo | Hydraulic Breaker & Grading Bucket',
     capacity: '3,475 lb Operating Capacity',
     livery: 'Lara Crew Orange Livery',
-    image: 'https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=1000&q=80',
+    image:
+      'https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=1000&q=80',
     safetyScore: 'ROPS Certified',
-    description: 'Excavates old asphalt and concrete slabs, grades subbase to 98% Proctor compaction, and moves aggregate fast.'
+    description:
+      'Excavates old asphalt and concrete slabs, grades subbase to 98% Proctor compaction, and moves aggregate fast.'
   }
 ];
 
@@ -378,40 +534,48 @@ export const MATERIAL_ITEMS: MaterialItem[] = [
     id: 'mat-1',
     name: '4,000 PSI High-Strength Concrete',
     category: 'PSI Mix',
-    description: 'Standard engineered concrete mix for heavy-duty residential driveways and vehicle aprons.',
+    description:
+      'Standard engineered concrete mix for heavy-duty residential driveways and vehicle aprons.',
     specs: 'Compressive Strength: 4000 PSI @ 28 Days | Slump: 4"',
     durabilityYears: 45,
-    image: 'https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=1000&q=80',
+    image:
+      'https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=1000&q=80',
     recommendedUse: 'Residential Driveways, RV Pads, Garage Slabs'
   },
   {
     id: 'mat-2',
     name: '5,000 PSI Commercial Mix',
     category: 'PSI Mix',
-    description: 'High-density concrete mix designed for severe freeze-thaw cycles and extreme weight loads.',
+    description:
+      'High-density concrete mix designed for severe freeze-thaw cycles and extreme weight loads.',
     specs: 'Compressive Strength: 5000 PSI @ 28 Days | Low Permeability',
     durabilityYears: 60,
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80',
+    image:
+      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80',
     recommendedUse: 'Commercial Loading Docks, Heavy Truck Parking, Shop Floors'
   },
   {
     id: 'mat-3',
     name: '#4 Deformed Steel Rebar (1/2")',
     category: 'Reinforcement',
-    description: 'Grade 60 steel rebar tied on 12" or 18" centers with chairs for 100% structural load distribution.',
+    description:
+      'Grade 60 steel rebar tied on 12" or 18" centers with chairs for 100% structural load distribution.',
     specs: 'Yield Strength: 60,000 PSI | ASTM A615 Standard',
     durabilityYears: 50,
-    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1000&q=80',
+    image:
+      'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1000&q=80',
     recommendedUse: 'All Heavy Vehicle Driveways & Foundations'
   },
   {
     id: 'mat-4',
     name: 'Ashlar Slate Stamped Pattern',
     category: 'Stamp Pattern',
-    description: 'Architectural slate stone texture providing a luxury European castle stone appearance.',
+    description:
+      'Architectural slate stone texture providing a luxury European castle stone appearance.',
     specs: 'Hand-detailed grout lines | Dual-color release agent',
     durabilityYears: 40,
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
+    image:
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
     recommendedUse: 'Backyard Patios, Pool Decks, Front Walkways'
   }
 ];
@@ -460,7 +624,8 @@ export const SEO_CITIES: SEOCityData[] = [
     testimonialCount: 410,
     topServices: ['Concrete Driveways', 'Stamped Patios', 'Commercial Slabs'],
     featuredProjectTitle: 'Eastborough Stamped Driveway Estate',
-    featuredProjectImage: 'https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=1000&q=80'
+    featuredProjectImage:
+      'https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=1000&q=80'
   },
   {
     slug: 'derby-ks',
@@ -473,7 +638,8 @@ export const SEO_CITIES: SEOCityData[] = [
     testimonialCount: 145,
     topServices: ['Garage Slabs', 'Concrete Removal', 'Patio Extensions'],
     featuredProjectTitle: 'Derby Industrial Park Loading Dock',
-    featuredProjectImage: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80'
+    featuredProjectImage:
+      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80'
   },
   {
     slug: 'andover-ks',
@@ -486,7 +652,8 @@ export const SEO_CITIES: SEOCityData[] = [
     testimonialCount: 120,
     topServices: ['Stamped Concrete', 'Foundations', 'Custom Fire Pit Decks'],
     featuredProjectTitle: 'Andover Wood Grain Stamped Oasis',
-    featuredProjectImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80'
+    featuredProjectImage:
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80'
   },
   {
     slug: 'maize-ks',
@@ -499,7 +666,8 @@ export const SEO_CITIES: SEOCityData[] = [
     testimonialCount: 88,
     topServices: ['Sidewalks', 'Driveway Additions', 'Retaining Walls'],
     featuredProjectTitle: 'Maize Residential Walkway & Steps',
-    featuredProjectImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80'
+    featuredProjectImage:
+      'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80'
   }
 ];
 
@@ -512,8 +680,10 @@ export const KNOWLEDGE_ARTICLES: KnowledgeArticle[] = [
     author: 'Chief Concrete Engineer, Lara Concrete',
     publishDate: 'July 14, 2026',
     readTime: '8 min read',
-    summary: 'Everything you need to know about subbase preparation, rebar spacing, 4000 PSI concrete mixes, cure times, and cost factors before hiring a contractor.',
-    heroImage: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=1000&q=80',
+    summary:
+      'Everything you need to know about subbase preparation, rebar spacing, 4000 PSI concrete mixes, cure times, and cost factors before hiring a contractor.',
+    heroImage:
+      'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=1000&q=80',
     tags: ['Driveway', 'Concrete Guide', 'Rebar', 'PSI Strength'],
     contentMarkdown: `
 # The Ultimate Guide to Concrete Driveway Installation
@@ -541,8 +711,10 @@ We insist on **#4 Grade 60 Rebar (1/2" steel)** tied on 18-inch centers and supp
     author: 'Master Stamp Artisan, Lara Concrete',
     publishDate: 'June 28, 2026',
     readTime: '6 min read',
-    summary: 'Compare upfront costs, longevity, weed growth resistance, and maintenance requirements between architectural stamped concrete and individual stone pavers.',
-    heroImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
+    summary:
+      'Compare upfront costs, longevity, weed growth resistance, and maintenance requirements between architectural stamped concrete and individual stone pavers.',
+    heroImage:
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
     tags: ['Stamped Concrete', 'Pavers', 'Patio Design', 'Cost Comparison'],
     contentMarkdown: `
 # Stamped Concrete vs. Pavers: Which is Right for You?
@@ -565,8 +737,10 @@ Pavers feature hundreds of individual sand joints. Over time, rain washes away j
     author: 'Field Maintenance Director, Lara Concrete',
     publishDate: 'May 12, 2026',
     readTime: '5 min read',
-    summary: 'Learn how de-icing chemicals damage concrete and how silane/siloxane deep penetrating sealers protect your driveway during harsh freeze-thaw cycles.',
-    heroImage: 'https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=1000&q=80',
+    summary:
+      'Learn how de-icing chemicals damage concrete and how silane/siloxane deep penetrating sealers protect your driveway during harsh freeze-thaw cycles.',
+    heroImage:
+      'https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=1000&q=80',
     tags: ['Winter Care', 'Concrete Sealer', 'Maintenance', 'Freeze-Thaw'],
     contentMarkdown: `
 # Winter Concrete Care & Sealing Secrets
@@ -626,7 +800,8 @@ export const INITIAL_LEADS: QuoteLead[] = [
     estimatedBudget: 21000,
     status: 'New',
     preferredContact: 'Call',
-    notes: 'Needs removal of old cracked 2-car driveway and pour new 4000 PSI stamped border driveway.'
+    notes:
+      'Needs removal of old cracked 2-car driveway and pour new 4000 PSI stamped border driveway.'
   },
   {
     id: 'lead-2',

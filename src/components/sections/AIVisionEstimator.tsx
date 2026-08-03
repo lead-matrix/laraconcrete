@@ -47,14 +47,18 @@ export const AIVisionEstimator: React.FC = () => {
     setIsScanning(true);
     setTimeout(() => {
       setIsScanning(false);
-      showToast('AI Vision Analysis Complete! Site dimensions & material recommendations generated.');
+      showToast(
+        'AI Vision Analysis Complete! Site dimensions & material recommendations generated.'
+      );
     }, 2000);
   };
 
   return (
-    <section id="photo-estimator" className="py-20 bg-[#2D2D2D] text-white relative border-b border-white/10 overflow-hidden">
+    <section
+      id="photo-estimator"
+      className="py-20 bg-[#2D2D2D] text-white relative border-b border-white/10 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
           <div className="inline-flex items-center gap-2 bg-[#F58220]/20 text-[#F58220] border border-[#F58220]/40 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">
@@ -65,12 +69,12 @@ export const AIVisionEstimator: React.FC = () => {
             Upload Your Site Photo & Get an Instant Diagnosis
           </h2>
           <p className="text-gray-300 text-base sm:text-lg">
-            Our smart photo scan analyzes property photos to detect square footage, surface cracking, slope pitch, and concrete volume needs instantly.
+            Our smart photo scan analyzes property photos to detect square footage, surface
+            cracking, slope pitch, and concrete volume needs instantly.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
           {/* Left Column - Image Scanner Display */}
           <div className="lg:col-span-7 space-y-4">
             <div className="relative rounded-2xl overflow-hidden bg-[#1A1A1A] border-2 border-white/20 shadow-2xl h-80 sm:h-96">
@@ -135,7 +139,9 @@ export const AIVisionEstimator: React.FC = () => {
                     }));
                   }}
                   className={`relative h-20 rounded-xl overflow-hidden border-2 transition-all ${
-                    selectedImage === photo.url ? 'border-[#F58220] scale-105 shadow-lg' : 'border-white/10 opacity-70 hover:opacity-100'
+                    selectedImage === photo.url
+                      ? 'border-[#F58220] scale-105 shadow-lg'
+                      : 'border-white/10 opacity-70 hover:opacity-100'
                   }`}
                 >
                   <img src={photo.url} alt={photo.title} className="w-full h-full object-cover" />
@@ -164,33 +170,46 @@ export const AIVisionEstimator: React.FC = () => {
             {/* Recommendation Quote Banner */}
             <div className="bg-[#2D2D2D] p-4 rounded-xl border-l-4 border-[#F58220] space-y-1">
               <span className="text-[10px] font-black text-[#F58220] uppercase tracking-widest">
-                Lara Concrete Engineering Recommendation:
+                ZenBid Pro AI Engineering Recommendation:
               </span>
               <p className="text-xs text-white font-bold leading-relaxed">
-                "We recommend a 5-inch 4000 PSI slab reinforced with #4 rebar at 18" O.C. over 4 inches of compacted limestone gravel base."
+                "We recommend a 5-inch 4000 PSI slab reinforced with #4 rebar at 18" O.C. over 4
+                inches of compacted limestone gravel base."
               </p>
             </div>
 
             {/* Output Specs Grid */}
             <div className="grid grid-cols-2 gap-3 text-xs">
               <div className="bg-[#2D2D2D] p-3 rounded-xl border border-white/5">
-                <span className="text-gray-400 text-[10px] font-bold block uppercase">Est. Surface Area</span>
+                <span className="text-gray-400 text-[10px] font-bold block uppercase">
+                  Est. Surface Area
+                </span>
                 <span className="text-base font-extrabold text-white">{scanResult.sqFt} Sq Ft</span>
               </div>
               <div className="bg-[#2D2D2D] p-3 rounded-xl border border-white/5">
-                <span className="text-gray-400 text-[10px] font-bold block uppercase">Concrete Volume</span>
-                <span className="text-base font-extrabold text-[#F58220]">{scanResult.concreteYards} Cu Yds</span>
+                <span className="text-gray-400 text-[10px] font-bold block uppercase">
+                  Concrete Volume
+                </span>
+                <span className="text-base font-extrabold text-[#F58220]">
+                  {scanResult.concreteYards} Cu Yds
+                </span>
               </div>
               <div className="bg-[#2D2D2D] p-3 rounded-xl border border-white/5">
-                <span className="text-gray-400 text-[10px] font-bold block uppercase">Surface Condition</span>
+                <span className="text-gray-400 text-[10px] font-bold block uppercase">
+                  Surface Condition
+                </span>
                 <span className="text-xs font-bold text-amber-400 flex items-center gap-1 mt-1">
                   <AlertTriangle className="w-3 h-3 shrink-0" />
                   {scanResult.crackingSeverity}
                 </span>
               </div>
               <div className="bg-[#2D2D2D] p-3 rounded-xl border border-white/5">
-                <span className="text-gray-400 text-[10px] font-bold block uppercase">Drainage Pitch</span>
-                <span className="text-xs font-bold text-gray-200 mt-1 block">{scanResult.slopeGrade}</span>
+                <span className="text-gray-400 text-[10px] font-bold block uppercase">
+                  Drainage Pitch
+                </span>
+                <span className="text-xs font-bold text-gray-200 mt-1 block">
+                  {scanResult.slopeGrade}
+                </span>
               </div>
             </div>
 
@@ -198,10 +217,16 @@ export const AIVisionEstimator: React.FC = () => {
             <div className="pt-2">
               <div className="flex justify-between items-center bg-[#2D2D2D] p-3.5 rounded-xl border border-white/10 mb-4">
                 <div>
-                  <span className="text-[10px] text-gray-400 font-bold uppercase block">Estimated Project Range</span>
-                  <span className="text-2xl font-black text-[#F58220]">{scanResult.estimatedCost}</span>
+                  <span className="text-[10px] text-gray-400 font-bold uppercase block">
+                    Estimated Project Range
+                  </span>
+                  <span className="text-2xl font-black text-[#F58220]">
+                    {scanResult.estimatedCost}
+                  </span>
                 </div>
-                <span className="text-[10px] text-gray-400 bg-white/5 px-2.5 py-1 rounded font-semibold">Turnkey Estimate</span>
+                <span className="text-[10px] text-gray-400 bg-white/5 px-2.5 py-1 rounded font-semibold">
+                  Turnkey Estimate
+                </span>
               </div>
 
               <button
@@ -212,11 +237,8 @@ export const AIVisionEstimator: React.FC = () => {
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
-
           </div>
-
         </div>
-
       </div>
     </section>
   );

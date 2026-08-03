@@ -6,7 +6,6 @@ export const SpeedSlider: React.FC = () => {
 
   return (
     <div className="glass-panel rounded-3xl p-6 md:p-8 border border-white/5 space-y-6">
-      
       {/* Header */}
       <div>
         <h3 className="font-display font-bold text-xl text-white mb-2 flex items-center space-x-2">
@@ -14,13 +13,13 @@ export const SpeedSlider: React.FC = () => {
           <span>Interactive Infrastructure Performance Slider</span>
         </h3>
         <p className="text-xs text-gray-400">
-          Slide the divider left and right to compare a bulky template site vs. optimized clean code engines.
+          Slide the divider left and right to compare a bulky template site vs. optimized clean code
+          engines.
         </p>
       </div>
 
       {/* Interactive Slider Box */}
       <div className="relative h-64 rounded-2xl overflow-hidden border border-white/5 select-none bg-gray-950">
-        
         {/* Left Side: WordPress Heavy (Underneath layer) */}
         <div className="absolute inset-0 flex flex-col items-start justify-center p-8 bg-red-950/20 text-left space-y-3">
           <div className="flex items-center space-x-2 text-rose-400 text-xs font-mono font-bold uppercase">
@@ -71,9 +70,7 @@ export const SpeedSlider: React.FC = () => {
             <span className="text-[10px] font-bold text-emerald-400">↔</span>
           </div>
         </div>
-
       </div>
-
     </div>
   );
 };

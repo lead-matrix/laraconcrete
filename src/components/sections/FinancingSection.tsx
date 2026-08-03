@@ -17,13 +17,17 @@ export const FinancingSection: React.FC = () => {
   const handlePrequalify = (e: React.FormEvent) => {
     e.preventDefault();
     showToast('Soft pre-qualification submitted! No impact on your credit score.');
-    openEstimateModal(`Financing Application: $${projectAmount.toLocaleString()} ($${estimatedMonthly}/mo)`);
+    openEstimateModal(
+      `Financing Application: $${projectAmount.toLocaleString()} ($${estimatedMonthly}/mo)`
+    );
   };
 
   return (
-    <section id="financing" className="py-20 bg-[#F6F6F6] text-[#2D2D2D] relative border-b border-gray-300">
+    <section
+      id="financing"
+      className="py-20 bg-[#F6F6F6] text-[#2D2D2D] relative border-b border-gray-300"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
           <div className="inline-flex items-center gap-2 bg-[#F58220]/15 text-[#F58220] border border-[#F58220]/30 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">
@@ -34,13 +38,13 @@ export const FinancingSection: React.FC = () => {
             Flexible $0 Down Payment Options
           </h2>
           <p className="text-gray-600 text-base sm:text-lg">
-            Don't let budget hold back your concrete upgrade. Pay for your stamped patio, driveway, or garage slab in low monthly installments.
+            Don't let budget hold back your concrete upgrade. Pay for your stamped patio, driveway,
+            or garage slab in low monthly installments.
           </p>
         </div>
 
         {/* Calculator Grid */}
         <div className="max-w-4xl mx-auto bg-[#2D2D2D] text-white rounded-2xl border border-gray-300 shadow-2xl p-6 sm:p-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          
           {/* Sliders */}
           <div className="space-y-6">
             <h3 className="font-extrabold text-lg text-white flex items-center gap-2">
@@ -51,7 +55,9 @@ export const FinancingSection: React.FC = () => {
             <div>
               <div className="flex justify-between text-xs font-bold mb-2">
                 <span className="text-gray-300">Total Project Amount:</span>
-                <span className="text-[#F58220] text-lg font-black">${projectAmount.toLocaleString()}</span>
+                <span className="text-[#F58220] text-lg font-black">
+                  ${projectAmount.toLocaleString()}
+                </span>
               </div>
               <input
                 type="range"
@@ -65,7 +71,9 @@ export const FinancingSection: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-extrabold text-gray-300 mb-2">Select Loan Term:</label>
+              <label className="block text-xs font-extrabold text-gray-300 mb-2">
+                Select Loan Term:
+              </label>
               <div className="grid grid-cols-3 gap-2">
                 {[24, 36, 48, 60].map((term) => (
                   <button
@@ -105,7 +113,8 @@ export const FinancingSection: React.FC = () => {
               Estimated Monthly Payment
             </span>
             <div className="text-5xl font-black text-white tracking-tight">
-              ${estimatedMonthly}<span className="text-lg text-gray-400 font-normal">/mo</span>
+              ${estimatedMonthly}
+              <span className="text-lg text-gray-400 font-normal">/mo</span>
             </div>
             <p className="text-xs text-gray-400 font-medium">
               Based on ${projectAmount.toLocaleString()} loan over {termMonths} months at 7.99% APR.
@@ -119,9 +128,7 @@ export const FinancingSection: React.FC = () => {
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>
-
         </div>
-
       </div>
     </section>
   );

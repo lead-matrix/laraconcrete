@@ -49,7 +49,9 @@ export const AdminPinGate: React.FC<AdminPinGateProps> = ({ children }) => {
           });
         }, 1000);
       } else {
-        setError(`Incorrect PIN. ${5 - newAttempts} attempt${5 - newAttempts === 1 ? '' : 's'} remaining.`);
+        setError(
+          `Incorrect PIN. ${5 - newAttempts} attempt${5 - newAttempts === 1 ? '' : 's'} remaining.`
+        );
       }
     }
   };

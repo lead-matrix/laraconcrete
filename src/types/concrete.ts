@@ -136,7 +136,8 @@ export interface QuoteLead {
   serviceType: string;
   estimatedSqFt: number;
   estimatedBudget: number;
-  status: 'New' | 'Site Visit Scheduled' | 'Estimate Sent' | 'Approved' | 'In Progress' | 'Completed';
+  status:
+    'New' | 'Site Visit Scheduled' | 'Estimate Sent' | 'Approved' | 'In Progress' | 'Completed';
   preferredContact: 'Call' | 'SMS' | 'Email';
   notes: string;
   photoUrl?: string;

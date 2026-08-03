@@ -7,9 +7,9 @@ interface SEOMetadataProps {
 }
 
 export const SEOMetadata: React.FC<SEOMetadataProps> = ({
-  title = 'Lara Concrete LLC | #1 Concrete Contractor Wichita KS | Driveways, Patios, Slabs',
-  description = 'Wichita\'s top-rated concrete contractor specializing in 4,000+ PSI rebar-reinforced driveways, stamped concrete patios, garage slabs, foundations, and commercial flatwork. Fast 24-hr quotes & 10-yr warranty! Call (316) 993-0376.',
-  canonicalUrl = 'https://laraconcrete.com'
+  title = 'ZenBid Pro | Turnkey Concrete Estimating & SaaS Platform (Up For Ownership)',
+  description = 'ZenBid Pro is an enterprise turnkey SaaS estimating platform for concrete contractors & flatwork companies. Features interactive 3D visual CAD slab estimation, AI photo vision, client portal, admin CMS, and local SEO city generator. Ready for immediate acquisition & ownership.',
+  canonicalUrl = 'https://zenbidpro.com'
 }) => {
   useEffect(() => {
     document.title = title;
@@ -47,7 +47,7 @@ export const SEOMetadata: React.FC<SEOMetadataProps> = ({
       document.head.appendChild(ogDesc);
     }
     ogDesc.setAttribute('content', description);
-  }, [title, description]);
+  }, [title, description, canonicalUrl]);
 
   // Comprehensive Schema.org LocalBusiness & Service Area for Wichita Metro
   const localBusinessSchema = {
@@ -82,15 +82,43 @@ export const SEOMetadata: React.FC<SEOMetadataProps> = ({
           longitude: -97.3301
         },
         areaServed: [
-          { '@type': 'City', name: 'Wichita', sameAs: 'https://en.wikipedia.org/wiki/Wichita,_Kansas' },
-          { '@type': 'City', name: 'Andover', sameAs: 'https://en.wikipedia.org/wiki/Andover,_Kansas' },
+          {
+            '@type': 'City',
+            name: 'Wichita',
+            sameAs: 'https://en.wikipedia.org/wiki/Wichita,_Kansas'
+          },
+          {
+            '@type': 'City',
+            name: 'Andover',
+            sameAs: 'https://en.wikipedia.org/wiki/Andover,_Kansas'
+          },
           { '@type': 'City', name: 'Derby', sameAs: 'https://en.wikipedia.org/wiki/Derby,_Kansas' },
-          { '@type': 'City', name: 'Goddard', sameAs: 'https://en.wikipedia.org/wiki/Goddard,_Kansas' },
+          {
+            '@type': 'City',
+            name: 'Goddard',
+            sameAs: 'https://en.wikipedia.org/wiki/Goddard,_Kansas'
+          },
           { '@type': 'City', name: 'Maize', sameAs: 'https://en.wikipedia.org/wiki/Maize,_Kansas' },
-          { '@type': 'City', name: 'Bel Aire', sameAs: 'https://en.wikipedia.org/wiki/Bel_Aire,_Kansas' },
-          { '@type': 'City', name: 'Haysville', sameAs: 'https://en.wikipedia.org/wiki/Haysville,_Kansas' },
-          { '@type': 'City', name: 'Valley Center', sameAs: 'https://en.wikipedia.org/wiki/Valley_Center,_Kansas' },
-          { '@type': 'City', name: 'Park City', sameAs: 'https://en.wikipedia.org/wiki/Park_City,_Kansas' }
+          {
+            '@type': 'City',
+            name: 'Bel Aire',
+            sameAs: 'https://en.wikipedia.org/wiki/Bel_Aire,_Kansas'
+          },
+          {
+            '@type': 'City',
+            name: 'Haysville',
+            sameAs: 'https://en.wikipedia.org/wiki/Haysville,_Kansas'
+          },
+          {
+            '@type': 'City',
+            name: 'Valley Center',
+            sameAs: 'https://en.wikipedia.org/wiki/Valley_Center,_Kansas'
+          },
+          {
+            '@type': 'City',
+            name: 'Park City',
+            sameAs: 'https://en.wikipedia.org/wiki/Park_City,_Kansas'
+          }
         ],
         openingHoursSpecification: [
           {
@@ -114,11 +142,26 @@ export const SEOMetadata: React.FC<SEOMetadataProps> = ({
           worstRating: '1'
         },
         makesOffer: [
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Residential Concrete Driveway Pouring' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Stamped Concrete Patio Installation' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Monolithic Slab & House Foundations' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Commercial Parking Lot & Loading Dock Slabs' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Decorative Acid Stained Concrete Floors' } }
+          {
+            '@type': 'Offer',
+            itemOffered: { '@type': 'Service', name: 'Residential Concrete Driveway Pouring' }
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: { '@type': 'Service', name: 'Stamped Concrete Patio Installation' }
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: { '@type': 'Service', name: 'Monolithic Slab & House Foundations' }
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: { '@type': 'Service', name: 'Commercial Parking Lot & Loading Dock Slabs' }
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: { '@type': 'Service', name: 'Decorative Acid Stained Concrete Floors' }
+          }
         ]
       }
     ]

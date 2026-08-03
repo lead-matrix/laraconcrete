@@ -3,11 +3,12 @@ import { Award, CheckCircle2 } from 'lucide-react';
 
 export const AboutUs: React.FC = () => {
   return (
-    <section id="about" className="py-20 bg-[#F6F6F6] text-[#2D2D2D] relative border-b border-gray-300">
+    <section
+      id="about"
+      className="py-20 bg-[#F6F6F6] text-[#2D2D2D] relative border-b border-gray-300"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
           {/* Left Column Image Grid */}
           <div className="lg:col-span-6 space-y-4">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl h-80 bg-[#2D2D2D]">
@@ -17,13 +18,15 @@ export const AboutUs: React.FC = () => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#2D2D2D] via-transparent to-transparent opacity-80"></div>
-              
+
               <div className="absolute bottom-4 left-4 right-4 bg-[#1A1A1A]/95 text-white p-4 rounded-xl border border-white/20">
                 <div className="flex items-center gap-2 text-[#F58220] font-extrabold text-xs uppercase tracking-wider">
                   <Award className="w-4 h-4" />
                   <span>FAMILY OWNED & OPERATED SINCE 2011</span>
                 </div>
-                <p className="text-xs text-gray-300 mt-1">Founder Carlos Lara with senior finishing crew on site.</p>
+                <p className="text-xs text-gray-300 mt-1">
+                  Founder Carlos Lara with senior finishing crew on site.
+                </p>
               </div>
             </div>
 
@@ -46,19 +49,26 @@ export const AboutUs: React.FC = () => {
             </span>
 
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#2D2D2D]">
-              Built on Honesty, Precision, and Family Pride
+              ZenBid Pro — Turnkey SaaS Platform Available For Ownership
             </h2>
 
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              Lara Concrete LLC was founded with a simple mission: bring uncompromising engineering standards, honest pricing, and high-end aesthetics to concrete construction. What started with one work truck has grown into an industry-leading orange fleet serving thousands of homeowners, commercial developers, and municipal projects.
+              ZenBid Pro was engineered as a complete, self-contained SaaS platform designed to
+              transform how concrete contractors and construction enterprises estimate, manage, and
+              win projects. Featuring an interactive 3D Visual CAD estimator, AI photo vision,
+              password-protected client portal, and local SEO city engine, this entire platform is
+              now packaged for immediate turnkey ownership, white-label branding, and scaling.
             </p>
 
             <div className="space-y-3 pt-2 text-xs text-gray-700">
               <div className="flex items-start gap-2.5 bg-white p-3.5 rounded-xl border border-gray-200">
                 <CheckCircle2 className="w-5 h-5 text-[#F58220] shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-[#2D2D2D] block">Uncompromising Structural Integrity:</strong>
-                  We use Grade 60 rebar chairs, 4,000+ PSI engineered concrete, and laser screed transit leveling on every single slab.
+                  <strong className="text-[#2D2D2D] block">
+                    Uncompromising Structural Integrity:
+                  </strong>
+                  We use Grade 60 rebar chairs, 4,000+ PSI engineered concrete, and laser screed
+                  transit leveling on every single slab.
                 </div>
               </div>
 
@@ -66,15 +76,13 @@ export const AboutUs: React.FC = () => {
                 <CheckCircle2 className="w-5 h-5 text-[#F58220] shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-[#2D2D2D] block">Clean Job Site & Respect:</strong>
-                  We treat your home like our own. All lawn edges protected, curbs washed, and debris hauled off.
+                  We treat your home like our own. All lawn edges protected, curbs washed, and
+                  debris hauled off.
                 </div>
               </div>
             </div>
-
           </div>
-
         </div>
-
       </div>
     </section>
   );

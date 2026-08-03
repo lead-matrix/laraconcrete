@@ -36,21 +36,24 @@ export const WhyChooseUs: React.FC = () => {
   ];
 
   return (
-    <section id="why-choose-us" className="py-20 bg-[#1A1A1A] text-white relative border-b border-white/10 overflow-hidden">
+    <section
+      id="why-choose-us"
+      className="py-20 bg-[#1A1A1A] text-white relative border-b border-white/10 overflow-hidden"
+    >
       {/* Texture */}
       <div className="absolute inset-0 bg-concrete-pattern opacity-30 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <span className="bg-[#F58220]/20 text-[#F58220] border border-[#F58220]/40 text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block">
-            The Lara Concrete Advantage
+            The ZenBid Pro Advantage
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
-            Why Homeowners & Builders Trust Lara
+            Why Contractors & Clients Trust ZenBid Pro
           </h2>
           <p className="text-gray-300 text-base sm:text-lg">
-            We don't cut corners. From steel rebar spacing to deep penetrating sealers, see how our engineering standards set us apart.
+            We don't cut corners. From steel rebar spacing to deep penetrating sealers, see how our
+            engineering standards set us apart.
           </p>
         </div>
 
@@ -68,7 +71,6 @@ export const WhyChooseUs: React.FC = () => {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

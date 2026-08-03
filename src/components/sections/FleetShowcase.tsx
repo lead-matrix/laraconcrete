@@ -4,12 +4,14 @@ import { FLEET_ITEMS } from '../../data/concreteData';
 
 export const FleetShowcase: React.FC = () => {
   return (
-    <section id="fleet" className="py-20 bg-[#1A1A1A] text-white relative border-b border-white/10 overflow-hidden">
+    <section
+      id="fleet"
+      className="py-20 bg-[#1A1A1A] text-white relative border-b border-white/10 overflow-hidden"
+    >
       {/* Texture */}
       <div className="absolute inset-0 bg-concrete-pattern opacity-30 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
           <div className="inline-flex items-center gap-2 bg-[#F58220]/20 text-[#F58220] border border-[#F58220]/40 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">
@@ -20,7 +22,8 @@ export const FleetShowcase: React.FC = () => {
             Built Heavy. Wrapped in Orange. Ready to Pour.
           </h2>
           <p className="text-gray-300 text-base sm:text-lg">
-            Our signature orange and dark charcoal fleet represents professional reliability, job site safety, and high-capacity concrete output on every project.
+            Our signature orange and dark charcoal fleet represents professional reliability, job
+            site safety, and high-capacity concrete output on every project.
           </p>
         </div>
 
@@ -56,18 +59,20 @@ export const FleetShowcase: React.FC = () => {
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div>
                   <h3 className="text-xl font-black text-white">{item.name}</h3>
-                  <p className="text-gray-300 text-xs mt-2 leading-relaxed">
-                    {item.description}
-                  </p>
+                  <p className="text-gray-300 text-xs mt-2 leading-relaxed">{item.description}</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 pt-3 border-t border-white/10 text-xs">
                   <div className="bg-[#1A1A1A] p-2.5 rounded-lg border border-white/5">
-                    <span className="text-gray-400 text-[10px] font-bold block uppercase">Power Specs</span>
+                    <span className="text-gray-400 text-[10px] font-bold block uppercase">
+                      Power Specs
+                    </span>
                     <span className="text-white font-bold">{item.specs}</span>
                   </div>
                   <div className="bg-[#1A1A1A] p-2.5 rounded-lg border border-white/5">
-                    <span className="text-gray-400 text-[10px] font-bold block uppercase">Daily Capacity</span>
+                    <span className="text-gray-400 text-[10px] font-bold block uppercase">
+                      Daily Capacity
+                    </span>
                     <span className="text-[#F58220] font-bold">{item.capacity}</span>
                   </div>
                 </div>
@@ -75,7 +80,6 @@ export const FleetShowcase: React.FC = () => {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

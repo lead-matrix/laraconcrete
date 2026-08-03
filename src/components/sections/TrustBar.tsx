@@ -6,7 +6,6 @@ export const TrustBar: React.FC = () => {
     <section className="bg-[#2D2D2D] text-white py-12 border-b border-white/10 relative overflow-hidden">
       {/* Background Glow Overlay */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Top Badges Bar */}
         <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 pb-10 border-b border-white/10 text-center">
           <div className="flex items-center gap-2">
@@ -36,7 +35,6 @@ export const TrustBar: React.FC = () => {
 
         {/* Live Counters Grid */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6 pt-10 text-center">
-          
           <div className="p-4 rounded-xl bg-[#1A1A1A]/80 border border-white/5 shadow-lg hover:border-[#F58220]/40 transition-colors">
             <div className="flex justify-center mb-2">
               <Layers className="w-6 h-6 text-[#F58220]" />
@@ -96,9 +94,7 @@ export const TrustBar: React.FC = () => {
               Safety Record
             </p>
           </div>
-
         </div>
-
       </div>
     </section>
   );

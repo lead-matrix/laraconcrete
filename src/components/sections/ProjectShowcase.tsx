@@ -10,14 +10,17 @@ export const ProjectShowcase: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectShowcaseItem | null>(null);
   const [beforeAfterPos, setBeforeAfterPos] = useState<number>(50); // percentage
 
-  const filteredProjects = activeCategory === 'All'
-    ? PROJECT_SHOWCASE
-    : PROJECT_SHOWCASE.filter((p) => p.category === activeCategory);
+  const filteredProjects =
+    activeCategory === 'All'
+      ? PROJECT_SHOWCASE
+      : PROJECT_SHOWCASE.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="py-20 bg-[#F6F6F6] text-[#2D2D2D] relative border-b border-gray-300">
+    <section
+      id="projects"
+      className="py-20 bg-[#F6F6F6] text-[#2D2D2D] relative border-b border-gray-300"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
           <span className="bg-[#F58220]/15 text-[#F58220] border border-[#F58220]/30 text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block">
@@ -27,7 +30,8 @@ export const ProjectShowcase: React.FC = () => {
             Recent Concrete Transformation Projects
           </h2>
           <p className="text-gray-600 text-base sm:text-lg">
-            Explore our verified job site portfolio. Filter by category or try our interactive Before / After slider below.
+            Explore our verified job site portfolio. Filter by category or try our interactive
+            Before / After slider below.
           </p>
 
           {/* Category Filter Pills */}
@@ -55,7 +59,9 @@ export const ProjectShowcase: React.FC = () => {
               <SlidersHorizontal className="w-4 h-4" />
               INTERACTIVE BEFORE / AFTER SLIDER DEMO
             </span>
-            <span className="text-xs text-gray-400">Drag center slider to compare transformations</span>
+            <span className="text-xs text-gray-400">
+              Drag center slider to compare transformations
+            </span>
           </div>
 
           <div className="relative h-80 sm:h-96 rounded-xl overflow-hidden select-none">
@@ -145,16 +151,24 @@ export const ProjectShowcase: React.FC = () => {
               <div className="p-5 space-y-3 flex-1 flex flex-col justify-between">
                 <div className="grid grid-cols-3 gap-2 text-center text-xs">
                   <div className="bg-gray-50 p-2 rounded-lg border border-gray-200">
-                    <span className="text-gray-500 text-[10px] font-bold uppercase block">Square Feet</span>
+                    <span className="text-gray-500 text-[10px] font-bold uppercase block">
+                      Square Feet
+                    </span>
                     <span className="font-extrabold text-[#2D2D2D]">{project.sqFt} sq ft</span>
                   </div>
                   <div className="bg-gray-50 p-2 rounded-lg border border-gray-200">
-                    <span className="text-gray-500 text-[10px] font-bold uppercase block">PSI Strength</span>
+                    <span className="text-gray-500 text-[10px] font-bold uppercase block">
+                      PSI Strength
+                    </span>
                     <span className="font-extrabold text-[#F58220]">{project.psi} PSI</span>
                   </div>
                   <div className="bg-gray-50 p-2 rounded-lg border border-gray-200">
-                    <span className="text-gray-500 text-[10px] font-bold uppercase block">Duration</span>
-                    <span className="font-extrabold text-[#2D2D2D]">{project.durationDays} Days</span>
+                    <span className="text-gray-500 text-[10px] font-bold uppercase block">
+                      Duration
+                    </span>
+                    <span className="font-extrabold text-[#2D2D2D]">
+                      {project.durationDays} Days
+                    </span>
                   </div>
                 </div>
 
@@ -166,11 +180,15 @@ export const ProjectShowcase: React.FC = () => {
                     ))}
                   </div>
                   "{project.customerReview.text.slice(0, 110)}..."
-                  <span className="block font-bold not-italic text-[#2D2D2D] mt-1">— {project.customerReview.author}</span>
+                  <span className="block font-bold not-italic text-[#2D2D2D] mt-1">
+                    — {project.customerReview.author}
+                  </span>
                 </div>
 
                 <div className="pt-2 flex justify-between items-center">
-                  <span className="text-xs text-gray-500 font-bold">Cost Range: <strong className="text-[#2D2D2D]">{project.costRange}</strong></span>
+                  <span className="text-xs text-gray-500 font-bold">
+                    Cost Range: <strong className="text-[#2D2D2D]">{project.costRange}</strong>
+                  </span>
                   <button
                     onClick={() => openEstimateModal(`Project Inspiration: ${project.title}`)}
                     className="btn-lara-primary px-4 py-2 rounded-lg text-xs uppercase tracking-wider font-extrabold flex items-center gap-1"
@@ -183,7 +201,6 @@ export const ProjectShowcase: React.FC = () => {
             </div>
           ))}
         </div>
-
       </div>
 
       {/* Project Case Study Detailed Modal */}
@@ -198,22 +215,37 @@ export const ProjectShowcase: React.FC = () => {
             </button>
 
             <h3 className="text-2xl font-black text-white mb-1">{selectedProject.title}</h3>
-            <p className="text-xs text-gray-400 font-bold mb-4">{selectedProject.location} • Completed {selectedProject.completionDate}</p>
+            <p className="text-xs text-gray-400 font-bold mb-4">
+              {selectedProject.location} • Completed {selectedProject.completionDate}
+            </p>
 
             <div className="grid grid-cols-2 gap-3 mb-4">
               <div className="h-44 rounded-xl overflow-hidden bg-[#2D2D2D]">
-                <img src={selectedProject.afterImage} alt="After" className="w-full h-full object-cover" />
+                <img
+                  src={selectedProject.afterImage}
+                  alt="After"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="h-44 rounded-xl overflow-hidden bg-[#2D2D2D]">
-                <img src={selectedProject.beforeImage} alt="Before" className="w-full h-full object-cover" />
+                <img
+                  src={selectedProject.beforeImage}
+                  alt="Before"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
             <div className="space-y-3 text-xs">
-              <h4 className="font-extrabold text-[#F58220] uppercase tracking-wider">Engineered Materials & Mix Specifications:</h4>
+              <h4 className="font-extrabold text-[#F58220] uppercase tracking-wider">
+                Engineered Materials & Mix Specifications:
+              </h4>
               <div className="flex flex-wrap gap-2">
                 {selectedProject.materialsUsed.map((m, i) => (
-                  <span key={i} className="bg-white/10 text-gray-200 px-3 py-1 rounded-lg border border-white/10 font-semibold">
+                  <span
+                    key={i}
+                    className="bg-white/10 text-gray-200 px-3 py-1 rounded-lg border border-white/10 font-semibold"
+                  >
                     {m}
                   </span>
                 ))}
@@ -225,12 +257,19 @@ export const ProjectShowcase: React.FC = () => {
                     <Star key={i} className="w-3.5 h-3.5 fill-[#F58220]" />
                   ))}
                 </div>
-                <p className="text-gray-200 italic font-medium leading-relaxed">"{selectedProject.customerReview.text}"</p>
-                <span className="block font-bold text-[#F58220] mt-2">— Verified Customer: {selectedProject.customerReview.author}</span>
+                <p className="text-gray-200 italic font-medium leading-relaxed">
+                  "{selectedProject.customerReview.text}"
+                </p>
+                <span className="block font-bold text-[#F58220] mt-2">
+                  — Verified Customer: {selectedProject.customerReview.author}
+                </span>
               </div>
 
               <div className="pt-4 flex justify-end gap-3 border-t border-white/10">
-                <button onClick={() => setSelectedProject(null)} className="px-4 py-2 rounded-lg bg-[#2D2D2D] text-gray-300 font-bold">
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="px-4 py-2 rounded-lg bg-[#2D2D2D] text-gray-300 font-bold"
+                >
                   Close
                 </button>
                 <button
@@ -245,7 +284,6 @@ export const ProjectShowcase: React.FC = () => {
                 </button>
               </div>
             </div>
-
           </div>
         </div>
       )}

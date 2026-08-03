@@ -46,8 +46,12 @@ export const BilingualAIChatbot: React.FC = () => {
           <div className="flex flex-col text-left">
             <span className="text-xs font-black tracking-wide leading-none">
               {isChatOpen
-                ? language === 'ES' ? 'Cerrar Chat' : 'Minimize Chat'
-                : language === 'ES' ? 'Asistente 24/7' : 'Support Chat'}
+                ? language === 'ES'
+                  ? 'Cerrar Chat'
+                  : 'Minimize Chat'
+                : language === 'ES'
+                  ? 'Asistente 24/7'
+                  : 'Support Chat'}
             </span>
             {!isChatOpen && (
               <span className="text-[9px] font-bold opacity-90 uppercase tracking-widest leading-tight mt-0.5">
@@ -69,12 +73,16 @@ export const BilingualAIChatbot: React.FC = () => {
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
-                  <h4 className="font-extrabold text-xs sm:text-sm text-white">Lara Concrete Support</h4>
+                  <h4 className="font-extrabold text-xs sm:text-sm text-white">
+                    Lara Concrete Support
+                  </h4>
                   <span className="text-[8px] bg-emerald-500/20 text-emerald-400 font-bold px-1.5 py-0.5 rounded border border-emerald-500/30 uppercase">
                     ONLINE 24/7
                   </span>
                 </div>
-                <p className="text-[9px] text-gray-400">Bilingual Concrete Advisor &amp; Estimator</p>
+                <p className="text-[9px] text-gray-400">
+                  Bilingual Concrete Advisor &amp; Estimator
+                </p>
               </div>
             </div>
 
@@ -153,7 +161,9 @@ export const BilingualAIChatbot: React.FC = () => {
 
           {/* Quick Quote CTA Banner inside Chat */}
           <div className="p-2 bg-[#2D2D2D] border-t border-white/10 flex justify-between items-center text-xs px-3">
-            <span className="text-[10px] text-gray-300 font-medium truncate pr-1">Direct Line: {companyDetails.phone1}</span>
+            <span className="text-[10px] text-gray-300 font-medium truncate pr-1">
+              Direct Line: {companyDetails.phone1}
+            </span>
             <button
               onClick={() => {
                 setIsChatOpen(false);
@@ -166,10 +176,17 @@ export const BilingualAIChatbot: React.FC = () => {
           </div>
 
           {/* Input Bar */}
-          <form onSubmit={handleSend} className="p-2.5 bg-[#1A1A1A] border-t border-white/10 flex gap-2">
+          <form
+            onSubmit={handleSend}
+            className="p-2.5 bg-[#1A1A1A] border-t border-white/10 flex gap-2"
+          >
             <input
               type="text"
-              placeholder={language === 'ES' ? 'Escriba su pregunta sobre concreto...' : 'Type concrete question...'}
+              placeholder={
+                language === 'ES'
+                  ? 'Escriba su pregunta sobre concreto...'
+                  : 'Type concrete question...'
+              }
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               className="flex-1 bg-[#2D2D2D] border border-white/10 text-white rounded-xl px-3 py-2 text-xs focus:border-[#F58220] focus:outline-none"

@@ -1,34 +1,53 @@
 import React from 'react';
-import { Phone, Shield, Star, Award, CheckCircle2, ChevronRight, Wrench, Truck } from 'lucide-react';
+import {
+  Phone,
+  Shield,
+  Star,
+  Award,
+  CheckCircle2,
+  ChevronRight,
+  Wrench,
+  Truck
+} from 'lucide-react';
 import { useCMS } from '../../cms/useCMS';
 
 export const Hero: React.FC = () => {
   const { openEstimateModal, language, companyDetails } = useCMS();
 
   return (
-    <section id="hero" className="relative bg-[#1A1A1A] text-white pt-12 pb-20 lg:pt-16 lg:pb-28 overflow-hidden border-b border-white/10">
+    <section
+      id="hero"
+      className="relative bg-[#1A1A1A] text-white pt-12 pb-20 lg:pt-16 lg:pb-28 overflow-hidden border-b border-white/10"
+    >
       {/* Background Graphic Grid with Concrete Texture */}
       <div className="absolute inset-0 bg-concrete-pattern opacity-40 pointer-events-none"></div>
-      
+
       {/* Orange Ambient Light Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#F58220]/15 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
           {/* Left Column - Main Copy & CTAs */}
           <div className="lg:col-span-7 space-y-6">
             {/* Live Badge */}
             <div className="inline-flex items-center gap-2 bg-[#2D2D2D] border border-[#F58220]/40 px-3.5 py-1.5 rounded-full text-xs font-bold text-gray-200 shadow-xl">
               <span className="w-2.5 h-2.5 rounded-full bg-[#F58220] animate-ping"></span>
-              <span className="text-[#F58220] uppercase tracking-wider">Lara Concrete Fleet Dispatched</span>
+              <span className="text-[#F58220] uppercase tracking-wider">
+                ZenBid Pro SaaS Platform
+              </span>
               <span className="text-gray-400">|</span>
-              <span className="text-gray-300">Wichita & Surrounding Metro</span>
+              <span className="text-gray-300 font-extrabold text-[#F58220]">
+                AVAILABLE FOR OWNERSHIP
+              </span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1]">
-              Building Strong <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F58220] to-[#FF8E2B]">Foundations</span> That Last.
+              Building Strong{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F58220] to-[#FF8E2B]">
+                Foundations
+              </span>{' '}
+              That Last.
             </h1>
 
             {/* Subheadline */}
@@ -90,14 +109,19 @@ export const Hero: React.FC = () => {
                   ACI
                 </div>
               </div>
-              <span>Over <strong className="text-white">{companyDetails.projectsCompleted.toLocaleString()}+</strong> projects poured in 2026. 15-min estimator call back guarantee.</span>
+              <span>
+                Over{' '}
+                <strong className="text-white">
+                  {companyDetails.projectsCompleted.toLocaleString()}+
+                </strong>{' '}
+                projects poured in 2026. 15-min estimator call back guarantee.
+              </span>
             </div>
           </div>
 
           {/* Right Column - Custom Branded Truck & Fleet Visual Card */}
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden bg-[#2D2D2D] border border-white/20 p-2 shadow-2xl group">
-              
               {/* Branded Vehicle Wrap Graphic Banner */}
               <div className="relative h-72 sm:h-80 rounded-xl overflow-hidden">
                 <img
@@ -105,7 +129,7 @@ export const Hero: React.FC = () => {
                   alt="Lara Concrete LLC Branded Fleet Work Truck & Trailer"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                
+
                 {/* Truck Wrap Orange Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-black/40"></div>
 
@@ -118,7 +142,9 @@ export const Hero: React.FC = () => {
                         LARA FLEET #01 • FORD F-550
                       </span>
                     </div>
-                    <p className="text-[10px] text-gray-300">Custom Vinyl Wrap • Orange & Dark Charcoal</p>
+                    <p className="text-[10px] text-gray-300">
+                      Custom Vinyl Wrap • Orange & Dark Charcoal
+                    </p>
                   </div>
 
                   <span className="bg-[#F58220] text-white text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded shadow">
@@ -133,7 +159,9 @@ export const Hero: React.FC = () => {
                       <Wrench className="w-3.5 h-3.5" />
                       <span>Interactive CAD Estimator</span>
                     </div>
-                    <p className="text-[11px] text-gray-300 font-medium">Draw your slab & compute cubic yards instantly.</p>
+                    <p className="text-[11px] text-gray-300 font-medium">
+                      Draw your slab & compute cubic yards instantly.
+                    </p>
                   </div>
                   <a
                     href="#cad-estimator"
@@ -155,14 +183,14 @@ export const Hero: React.FC = () => {
                   <p className="text-white font-extrabold text-sm">1/2" @ 18" O.C.</p>
                 </div>
                 <div className="p-2 bg-[#2D2D2D] rounded-lg border border-white/5">
-                  <p className="text-gray-400 text-[10px] uppercase font-bold">Flatness Tolerance</p>
+                  <p className="text-gray-400 text-[10px] uppercase font-bold">
+                    Flatness Tolerance
+                  </p>
                   <p className="text-[#F58220] font-extrabold text-sm">1/16" Laser</p>
                 </div>
               </div>
-
             </div>
           </div>
-
         </div>
       </div>
     </section>

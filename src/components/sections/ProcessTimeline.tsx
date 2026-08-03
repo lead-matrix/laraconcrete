@@ -1,5 +1,13 @@
 import React from 'react';
-import { Calendar, Search, FileText, Clock, Hammer, CheckCircle2, ChevronRight } from 'lucide-react';
+import {
+  Calendar,
+  Search,
+  FileText,
+  Clock,
+  Hammer,
+  CheckCircle2,
+  ChevronRight
+} from 'lucide-react';
 import { useCMS } from '../../cms/useCMS';
 
 export const ProcessTimeline: React.FC = () => {
@@ -45,9 +53,11 @@ export const ProcessTimeline: React.FC = () => {
   ];
 
   return (
-    <section id="process" className="py-20 bg-[#2D2D2D] text-white relative border-b border-white/10 overflow-hidden">
+    <section
+      id="process"
+      className="py-20 bg-[#2D2D2D] text-white relative border-b border-white/10 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <span className="bg-[#F58220]/20 text-[#F58220] border border-[#F58220]/40 text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block">
@@ -99,7 +109,6 @@ export const ProcessTimeline: React.FC = () => {
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
-
       </div>
     </section>
   );

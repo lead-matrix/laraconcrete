@@ -37,7 +37,9 @@ export const AdminPortal: React.FC = () => {
     resetCMSDefaults
   } = useCMS();
 
-  const [activeTab, setActiveTab] = useState<'pipeline' | 'jobs' | 'invoices' | 'fleet' | 'analytics' | 'editor'>('pipeline');
+  const [activeTab, setActiveTab] = useState<
+    'pipeline' | 'jobs' | 'invoices' | 'fleet' | 'analytics' | 'editor'
+  >('pipeline');
   const [editorSubTab, setEditorSubTab] = useState<'company' | 'services' | 'faqs'>('company');
 
   const [leadFilter, setLeadFilter] = useState<string>('All');
@@ -51,9 +53,10 @@ export const AdminPortal: React.FC = () => {
 
   const filteredLeads = leads.filter((l) => {
     const matchesFilter = leadFilter === 'All' || l.status === leadFilter;
-    const matchesSearch = l.customerName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          l.serviceType.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          l.phone.includes(searchQuery);
+    const matchesSearch =
+      l.customerName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      l.serviceType.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      l.phone.includes(searchQuery);
     return matchesFilter && matchesSearch;
   });
 
@@ -64,7 +67,6 @@ export const AdminPortal: React.FC = () => {
       <SEOMetadata title="Enterprise Admin CRM & Live Content Editor | Lara Concrete LLC" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Top Header */}
         <div className="bg-[#1A1A1A] p-6 rounded-2xl border border-white/10 shadow-2xl flex flex-wrap justify-between items-center gap-4 mb-8">
           <div className="flex items-center gap-3">
@@ -73,12 +75,16 @@ export const AdminPortal: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-2xl font-black text-white">Lara Enterprise CRM &amp; Operating Dashboard</h1>
+                <h1 className="text-2xl font-black text-white">
+                  Lara Enterprise CRM &amp; Operating Dashboard
+                </h1>
                 <span className="text-[10px] bg-[#F58220]/20 text-[#F58220] font-bold px-2 py-0.5 rounded border border-[#F58220]/40 uppercase">
                   V2.0 PRO
                 </span>
               </div>
-              <p className="text-xs text-gray-400">Manage Quotes, Pipeline, Fleet Dispatches, Invoices, and Live Content</p>
+              <p className="text-xs text-gray-400">
+                Manage Quotes, Pipeline, Fleet Dispatches, Invoices, and Live Content
+              </p>
             </div>
           </div>
 
@@ -107,7 +113,9 @@ export const AdminPortal: React.FC = () => {
               <span>Total Pipeline Value</span>
               <DollarSign className="w-4 h-4 text-[#F58220]" />
             </div>
-            <div className="text-3xl font-black text-white">${totalPipelineValue.toLocaleString()}</div>
+            <div className="text-3xl font-black text-white">
+              ${totalPipelineValue.toLocaleString()}
+            </div>
             <span className="text-[10px] text-emerald-400 font-bold flex items-center gap-1 mt-1">
               <ArrowUpRight className="w-3 h-3" /> +18.4% from last month
             </span>
@@ -139,19 +147,37 @@ export const AdminPortal: React.FC = () => {
               <Truck className="w-4 h-4 text-[#F58220]" />
             </div>
             <div className="text-3xl font-black text-emerald-400">100%</div>
-            <span className="text-[10px] text-gray-400 mt-1 block">4/4 Trucks &amp; Screeds Ready</span>
+            <span className="text-[10px] text-gray-400 mt-1 block">
+              4/4 Trucks &amp; Screeds Ready
+            </span>
           </div>
         </div>
 
         {/* CRM Navigation Tabs */}
         <div className="flex flex-wrap border-b border-white/10 bg-[#1A1A1A] rounded-t-2xl px-4 text-xs font-bold gap-2">
           {[
-            { id: 'pipeline', label: 'Lead Pipeline & Quotes', icon: <Users className="w-4 h-4" /> },
-            { id: 'editor', label: '🛠️ Website Content Editor', icon: <Edit3 className="w-4 h-4" /> },
+            {
+              id: 'pipeline',
+              label: 'Lead Pipeline & Quotes',
+              icon: <Users className="w-4 h-4" />
+            },
+            {
+              id: 'editor',
+              label: '🛠️ Website Content Editor',
+              icon: <Edit3 className="w-4 h-4" />
+            },
             { id: 'jobs', label: 'Active Jobs & Schedule', icon: <Calendar className="w-4 h-4" /> },
-            { id: 'invoices', label: 'Invoices & Payments', icon: <DollarSign className="w-4 h-4" /> },
+            {
+              id: 'invoices',
+              label: 'Invoices & Payments',
+              icon: <DollarSign className="w-4 h-4" />
+            },
             { id: 'fleet', label: 'Fleet & Equipment', icon: <Truck className="w-4 h-4" /> },
-            { id: 'analytics', label: 'Business Analytics', icon: <BarChart3 className="w-4 h-4" /> }
+            {
+              id: 'analytics',
+              label: 'Business Analytics',
+              icon: <BarChart3 className="w-4 h-4" />
+            }
           ].map((tab) => (
             <button
               key={tab.id}
@@ -170,26 +196,27 @@ export const AdminPortal: React.FC = () => {
 
         {/* Tab Contents Area */}
         <div className="bg-[#1A1A1A] p-6 rounded-b-2xl border-x border-b border-white/10 shadow-2xl">
-          
           {/* Lead Pipeline Tab */}
           {activeTab === 'pipeline' && (
             <div className="space-y-6">
               <div className="flex flex-wrap justify-between items-center gap-4 bg-[#2D2D2D] p-4 rounded-xl border border-white/10">
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-bold text-gray-300">Filter Status:</span>
-                  {['All', 'New', 'Estimate Scheduled', 'Proposal Sent', 'Contract Signed'].map((status) => (
-                    <button
-                      key={status}
-                      onClick={() => setLeadFilter(status)}
-                      className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                        leadFilter === status
-                          ? 'bg-[#F58220] text-white'
-                          : 'bg-[#1A1A1A] text-gray-400 hover:text-white'
-                      }`}
-                    >
-                      {status}
-                    </button>
-                  ))}
+                  {['All', 'New', 'Estimate Scheduled', 'Proposal Sent', 'Contract Signed'].map(
+                    (status) => (
+                      <button
+                        key={status}
+                        onClick={() => setLeadFilter(status)}
+                        className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                          leadFilter === status
+                            ? 'bg-[#F58220] text-white'
+                            : 'bg-[#1A1A1A] text-gray-400 hover:text-white'
+                        }`}
+                      >
+                        {status}
+                      </button>
+                    )
+                  )}
                 </div>
 
                 <div className="relative">
@@ -222,7 +249,9 @@ export const AdminPortal: React.FC = () => {
                       <tr key={lead.id} className="hover:bg-white/5 transition-colors">
                         <td className="p-3 font-bold text-white">
                           {lead.customerName}
-                          <span className="block text-[10px] text-gray-400 font-normal">{lead.email}</span>
+                          <span className="block text-[10px] text-gray-400 font-normal">
+                            {lead.email}
+                          </span>
                         </td>
                         <td className="p-3">
                           {lead.phone}
@@ -230,7 +259,9 @@ export const AdminPortal: React.FC = () => {
                         </td>
                         <td className="p-3">
                           <span className="font-bold text-white">{lead.serviceType}</span>
-                          <span className="block text-[10px] text-[#F58220] font-mono">{lead.estimatedSqFt} Sq Ft</span>
+                          <span className="block text-[10px] text-[#F58220] font-mono">
+                            {lead.estimatedSqFt} Sq Ft
+                          </span>
                         </td>
                         <td className="p-3 font-mono font-bold text-emerald-400">
                           ${lead.estimatedBudget.toLocaleString()}
@@ -274,14 +305,17 @@ export const AdminPortal: React.FC = () => {
                     Live Website Content &amp; Pricing Manager
                   </h3>
                   <p className="text-xs text-gray-400">
-                    Changes made here update the live website immediately and persist across sessions.
+                    Changes made here update the live website immediately and persist across
+                    sessions.
                   </p>
                 </div>
                 <div className="flex gap-2">
                   <button
                     onClick={() => setEditorSubTab('company')}
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors ${
-                      editorSubTab === 'company' ? 'bg-[#F58220] text-white' : 'bg-[#1A1A1A] text-gray-300'
+                      editorSubTab === 'company'
+                        ? 'bg-[#F58220] text-white'
+                        : 'bg-[#1A1A1A] text-gray-300'
                     }`}
                   >
                     <Phone className="w-3.5 h-3.5" />
@@ -290,7 +324,9 @@ export const AdminPortal: React.FC = () => {
                   <button
                     onClick={() => setEditorSubTab('services')}
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors ${
-                      editorSubTab === 'services' ? 'bg-[#F58220] text-white' : 'bg-[#1A1A1A] text-gray-300'
+                      editorSubTab === 'services'
+                        ? 'bg-[#F58220] text-white'
+                        : 'bg-[#1A1A1A] text-gray-300'
                     }`}
                   >
                     <Layers className="w-3.5 h-3.5" />
@@ -299,7 +335,9 @@ export const AdminPortal: React.FC = () => {
                   <button
                     onClick={() => setEditorSubTab('faqs')}
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors ${
-                      editorSubTab === 'faqs' ? 'bg-[#F58220] text-white' : 'bg-[#1A1A1A] text-gray-300'
+                      editorSubTab === 'faqs'
+                        ? 'bg-[#F58220] text-white'
+                        : 'bg-[#1A1A1A] text-gray-300'
                     }`}
                   >
                     <HelpCircle className="w-3.5 h-3.5" />
@@ -316,7 +354,9 @@ export const AdminPortal: React.FC = () => {
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                     <div>
-                      <label className="text-gray-400 font-bold block mb-1">Primary Hotline (Phone 1)</label>
+                      <label className="text-gray-400 font-bold block mb-1">
+                        Primary Hotline (Phone 1)
+                      </label>
                       <input
                         type="text"
                         value={companyDetails.phone1}
@@ -325,7 +365,9 @@ export const AdminPortal: React.FC = () => {
                       />
                     </div>
                     <div>
-                      <label className="text-gray-400 font-bold block mb-1">Secondary Line (Phone 2)</label>
+                      <label className="text-gray-400 font-bold block mb-1">
+                        Secondary Line (Phone 2)
+                      </label>
                       <input
                         type="text"
                         value={companyDetails.phone2}
@@ -343,7 +385,9 @@ export const AdminPortal: React.FC = () => {
                       />
                     </div>
                     <div>
-                      <label className="text-gray-400 font-bold block mb-1">Headquarters Address</label>
+                      <label className="text-gray-400 font-bold block mb-1">
+                        Headquarters Address
+                      </label>
                       <input
                         type="text"
                         value={companyDetails.address}
@@ -352,20 +396,28 @@ export const AdminPortal: React.FC = () => {
                       />
                     </div>
                     <div>
-                      <label className="text-gray-400 font-bold block mb-1">Projects Poured Count (Hero Stat)</label>
+                      <label className="text-gray-400 font-bold block mb-1">
+                        Projects Poured Count (Hero Stat)
+                      </label>
                       <input
                         type="number"
                         value={companyDetails.projectsCompleted}
-                        onChange={(e) => updateCompanyDetails({ projectsCompleted: parseInt(e.target.value) || 0 })}
+                        onChange={(e) =>
+                          updateCompanyDetails({ projectsCompleted: parseInt(e.target.value) || 0 })
+                        }
                         className="w-full bg-[#1A1A1A] border border-white/10 text-[#F58220] font-bold rounded-lg p-2.5 font-mono focus:border-[#F58220] focus:outline-none"
                       />
                     </div>
                     <div>
-                      <label className="text-gray-400 font-bold block mb-1">Years in Business</label>
+                      <label className="text-gray-400 font-bold block mb-1">
+                        Years in Business
+                      </label>
                       <input
                         type="number"
                         value={companyDetails.yearsInBusiness}
-                        onChange={(e) => updateCompanyDetails({ yearsInBusiness: parseInt(e.target.value) || 0 })}
+                        onChange={(e) =>
+                          updateCompanyDetails({ yearsInBusiness: parseInt(e.target.value) || 0 })
+                        }
                         className="w-full bg-[#1A1A1A] border border-white/10 text-white rounded-lg p-2.5 font-mono focus:border-[#F58220] focus:outline-none"
                       />
                     </div>
@@ -415,7 +467,8 @@ export const AdminPortal: React.FC = () => {
                           rebarOptions: ['#4 Rebar @ 18" O.C.'],
                           finishTypes: ['Standard Finish'],
                           features: ['4000 PSI Concrete', '10-Year Warranty'],
-                          image: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=1000&q=80'
+                          image:
+                            'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=1000&q=80'
                         });
                         setNewSrvTitle('');
                       }}
@@ -427,9 +480,14 @@ export const AdminPortal: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {services.map((srv) => (
-                      <div key={srv.id} className="bg-[#222222] p-3 rounded-xl border border-white/10 space-y-2">
+                      <div
+                        key={srv.id}
+                        className="bg-[#222222] p-3 rounded-xl border border-white/10 space-y-2"
+                      >
                         <div className="flex justify-between items-center">
-                          <span className="text-[10px] font-bold text-[#F58220] uppercase">{srv.category}</span>
+                          <span className="text-[10px] font-bold text-[#F58220] uppercase">
+                            {srv.category}
+                          </span>
                           <button
                             onClick={() => deleteService(srv.id)}
                             className="text-red-400 hover:text-red-300 p-1"
@@ -449,7 +507,11 @@ export const AdminPortal: React.FC = () => {
                             type="number"
                             step="0.5"
                             value={srv.basePricePerSqFt}
-                            onChange={(e) => updateService(srv.id, { basePricePerSqFt: parseFloat(e.target.value) || 0 })}
+                            onChange={(e) =>
+                              updateService(srv.id, {
+                                basePricePerSqFt: parseFloat(e.target.value) || 0
+                              })
+                            }
                             className="bg-[#1A1A1A] border border-white/10 text-emerald-400 font-mono font-bold rounded p-1 text-xs w-24"
                           />
                         </div>
@@ -495,9 +557,14 @@ export const AdminPortal: React.FC = () => {
 
                   <div className="space-y-3">
                     {faqs.map((faq, idx) => (
-                      <div key={idx} className="bg-[#222222] p-3 rounded-xl border border-white/10 space-y-2">
+                      <div
+                        key={idx}
+                        className="bg-[#222222] p-3 rounded-xl border border-white/10 space-y-2"
+                      >
                         <div className="flex justify-between items-center">
-                          <span className="text-[10px] font-bold text-[#F58220] uppercase">FAQ #{idx + 1}</span>
+                          <span className="text-[10px] font-bold text-[#F58220] uppercase">
+                            FAQ #{idx + 1}
+                          </span>
                           <button
                             onClick={() => deleteFAQ(idx)}
                             className="text-red-400 hover:text-red-300 p-1"
@@ -521,20 +588,25 @@ export const AdminPortal: React.FC = () => {
                   </div>
                 </div>
               )}
-
             </div>
           )}
 
           {/* Invoices Tab */}
           {activeTab === 'invoices' && (
             <div className="space-y-4 text-xs">
-              <h3 className="font-extrabold text-lg text-white">Recent Customer Invoices &amp; Deposits</h3>
+              <h3 className="font-extrabold text-lg text-white">
+                Recent Customer Invoices &amp; Deposits
+              </h3>
               <div className="bg-[#2D2D2D] p-4 rounded-xl border border-white/10 flex justify-between items-center">
                 <div>
-                  <span className="font-bold text-white block">INV-101 • David &amp; Sarah Jenkins</span>
+                  <span className="font-bold text-white block">
+                    INV-101 • David &amp; Sarah Jenkins
+                  </span>
                   <span className="text-gray-400">Deposit Paid: $5,000.00</span>
                 </div>
-                <span className="bg-emerald-500/20 text-emerald-400 font-bold px-2 py-1 rounded">PAID</span>
+                <span className="bg-emerald-500/20 text-emerald-400 font-bold px-2 py-1 rounded">
+                  PAID
+                </span>
               </div>
             </div>
           )}
@@ -545,7 +617,9 @@ export const AdminPortal: React.FC = () => {
               <h3 className="font-extrabold text-lg text-white">Scheduled Pours Calendar</h3>
               <div className="bg-[#2D2D2D] p-4 rounded-xl border border-white/10">
                 <span className="font-bold text-[#F58220] block">Monday, Aug 10 @ 7:00 AM</span>
-                <span className="text-white font-extrabold">3210 North Rock Rd (Wichita) — 4000 PSI Stamped Patio Pour</span>
+                <span className="text-white font-extrabold">
+                  3210 North Rock Rd (Wichita) — 4000 PSI Stamped Patio Pour
+                </span>
               </div>
             </div>
           )}
@@ -553,13 +627,19 @@ export const AdminPortal: React.FC = () => {
           {/* Fleet Tab */}
           {activeTab === 'fleet' && (
             <div className="space-y-4 text-xs">
-              <h3 className="font-extrabold text-lg text-white">Branded Fleet Tracking &amp; Maintenance</h3>
+              <h3 className="font-extrabold text-lg text-white">
+                Branded Fleet Tracking &amp; Maintenance
+              </h3>
               <div className="bg-[#2D2D2D] p-4 rounded-xl border border-white/10 flex justify-between items-center">
                 <div>
-                  <span className="font-bold text-white block">TRK-01 • Ford F-550 Dump Truck (Signature Orange Wrap)</span>
+                  <span className="font-bold text-white block">
+                    TRK-01 • Ford F-550 Dump Truck (Signature Orange Wrap)
+                  </span>
                   <span className="text-gray-400">Status: Active &amp; Dispatched</span>
                 </div>
-                <span className="bg-emerald-500/20 text-emerald-400 font-bold px-2 py-1 rounded">READY</span>
+                <span className="bg-emerald-500/20 text-emerald-400 font-bold px-2 py-1 rounded">
+                  READY
+                </span>
               </div>
             </div>
           )}
@@ -567,16 +647,18 @@ export const AdminPortal: React.FC = () => {
           {/* Analytics Tab */}
           {activeTab === 'analytics' && (
             <div className="space-y-4 text-xs">
-              <h3 className="font-extrabold text-lg text-white">Revenue &amp; Lead Conversion Performance</h3>
+              <h3 className="font-extrabold text-lg text-white">
+                Revenue &amp; Lead Conversion Performance
+              </h3>
               <div className="bg-[#2D2D2D] p-4 rounded-xl border border-white/10">
-                <span className="font-bold text-[#F58220] block">Average Ticket Size: $9,800.00</span>
+                <span className="font-bold text-[#F58220] block">
+                  Average Ticket Size: $9,800.00
+                </span>
                 <span className="text-gray-300">Wichita Metro Area Conversion Rate: 34.8%</span>
               </div>
             </div>
           )}
-
         </div>
-
       </div>
     </div>
   );

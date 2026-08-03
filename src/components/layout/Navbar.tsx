@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Shield, Calendar, Menu, X, ChevronDown, Wrench, Globe, UserCheck } from 'lucide-react';
+import {
+  Phone,
+  Shield,
+  Calendar,
+  Menu,
+  X,
+  ChevronDown,
+  Wrench,
+  Globe,
+  UserCheck
+} from 'lucide-react';
 import { useCMS } from '../../cms/useCMS';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -43,12 +53,12 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5 text-[#F58220]">
               <span className="w-2 h-2 rounded-full bg-[#F58220] animate-pulse"></span>
-              {language === 'ES' ? 'Despacho Rápido 24/7 Activo' : '⚡ Fast Response 24/7 Dispatch Active'}
+              🏷️ Turnkey SaaS Platform — Available For Acquisition & Ownership
             </span>
             <span className="hidden sm:inline text-gray-400">|</span>
             <span className="hidden sm:flex items-center gap-1 text-gray-300">
               <Shield className="w-3.5 h-3.5 text-[#F58220]" />
-              {language === 'ES' ? 'Con Licencia y Asegurado por $2M' : 'Licensed & Insured ($2M Guarantee)'}
+              Enterprise Production Codebase
             </span>
           </div>
 
@@ -81,7 +91,6 @@ export const Navbar: React.FC = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 items-center">
-
           {/* ── LEFT: Navigation Links ── */}
           <div className="hidden lg:flex items-center gap-5 text-sm font-semibold text-[#374151]">
             <button
@@ -117,7 +126,7 @@ export const Navbar: React.FC = () => {
                     { label: 'Garage & Shop Floors' },
                     { label: 'Commercial Flatwork' },
                     { label: 'Sidewalks & Walkways' },
-                    { label: 'Concrete Repair & Resurfacing' },
+                    { label: 'Concrete Repair & Resurfacing' }
                   ].map((s) => (
                     <button
                       key={s.label}
@@ -126,7 +135,9 @@ export const Navbar: React.FC = () => {
                     >
                       <span>{s.label}</span>
                       {s.popular && (
-                        <span className="text-[10px] bg-[#F58220] text-white px-1.5 rounded font-bold">Popular</span>
+                        <span className="text-[10px] bg-[#F58220] text-white px-1.5 rounded font-bold">
+                          Popular
+                        </span>
                       )}
                     </button>
                   ))}
@@ -160,15 +171,22 @@ export const Navbar: React.FC = () => {
 
           {/* ── CENTER: Logo (bigger, perfectly centered) ── */}
           <div className="flex justify-center items-center">
-            <Link to="/" className="group flex items-center" aria-label="Lara Concrete LLC Home">
-              <div className={`transition-all duration-300 ${isScrolled ? 'py-1' : 'py-1.5'}`}>
-                <img
-                  src="/lara-logo.jpg"
-                  alt="Lara Concrete LLC"
-                  className={`w-auto object-contain transition-all duration-300 group-hover:scale-105 drop-shadow-sm ${
-                    isScrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'
-                  }`}
-                />
+            <Link to="/" className="group flex items-center gap-2.5" aria-label="ZenBid Pro Home">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#F58220] to-[#E07110] flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition-transform">
+                ZB
+              </div>
+              <div className="flex flex-col text-left">
+                <div className="flex items-center gap-1.5">
+                  <span className="font-extrabold text-xl tracking-tight text-[#1F2937] leading-none">
+                    ZenBid<span className="text-[#F58220]">.Pro</span>
+                  </span>
+                  <span className="text-[9px] bg-[#F58220]/15 text-[#F58220] border border-[#F58220]/30 font-black px-1.5 py-0.5 rounded-md uppercase tracking-wider">
+                    OWNERSHIP READY
+                  </span>
+                </div>
+                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-tight">
+                  Turnkey Concrete SaaS
+                </span>
               </div>
             </Link>
           </div>
@@ -225,7 +243,6 @@ export const Navbar: React.FC = () => {
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
-
         </div>
       </nav>
 
@@ -240,13 +257,16 @@ export const Navbar: React.FC = () => {
             <div className="grid grid-cols-2 gap-2 text-sm font-semibold">
               {[
                 { label: language === 'ES' ? 'Inicio' : 'Home', section: 'hero' },
-                { label: language === 'ES' ? 'Servicios (14)' : 'Services (14)', section: 'services' },
+                {
+                  label: language === 'ES' ? 'Servicios (14)' : 'Services (14)',
+                  section: 'services'
+                },
                 { label: 'CAD Estimator', section: 'cad-estimator', accent: true },
                 { label: 'Photo Estimator', section: 'photo-estimator', accent: true },
                 { label: 'Customer Portal', section: 'customer-portal' },
                 { label: language === 'ES' ? 'Flota' : 'Fleet', section: 'fleet' },
                 { label: language === 'ES' ? 'Proyectos' : 'Projects', section: 'projects' },
-                { label: language === 'ES' ? 'Guías' : 'Blog', section: 'blog' },
+                { label: language === 'ES' ? 'Guías' : 'Blog', section: 'blog' }
               ].map((item) => (
                 <button
                   key={item.section}

@@ -12,7 +12,8 @@ export const Testimonials: React.FC = () => {
       date: 'July 2026',
       project: '2,800 Sq Ft Stamped Driveway',
       text: 'Lara Concrete brought out their signature orange fleet and poured our 2,800 sq ft ashlar slate stamped driveway in 4 days. Zero mess left on our lawn. Absolute master craftsmen!',
-      photo: 'https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=400&q=80'
+      photo:
+        'https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=400&q=80'
     },
     {
       author: 'Marcus Sterling',
@@ -21,7 +22,8 @@ export const Testimonials: React.FC = () => {
       date: 'June 2026',
       project: 'Wood Grain Stamped Patio',
       text: 'The wood-plank stamped patio looks like real hard timber but will last 50 years without rot. Carlos and his crew were punctual, polite, and extremely clean.',
-      photo: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80'
+      photo:
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80'
     },
     {
       author: 'Apex Logistics Operations',
@@ -30,14 +32,17 @@ export const Testimonials: React.FC = () => {
       date: 'May 2026',
       project: '8,500 Sq Ft Commercial Loading Dock',
       text: 'Needed 8,500 sq ft poured for semi trucks. Lara Concrete passed all 5,000 PSI compression tests with flying colors. Zero downtime on our schedule.',
-      photo: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=400&q=80'
+      photo:
+        'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=400&q=80'
     }
   ];
 
   return (
-    <section id="testimonials" className="py-20 bg-[#2D2D2D] text-white relative border-b border-white/10 overflow-hidden">
+    <section
+      id="testimonials"
+      className="py-20 bg-[#2D2D2D] text-white relative border-b border-white/10 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
           <div className="inline-flex items-center gap-2 bg-[#F58220]/20 text-[#F58220] border border-[#F58220]/40 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">
@@ -65,8 +70,12 @@ export const Testimonials: React.FC = () => {
               <span className="text-[10px] bg-red-500/20 text-red-400 font-extrabold px-2 py-0.5 rounded border border-red-500/30 uppercase tracking-widest">
                 WATCH VIDEO TESTIMONIAL
               </span>
-              <h3 className="text-lg font-black text-white mt-1">Robert Vance's 2,800 Sq Ft Stamped Driveway Tour</h3>
-              <p className="text-xs text-gray-400">See the step-by-step pour and laser screed process in 4K resolution.</p>
+              <h3 className="text-lg font-black text-white mt-1">
+                Robert Vance's 2,800 Sq Ft Stamped Driveway Tour
+              </h3>
+              <p className="text-xs text-gray-400">
+                See the step-by-step pour and laser screed process in 4K resolution.
+              </p>
             </div>
           </div>
 
@@ -97,9 +106,7 @@ export const Testimonials: React.FC = () => {
 
                 <Quote className="w-6 h-6 text-[#F58220]/40 mb-2" />
 
-                <p className="text-xs text-gray-200 leading-relaxed italic">
-                  "{rev.text}"
-                </p>
+                <p className="text-xs text-gray-200 leading-relaxed italic">"{rev.text}"</p>
               </div>
 
               <div className="pt-4 border-t border-white/10 flex items-center gap-3">
@@ -117,17 +124,21 @@ export const Testimonials: React.FC = () => {
             </div>
           ))}
         </div>
-
       </div>
 
       {/* Video Modal */}
       {videoModalOpen && (
         <div className="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-4">
           <div className="bg-[#1A1A1A] border border-white/20 rounded-2xl max-w-3xl w-full p-6 relative">
-            <button onClick={() => setVideoModalOpen(false)} className="absolute top-4 right-4 text-gray-400 hover:text-white">
+            <button
+              onClick={() => setVideoModalOpen(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white"
+            >
               <X className="w-6 h-6" />
             </button>
-            <h3 className="text-lg font-black text-[#F58220] mb-4">Video Case Study: 2,800 Sq Ft Stamped Slate Driveway</h3>
+            <h3 className="text-lg font-black text-[#F58220] mb-4">
+              Video Case Study: 2,800 Sq Ft Stamped Slate Driveway
+            </h3>
             <div className="h-80 bg-[#121212] rounded-xl flex items-center justify-center text-xs text-gray-400 border border-white/10">
               <div className="text-center space-y-2">
                 <Play className="w-12 h-12 text-[#F58220] mx-auto animate-pulse" />

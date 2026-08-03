@@ -39,17 +39,23 @@ const ICON_MAP: Record<string, React.ReactNode> = {
 };
 
 export const ServicesSection: React.FC = () => {
-  const { services, openEstimateModal, activeServiceDrawer, openServiceDrawer, closeServiceDrawer } = useCMS();
-  const [activeFilter, setActiveFilter] = useState<'all' | 'residential' | 'commercial' | 'decorative' | 'structural'>('all');
+  const {
+    services,
+    openEstimateModal,
+    activeServiceDrawer,
+    openServiceDrawer,
+    closeServiceDrawer
+  } = useCMS();
+  const [activeFilter, setActiveFilter] = useState<
+    'all' | 'residential' | 'commercial' | 'decorative' | 'structural'
+  >('all');
 
-  const filteredServices = activeFilter === 'all'
-    ? services
-    : services.filter((s) => s.category === activeFilter);
+  const filteredServices =
+    activeFilter === 'all' ? services : services.filter((s) => s.category === activeFilter);
 
   return (
     <section id="services" className="py-20 bg-[#F8FAFC] text-[#1F2937] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
           <span className="bg-[#F58220]/15 text-[#F58220] border border-[#F58220]/30 text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block">
@@ -59,24 +65,27 @@ export const ServicesSection: React.FC = () => {
             Precision Engineering for Every Pour
           </h2>
           <p className="text-gray-600 text-base sm:text-lg">
-            From 4,000+ PSI rebar-reinforced residential driveways to laser-screed commercial slabs, explore our 14 specialized concrete services.
+            From 4,000+ PSI rebar-reinforced residential driveways to laser-screed commercial slabs,
+            explore our 14 specialized concrete services.
           </p>
 
           {/* Filter Pills */}
           <div className="flex flex-wrap justify-center gap-2 pt-4">
-            {(['all', 'residential', 'structural', 'commercial', 'decorative'] as const).map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
-                  activeFilter === filter
-                    ? 'bg-[#F58220] text-white shadow-lg shadow-[#F58220]/30 scale-105'
-                    : 'bg-white text-gray-700 hover:bg-gray-200 border border-gray-200'
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
+            {(['all', 'residential', 'structural', 'commercial', 'decorative'] as const).map(
+              (filter) => (
+                <button
+                  key={filter}
+                  onClick={() => setActiveFilter(filter)}
+                  className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
+                    activeFilter === filter
+                      ? 'bg-[#F58220] text-white shadow-lg shadow-[#F58220]/30 scale-105'
+                      : 'bg-white text-gray-700 hover:bg-gray-200 border border-gray-200'
+                  }`}
+                >
+                  {filter}
+                </button>
+              )
+            )}
           </div>
         </div>
 
@@ -110,7 +119,9 @@ export const ServicesSection: React.FC = () => {
 
                 {/* Est Price Badge */}
                 <div className="absolute bottom-3 right-4 bg-[#2D2D2D]/90 backdrop-blur-md text-white text-xs font-bold px-2.5 py-1 rounded-lg border border-white/20">
-                  Est: <span className="text-[#F58220]">${service.basePricePerSqFt.toFixed(2)}</span> / sq ft
+                  Est:{' '}
+                  <span className="text-[#F58220]">${service.basePricePerSqFt.toFixed(2)}</span> /
+                  sq ft
                 </div>
               </div>
 
@@ -120,14 +131,15 @@ export const ServicesSection: React.FC = () => {
                   <h3 className="text-xl font-extrabold text-[#2D2D2D] group-hover:text-[#F58220] transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 text-xs mt-2 leading-relaxed">
-                    {service.shortDesc}
-                  </p>
+                  <p className="text-gray-600 text-xs mt-2 leading-relaxed">{service.shortDesc}</p>
 
                   {/* Bullet features */}
                   <ul className="mt-4 space-y-1.5 border-t border-gray-100 pt-3">
                     {service.features.slice(0, 3).map((feat, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-xs text-gray-700 font-medium">
+                      <li
+                        key={idx}
+                        className="flex items-center gap-2 text-xs text-gray-700 font-medium"
+                      >
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#F58220] shrink-0" />
                         <span>{feat}</span>
                       </li>
@@ -157,7 +169,6 @@ export const ServicesSection: React.FC = () => {
             </div>
           ))}
         </div>
-
       </div>
 
       {/* Service Detail Specs Drawer / Modal */}
@@ -191,20 +202,33 @@ export const ServicesSection: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-3 bg-[#2D2D2D] p-4 rounded-xl border border-white/10">
                 <div>
-                  <span className="text-gray-400 font-bold block text-[10px] uppercase">Base Estimated Cost</span>
-                  <span className="text-xl font-extrabold text-[#F58220]">${activeServiceDrawer.basePricePerSqFt.toFixed(2)} / sq ft</span>
+                  <span className="text-gray-400 font-bold block text-[10px] uppercase">
+                    Base Estimated Cost
+                  </span>
+                  <span className="text-xl font-extrabold text-[#F58220]">
+                    ${activeServiceDrawer.basePricePerSqFt.toFixed(2)} / sq ft
+                  </span>
                 </div>
                 <div>
-                  <span className="text-gray-400 font-bold block text-[10px] uppercase">Typical Slab Depth</span>
-                  <span className="text-xl font-extrabold text-white">{activeServiceDrawer.typicalThicknessInches}" Inches</span>
+                  <span className="text-gray-400 font-bold block text-[10px] uppercase">
+                    Typical Slab Depth
+                  </span>
+                  <span className="text-xl font-extrabold text-white">
+                    {activeServiceDrawer.typicalThicknessInches}" Inches
+                  </span>
                 </div>
               </div>
 
               <div>
-                <h4 className="font-bold text-[#F58220] uppercase tracking-wider mb-2">Steel & Mesh Reinforcement Options:</h4>
+                <h4 className="font-bold text-[#F58220] uppercase tracking-wider mb-2">
+                  Steel & Mesh Reinforcement Options:
+                </h4>
                 <div className="flex flex-wrap gap-2">
                   {activeServiceDrawer.rebarOptions.map((opt, i) => (
-                    <span key={i} className="bg-white/10 text-gray-200 px-3 py-1 rounded-lg border border-white/10 font-semibold">
+                    <span
+                      key={i}
+                      className="bg-white/10 text-gray-200 px-3 py-1 rounded-lg border border-white/10 font-semibold"
+                    >
                       {opt}
                     </span>
                   ))}
@@ -212,10 +236,15 @@ export const ServicesSection: React.FC = () => {
               </div>
 
               <div>
-                <h4 className="font-bold text-[#F58220] uppercase tracking-wider mb-2">Available Decorative Finishes:</h4>
+                <h4 className="font-bold text-[#F58220] uppercase tracking-wider mb-2">
+                  Available Decorative Finishes:
+                </h4>
                 <div className="flex flex-wrap gap-2">
                   {activeServiceDrawer.finishTypes.map((fin, i) => (
-                    <span key={i} className="bg-[#F58220]/20 text-[#F58220] px-3 py-1 rounded-lg border border-[#F58220]/30 font-semibold">
+                    <span
+                      key={i}
+                      className="bg-[#F58220]/20 text-[#F58220] px-3 py-1 rounded-lg border border-[#F58220]/30 font-semibold"
+                    >
                       {fin}
                     </span>
                   ))}
