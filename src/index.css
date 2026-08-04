@@ -43,9 +43,9 @@ body {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-/* Page-level offset to prevent FloatingBar (~108px) from covering content */
+/* Page-level offset to prevent FloatingBar (~50px) from covering content */
 .mobile-page-offset {
-  padding-bottom: 116px;
+  padding-bottom: 64px;
 }
 @media (min-width: 1024px) {
   .mobile-page-offset {

@@ -29,10 +29,7 @@ export const BilingualAIChatbot: React.FC = () => {
         - Mobile (<lg): bottom-[116px] to clear the redesigned 2-row FloatingBar (~108px tall)
         - Desktop (lg+): bottom-6
       */}
-      <div
-        className="fixed bottom-[116px] right-4 lg:bottom-6 lg:right-6 z-40"
-        style={{ bottom: isChatOpen ? undefined : undefined }}
-      >
+      <div className="fixed bottom-16 right-3 lg:bottom-6 lg:right-6 z-40">
         <button
           onClick={() => setIsChatOpen(!isChatOpen)}
           className={`flex items-center gap-2 px-3 py-2.5 lg:px-4 lg:py-3 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-105 active:scale-95 border border-[#F58220]/40 ${
@@ -80,11 +77,11 @@ export const BilingualAIChatbot: React.FC = () => {
           className={[
             // Position: above toggle button + FloatingBar on mobile, bottom-right on desktop
             'fixed right-3 z-50',
-            'bottom-[172px] lg:bottom-24 lg:right-6',
+            'bottom-24 lg:bottom-24 lg:right-6',
             // Sizing
             'w-[calc(100vw-1.5rem)] max-w-sm sm:max-w-md',
             // Max-height: never exceed viewport minus safe zones
-            'max-h-[calc(100vh-200px)] lg:max-h-[500px]',
+            'max-h-[calc(100vh-120px)] lg:max-h-[500px]',
             // Appearance
             'bg-[#1A1A1A] text-white rounded-2xl border border-white/20 shadow-2xl',
             'overflow-hidden flex flex-col',
