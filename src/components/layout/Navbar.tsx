@@ -47,6 +47,11 @@ export const Navbar: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-50 transition-all duration-300">
+      {/* Skip to main content for accessibility */}
+      <a href="#hero" className="skip-to-content">
+        Skip to main content
+      </a>
+
       {/* Top Hotline Bar */}
       <div className="bg-[#1A1A1A] text-white py-2 px-4 text-xs font-semibold border-b border-white/10">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
@@ -237,10 +242,15 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2.5 rounded-xl bg-gray-100 text-[#1F2937] hover:bg-[#F58220] hover:text-white transition-all duration-200 border border-gray-200"
+              className="lg:hidden p-2.5 rounded-xl bg-gray-100 text-[#1F2937] hover:bg-[#F58220] hover:text-white transition-all duration-200 border border-gray-200 min-h-[44px] min-w-[44px] flex items-center justify-center"
               aria-label="Toggle Navigation Menu"
+              aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5" aria-hidden="true" />
+              ) : (
+                <Menu className="w-5 h-5" aria-hidden="true" />
+              )}
             </button>
           </div>
         </div>

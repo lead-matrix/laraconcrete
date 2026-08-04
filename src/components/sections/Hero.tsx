@@ -78,21 +78,26 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Call to Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 sm:pt-4">
               <button
                 onClick={() => openEstimateModal()}
-                className="btn-lara-primary px-8 py-4 rounded-xl text-sm font-extrabold uppercase tracking-wider flex items-center justify-center gap-2 shadow-2xl group"
+                className="btn-lara-primary w-full sm:w-auto px-8 py-4 rounded-xl text-sm sm:text-base font-extrabold uppercase tracking-wider flex items-center justify-center gap-2 shadow-2xl group min-h-[52px]"
+                aria-label="Request a free estimate"
               >
                 <span>Get Free Estimate</span>
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight
+                  className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                  aria-hidden="true"
+                />
               </button>
 
               <a
-                href="tel:3169930376"
-                className="btn-lara-secondary px-8 py-4 rounded-xl text-sm font-extrabold uppercase tracking-wider flex items-center justify-center gap-2"
+                href={`tel:${companyDetails.phone1.replace(/\D/g, '')}`}
+                className="hidden sm:flex btn-lara-secondary px-8 py-4 rounded-xl text-sm font-extrabold uppercase tracking-wider items-center justify-center gap-2 min-h-[52px]"
+                aria-label={`Call us at ${companyDetails.phone1}`}
               >
-                <Phone className="w-4 h-4 text-[#F58220]" />
-                <span>Call: (316) 993-0376</span>
+                <Phone className="w-4 h-4 text-[#F58220]" aria-hidden="true" />
+                <span>Call: {companyDetails.phone1}</span>
               </a>
             </div>
 

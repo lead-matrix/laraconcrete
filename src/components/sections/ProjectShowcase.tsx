@@ -124,26 +124,29 @@ export const ProjectShowcase: React.FC = () => {
                 <img
                   src={project.afterImage}
                   alt={project.title}
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2D2D2D] via-transparent to-transparent opacity-80"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2D2D2D] via-transparent to-transparent opacity-90"></div>
 
-                <span className="absolute top-4 left-4 bg-[#2D2D2D]/90 backdrop-blur-md text-[#F58220] border border-[#F58220]/40 text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded">
-                  {project.category}
-                </span>
-
-                <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
-                  <div>
-                    <h3 className="text-lg font-black text-white">{project.title}</h3>
-                    <p className="text-xs text-gray-300 font-medium">{project.location}</p>
-                  </div>
+                <div className="absolute top-4 left-4 right-4 flex justify-between items-center">
+                  <span className="bg-[#2D2D2D]/90 backdrop-blur-md text-[#F58220] border border-[#F58220]/40 text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded">
+                    {project.category}
+                  </span>
 
                   <button
                     onClick={() => setSelectedProject(project)}
-                    className="bg-[#F58220] hover:bg-[#FF8E2B] text-white p-2 rounded-lg transition-colors shadow"
+                    className="bg-[#F58220] hover:bg-[#FF8E2B] active:scale-95 text-white p-2 rounded-lg transition-all shadow-md flex items-center gap-1 text-xs font-bold"
+                    aria-label={`View details for ${project.title}`}
                   >
-                    <Eye className="w-4 h-4" />
+                    <Eye className="w-4 h-4" aria-hidden="true" />
+                    <span className="hidden sm:inline">Details</span>
                   </button>
+                </div>
+
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3 className="text-lg font-black text-white leading-snug">{project.title}</h3>
+                  <p className="text-xs text-gray-300 font-medium">{project.location}</p>
                 </div>
               </div>
 
@@ -206,7 +209,7 @@ export const ProjectShowcase: React.FC = () => {
       {/* Project Case Study Detailed Modal */}
       {selectedProject && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
-          <div className="bg-[#1A1A1A] text-white border border-white/20 rounded-2xl max-w-3xl w-full p-6 relative overflow-hidden shadow-2xl animate-fadeIn">
+          <div className="bg-[#1A1A1A] text-white border border-white/20 rounded-2xl max-w-3xl w-full p-6 relative shadow-2xl animate-fadeIn max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setSelectedProject(null)}
               className="absolute top-4 right-4 p-2 bg-[#2D2D2D] hover:bg-white/20 rounded-full text-gray-300 hover:text-white"

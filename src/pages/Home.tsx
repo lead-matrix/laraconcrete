@@ -71,7 +71,7 @@ const SectionSkeleton: React.FC = () => (
 
 export const Home: React.FC = () => {
   return (
-    <div className="bg-white text-[#1F2937]">
+    <div className="bg-white text-[#1F2937] mobile-page-offset">
       <SEOMetadata
         title="Lara Concrete LLC | #1 Concrete Contractor | Driveways, Patios, Foundations"
         description="Lara Concrete LLC delivers 4,000+ PSI rebar-reinforced concrete driveways, stamped patios, garage slabs, foundations, and commercial flatwork. Free instant estimates & 10-year warranty."
