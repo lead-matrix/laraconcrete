@@ -1,132 +1,145 @@
-# Lara Concrete — Enterprise Construction SaaS & Estimating Platform
+# Contractor Operating System™ — Master Enterprise SaaS Platform
 
-![Lara Concrete Banner](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
-![Testing](https://img.shields.io/badge/Coverage-%3E80%25-blue)
+![Contractor OS Banner](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
+![Multi-Tenant](https://img.shields.io/badge/Architecture-Multi--Tenant-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue)
-![Vite](https://img.shields.io/badge/Build-Vite%206-orange)
+![Backend](https://img.shields.io/badge/Backend-Laravel%2012-red)
+![Frontend](https://img.shields.io/badge/Frontend-React%2019%20%2B%20Vite-orange)
 
-A high-performance, mobile-optimized, enterprise-grade web platform and CAD estimating suite for **Lara Concrete LLC** (Wichita, KS). Built with **React 19**, **TypeScript**, **Vite**, **Tailwind CSS v4**, **Vitest**, and a flexible **CMS Architecture** (Local Storage / Supabase ready).
+> **"We don't replace your employees. We replace the chaos between them."**
 
----
-
-## 🏗️ Core Features & Capabilities
-
-- **Interactive 3D Visual CAD Estimator**: Real-time slab cost calculation with customizable length/width, PSI strength (3000–5000 PSI), rebar matrix spacing, finish styles (stamped, broom, acid stain), and instant PDF/quote generation.
-- **AI Vision Estimator**: Upload site photographs for automated AI analysis and slope/excavation assessment.
-- **Customer Portal & Project Password Verification**: Password-protected client project portals for viewing live job progress, structural schematics, and timeline updates.
-- **Pluggable CMS Provider Architecture**: Decoupled data layer allowing seamless toggling between local client-side persistence and Supabase / backend API instances.
-- **Local SEO Engine**: Automated city landing engine serving targeted Kansas service areas (Wichita, Andover, Derby, Maize, Goddard).
-- **Enterprise Reliability**: Global React Error Boundaries, full 404 fallback routing, and zero-runtime-crash design.
+Contractor Operating System™ is a production-grade, multi-tenant SaaS platform engineered specifically for trade contractors and construction businesses. Built with **React 19**, **TypeScript**, **Vite**, **Tailwind CSS**, and a **Laravel 12 Clean Architecture** backend with PostgreSQL and Redis.
 
 ---
 
-## 🚀 Technology Stack
+## 🎯 The North Star Philosophy
 
-- **Core**: React 19, TypeScript (Strict Mode), Vite 6
-- **Styling**: Tailwind CSS v4, Lucide Icons, Custom Glassmorphism & Smooth Animations
-- **State & CMS**: Context API + Custom Provider Interface (`CMSProvider` abstraction)
-- **Testing**: Vitest, React Testing Library, `@testing-library/jest-dom`, JSDOM environment
-- **Linting & Code Quality**: ESLint (Flat Config), Oxlint, Prettier
-- **CI/CD**: GitHub Actions (`.github/workflows/ci.yml`)
+> **Contractor Operating System™ exists to eliminate operational chaos. Every feature, workflow, and architectural decision must make it easier for contractors to estimate accurately, schedule confidently, communicate clearly, protect their margins, and grow without relying on memory or spreadsheets. We are not building software. We are building the system contractors trust to run their business every day.**
+
+### The Core Question
+Every screen and workflow must answer one question:
+> **"What problem is this solving for the contractor right now?"**
 
 ---
 
-## 🛠️ Project Architecture
+## 🛠️ The 8 Measurable Contractor Pain Points Solved
+
+| # | Pain Point | Cost of the Pain | COS™ Solution |
+|---|---|---|---|
+| 1 | **Underpriced Estimates** | Margin erosion & jobs completed at a loss | Smart Estimator with hard floor profit margin locks |
+| 2 | **Slow Payments & Cash Flow Gaps** | Jobs done with no money in the bank | Customer Portal with instant deposit collection on estimate approval |
+| 3 | **Lost Documentation** | Liability exposure & lost legal disputes | Photo & Document Vault tagged to job ID, timestamp & crew |
+| 4 | **Poor Scheduling & Crew Accountability** | Wasted mobilization & ghost time | Field Dispatch with GPS check-in/out confirmation |
+| 5 | **Poor Customer Communication** | Cancellations & distrust | Customer Portal with 24/7 job status & message thread |
+| 6 | **No Business Visibility** | Owner flying blind on revenue & margins | Mission Control — Morning Briefing, not endless charts |
+| 7 | **Manual & Repetitive Workflows** | Owner doing $12/hr work instead of $200/hr work | Trigger-based automation engine |
+| 8 | **Business Owner Burnout** | **Company stops when owner is unavailable** | **SOPs, delegated approvals, automated alerts & Business Pulse™** |
+
+---
+
+## 🌟 Signature Features
+
+### 1. Business Pulse™ Morning Briefing
+Every morning at 7:00 AM, the owner receives one concise briefing:
+- Real-time active job counts and crew dispatch status
+- Pending deposit collections ($)
+- Expiring estimate alerts & margin protection triggers
+- Weather risk forecasts for upcoming concrete pours
+- Weekly estimated profit calculation
+
+### 2. Business OS Health Score
+A real-time health index (0–100) inspired by system diagnostics:
+- **Documentation**: 100%
+- **Cash Flow**: 82%
+- **Scheduling**: 97%
+- **Automation**: 45%
+- **Customer Satisfaction**: 91%
+- **Safety**: 88%
+
+### 3. Smart Estimator & Margin Lock Safeguard
+- Direct cost calculator (Materials, Labor, Equipment, Subcontractor)
+- Overhead multiplier slider
+- Hard profit margin lock (prevents submitting bids below cost floor)
+
+### 4. Linear-Style Command Palette (`Cmd+K` / `Ctrl+K`)
+- Rapid hotkey search across leads, estimates, active jobs, tenants, and roles.
+
+### 5. Multi-Tenant & Granular RBAC Engine
+- Isolated tenant environments per contractor business
+- 8 pre-configured roles: `Platform Owner`, `Platform Admin`, `Business Owner`, `Office Manager`, `Project Manager`, `Crew Leader`, `Employee`, `Customer`.
+
+### 6. Configurable Global Footer Attribution
+- Subtle attribution: *Designed & Architected by Mahmudur R Bhuiyan — Architecting the Systems Behind Great Businesses.*
+- **Configurable per tenant**: Toggleable by Platform Owner or Enterprise White-Label clients.
+
+---
+
+## 🏗️ Project Architecture
 
 ```
-src/
-├── animations/         # Framer motion & CSS animation keyframes
-├── cms/                # CMS Provider interface & LocalStorage implementation
-│   ├── index.ts        # Provider contract definition
-│   ├── localProvider.ts# In-browser persistent CMS implementation
-│   └── useCMS.tsx      # React context hook & provider wrapper
-├── components/
-│   ├── layout/         # Navbar, Footer, Splash Loader
-│   ├── sections/       # Hero, CAD Estimator, AI Vision, Contact, Testimonials, etc.
-│   ├── strategy/       # ROI Calculator, Speed Slider, System Architecture diagrams
-│   └── ui/             # Reusable UI primitives, ErrorBoundary, SEO Metadata
-├── data/               # Default static site data & material pricing schemas
-├── pages/              # Main route views (Home, AdminPortal, NotFound)
-├── test/               # Vitest test suites, mock providers, and setup helpers
-└── types/              # TypeScript interfaces & domain models
+contractor-os/
+├── backend/                             # Laravel 12 Backend Clean Architecture
+│   ├── app/
+│   │   ├── Http/Middleware/TenantMiddleware.php  # Multi-tenant header & domain guard
+│   │   ├── Scopes/TenantScope.php       # Global Eloquent database isolation scope
+│   │   └── Services/EstimatorService.php # Margin protection & quote calculation service
+│   ├── database/migrations/             # PostgreSQL UUID migrations
+│   └── README.md                        # Backend architecture blueprint
+├── public/
+│   ├── favicon.svg                      # COS™ vector icon
+│   └── logo.svg                         # COS™ brand shield logo
+├── src/
+│   ├── components/
+│   │   ├── layout/                      # Navbar & Footer with configurable attribution
+│   │   └── ui/                          # CommandBar (Cmd+K) & BusinessHealthScore
+│   ├── core/
+│   │   ├── rbacContext.tsx              # Granular RBAC Provider & simulator
+│   │   ├── tenantContext.tsx            # Multi-Tenant Provider & feature flags
+│   │   └── types.ts                     # Core domain interfaces
+│   ├── pages/
+│   │   ├── MissionControl.tsx           # Morning Briefing & Business Pulse™
+│   │   ├── CRMModule.tsx                # Sales Pipeline Kanban Board
+│   │   ├── EstimatorModule.tsx          # Direct Cost & Margin Protection Engine
+│   │   ├── ProjectsModule.tsx           # Field Dispatch & Crew Schedule Board
+│   │   ├── CustomerPortal.tsx           # Estimate Approval & Deposit Simulator
+│   │   ├── SuperAdminModule.tsx         # Platform Owner Control Center
+│   │   └── NotFound.tsx                 # 404 Error View
+│   └── test/                            # Vitest core architecture unit tests
 ```
 
 ---
 
-## 🧪 Testing & Code Quality
-
-The repository enforces automated validation on every commit and pull request.
-
-### Running Scripts
+## 🧪 Testing & Engineering Verification
 
 ```bash
-# Start Development Server
-npm run dev
-
 # Run Automated Test Suite (Vitest)
 npm run test
 
-# Run Tests in Watch Mode
-npm run test:watch
-
-# Generate Test Coverage Report
-npm run test:coverage
-
-# TypeScript Type Check
+# TypeScript Strict Type Check
 npm run type-check
 
-# Code Linting (ESLint + Oxlint)
+# Code Quality & Linter (ESLint + Oxlint)
 npm run lint
 
-# Auto-Format Code (Prettier)
-npm run format
-npm run format:check
-
-# Production Build
+# Production Bundle Build (Vite)
 npm run build
 ```
 
 ---
 
-## 🔌 CMS Provider Integration
+## ⚡ Engineering Commandments
 
-The application uses an abstract `CMSProvider` interface defined in [`src/cms/index.ts`](file:///f:/GIT/Lara-concrete/src/cms/index.ts).
-
-### Default Implementation: `LocalCMSProvider`
-
-By default, the platform uses `LocalCMSProvider`, which stores and retrieves admin data directly from browser `localStorage` with fallback defaults.
-
-### Connecting Supabase or Remote API
-
-To switch to Supabase or a custom backend:
-
-1. Implement the `CMSProvider` interface in a new file (e.g., `src/cms/supabaseProvider.ts`).
-2. Instantiate your provider in `src/cms/useCMS.tsx`:
-
-```typescript
-const provider = new SupabaseCMSProvider(supabaseClient);
-```
+1. **Every feature has an owner.**
+2. **Every action is auditable.**
+3. **Every permission is explicit.**
+4. **Every workflow is automatable.**
+5. **Every module is replaceable.**
+6. **Every screen has a measurable purpose.**
+7. **Every decision should survive ten years.**
 
 ---
 
-## 📱 Mobile Responsiveness & Accessibility
+## 📄 License & Attribution
 
-- **Breakpoint Support**: Fully responsive across mobile (320px–480px), tablet (768px), and desktop (1024px–1440px+).
-- **Touch Targets**: All interactive buttons, selects, and form elements conform to WCAG 2.1 minimum 44×44px touch target guidelines.
-- **Focus States**: High-contrast `#F58220` visible focus rings (`:focus-visible`) for complete keyboard navigation.
-- **Reduced Motion**: Respects `prefers-reduced-motion: reduce` OS settings by disabling ambient background animations and high-frequency CSS keyframes.
-
----
-
-## ⚙️ Environment Configuration
-
-| Variable            | Description                                  | Default             | Required |
-| :------------------ | :------------------------------------------- | :------------------ | :------- |
-| `VITE_APP_TITLE`    | Application Title                            | `Lara Concrete LLC` | No       |
-| `VITE_CMS_PROVIDER` | CMS Backend Provider (`local` \| `supabase`) | `local`             | No       |
-
----
-
-## 📄 License
-
-Copyright © 2026 Lara Concrete LLC. All rights reserved. Production code for Wichita, KS operations.
+Designed & Architected by **Mahmudur R Bhuiyan** — *Architecting the Systems Behind Great Businesses.*  
+Copyright © 2026 Contractor Operating System™. All rights reserved.

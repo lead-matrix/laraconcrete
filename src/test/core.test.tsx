@@ -12,11 +12,11 @@ describe('Contractor Operating System™ Core Architecture', () => {
     expect(screen.getByText(/Enterprise SaaS Platform/i)).toBeInTheDocument();
   });
 
-  it('renders Mission Control Dashboard metrics', () => {
+  it('renders Mission Control Morning Briefing', () => {
     render(<MissionControl />);
-    expect(screen.getByText(/Mission Control Dashboard/i)).toBeInTheDocument();
-    expect(screen.getByText(/Monthly Cash Flow/i)).toBeInTheDocument();
-    expect(screen.getByText(/Active Sales Pipeline/i)).toBeInTheDocument();
+    expect(screen.getByText(/Carlos/i)).toBeInTheDocument();
+    expect(screen.getByText(/Business Health Score/i)).toBeInTheDocument();
+    expect(screen.getByText(/Decisions Made Today/i)).toBeInTheDocument();
   });
 
   it('renders Smart Estimator Direct-Cost Engine', () => {
