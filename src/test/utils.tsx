@@ -1,31 +1,23 @@
-import React, { type ReactNode } from 'react';
+import React, { type ReactElement } from 'react';
 import { render, type RenderOptions } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
-import { CMSContextProvider } from '../cms/useCMS';
+import { BrowserRouter } from 'react-router-dom';
+import { TenantProvider } from '../core/tenantContext';
+import { RBACProvider } from '../core/rbacContext';
 
-interface AllProvidersProps {
-  children: ReactNode;
-  initialEntries?: string[];
-}
-
-export const AllProviders: React.FC<AllProvidersProps> = ({ children, initialEntries = ['/'] }) => {
+const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return (
-    <CMSContextProvider>
-      <MemoryRouter initialEntries={initialEntries}>{children}</MemoryRouter>
-    </CMSContextProvider>
+    <TenantProvider>
+      <RBACProvider>
+        <BrowserRouter>{children}</BrowserRouter>
+      </RBACProvider>
+    </TenantProvider>
   );
 };
 
-export const customRender = (
-  ui: React.ReactElement,
-  options?: Omit<RenderOptions, 'wrapper'> & { initialEntries?: string[] }
-) => {
-  const { initialEntries, ...renderOptions } = options || {};
-  return render(ui, {
-    wrapper: (props) => <AllProviders initialEntries={initialEntries} {...props} />,
-    ...renderOptions
-  });
-};
+const customRender = (
+  ui: ReactElement,
+  options?: Omit<RenderOptions, 'wrapper'>
+) => render(ui, { wrapper: AllTheProviders, ...options });
 
 export * from '@testing-library/react';
 export { customRender as render };
