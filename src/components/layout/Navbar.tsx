@@ -1,337 +1,231 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import {
-  Phone,
-  Shield,
-  Calendar,
+  LayoutDashboard,
+  Users,
+  Calculator,
+  HardHat,
+  ShieldAlert,
+  Search,
+  Building2,
+  ChevronDown,
   Menu,
   X,
-  ChevronDown,
-  Wrench,
-  Globe,
-  UserCheck
+  User,
+  Sparkles,
+  FileText
 } from 'lucide-react';
-import { useCMS } from '../../cms/useCMS';
-import { Link, useNavigate } from 'react-router-dom';
+import { useTenant } from '../../core/tenantContext';
+import { useRBAC } from '../../core/rbacContext';
+import { CommandBar } from '../ui/CommandBar';
 
 export const Navbar: React.FC = () => {
-  const { openEstimateModal, language, setLanguage, companyDetails } = useCMS();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
-  const navigate = useNavigate();
+  const location = useLocation();
+  const { currentTenant, availableTenants, switchTenant } = useTenant();
+  const { activeRole, availableRoles, switchRole } = useRBAC();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const [isTenantDropdownOpen, setIsTenantDropdownOpen] = useState(false);
+  const [isRoleDropdownOpen, setIsRoleDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCommandBarOpen, setIsCommandBarOpen] = useState(false);
 
-  const scrollToSection = (id: string) => {
-    setMobileMenuOpen(false);
-    setServicesDropdownOpen(false);
-
-    if (window.location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 200);
-      return;
-    }
-
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
+  const navItems = [
+    { label: 'Mission Control', path: '/', icon: LayoutDashboard },
+    { label: 'CRM & Pipeline', path: '/crm', icon: Users },
+    { label: 'Smart Estimator', path: '/estimator', icon: Calculator },
+    { label: 'Field Ops & Jobs', path: '/jobs', icon: HardHat },
+    { label: 'Customer Portal', path: '/portal', icon: FileText },
+    { label: 'Super Admin', path: '/superadmin', icon: ShieldAlert }
+  ];
 
   return (
-    <header className="sticky top-0 z-50 transition-all duration-300">
-      {/* Skip to main content for accessibility */}
-      <a href="#hero" className="skip-to-content">
-        Skip to main content
-      </a>
-
-      {/* Top Hotline Bar */}
-      <div className="bg-[#1A1A1A] text-white py-2 px-4 text-xs font-semibold border-b border-white/10">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5 text-[#F58220]">
-              <span className="w-2 h-2 rounded-full bg-[#F58220] animate-pulse"></span>
-              🏷️ Turnkey SaaS Platform — Available For Acquisition & Ownership
-            </span>
-            <span className="hidden sm:inline text-gray-400">|</span>
-            <span className="hidden sm:flex items-center gap-1 text-gray-300">
-              <Shield className="w-3.5 h-3.5 text-[#F58220]" />
-              Enterprise Production Codebase
-            </span>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setLanguage(language === 'EN' ? 'ES' : 'EN')}
-              className="flex items-center gap-1 text-xs bg-white/10 hover:bg-white/20 px-2 py-0.5 rounded text-gray-200 transition-colors"
-            >
-              <Globe className="w-3 h-3 text-[#F58220]" />
-              <span>{language === 'EN' ? 'ESPAÑOL' : 'ENGLISH'}</span>
-            </button>
-
-            <a
-              href={`tel:${companyDetails.phone1.replace(/\D/g, '')}`}
-              className="flex items-center gap-1.5 text-[#F58220] hover:text-[#FF8E2B] font-bold tracking-wider transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              <span>{companyDetails.phone1}</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Sticky Navbar — 3-Column: Left Nav | Center Logo | Right CTAs */}
-      <nav
-        className={`transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/97 backdrop-blur-md shadow-md py-2 border-b border-gray-200/80'
-            : 'bg-white py-3 border-b border-gray-100'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 items-center">
-          {/* ── LEFT: Navigation Links ── */}
-          <div className="hidden lg:flex items-center gap-5 text-sm font-semibold text-[#374151]">
-            <button
-              onClick={() => scrollToSection('hero')}
-              className="hover:text-[#F58220] transition-colors duration-200 whitespace-nowrap"
-            >
-              {language === 'ES' ? 'Inicio' : 'Home'}
-            </button>
-
-            {/* Services Dropdown */}
-            <div className="relative group">
-              <button
-                onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-                aria-expanded={servicesDropdownOpen}
-                aria-haspopup="true"
-                aria-label="Toggle services submenu"
-                className="flex items-center gap-1 hover:text-[#F58220] transition-colors duration-200 py-2 whitespace-nowrap"
-              >
-                <span>{language === 'ES' ? 'Servicios' : 'Services'}</span>
-                <ChevronDown className="w-3.5 h-3.5 text-gray-400 group-hover:text-[#F58220] transition-colors" />
-              </button>
-
-              <div className="absolute top-full left-0 w-72 bg-[#1A1A1A] border border-white/10 rounded-xl shadow-2xl p-3 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 z-50 translate-y-1 group-hover:translate-y-0">
-                <div className="text-xs uppercase font-bold text-[#F58220] px-2 py-1 tracking-wider border-b border-white/10 mb-1">
-                  14 Core Concrete Services
+    <>
+      <header className="sticky top-0 z-40 w-full bg-[#090d16]/90 backdrop-blur-xl border-b border-white/10 transition-all">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Left Brand & Logo */}
+            <div className="flex items-center gap-6">
+              <Link to="/" className="flex items-center gap-3 group">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 via-indigo-600 to-violet-600 p-0.5 shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
+                  <div className="w-full h-full bg-[#090d16] rounded-[10px] flex items-center justify-center">
+                    <img src="/logo.svg" alt="Contractor OS" className="w-6 h-6" />
+                  </div>
                 </div>
-                <div className="max-h-64 overflow-y-auto space-y-1 pr-1">
-                  {[
-                    { label: 'Concrete Driveways', popular: true },
-                    { label: 'Patios & Outdoor Living' },
-                    { label: 'Stamped & Decorative' },
-                    { label: 'Foundations & Slabs' },
-                    { label: 'Garage & Shop Floors' },
-                    { label: 'Commercial Flatwork' },
-                    { label: 'Sidewalks & Walkways' },
-                    { label: 'Concrete Repair & Resurfacing' }
-                  ].map((s) => (
-                    <button
-                      key={s.label}
-                      onClick={() => scrollToSection('services')}
-                      className="w-full text-left px-2 py-1.5 text-xs text-gray-300 hover:bg-[#F58220]/20 hover:text-white rounded transition-colors flex items-center justify-between"
-                    >
-                      <span>{s.label}</span>
-                      {s.popular && (
-                        <span className="text-[10px] bg-[#F58220] text-white px-1.5 rounded font-bold">
-                          Popular
-                        </span>
-                      )}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <button
-              onClick={() => scrollToSection('cad-estimator')}
-              className="hover:text-[#F58220] transition-colors duration-200 flex items-center gap-1 whitespace-nowrap"
-            >
-              <Wrench className="w-3.5 h-3.5 text-[#F58220]" />
-              <span>Estimator</span>
-            </button>
-
-            <button
-              onClick={() => scrollToSection('projects')}
-              className="hover:text-[#F58220] transition-colors duration-200 whitespace-nowrap"
-            >
-              {language === 'ES' ? 'Proyectos' : 'Projects'}
-            </button>
-
-            <button
-              onClick={() => scrollToSection('customer-portal')}
-              className="hover:text-[#F58220] transition-colors duration-200 flex items-center gap-1 whitespace-nowrap"
-            >
-              <UserCheck className="w-3.5 h-3.5 text-[#F58220]" />
-              <span>Portal</span>
-            </button>
-          </div>
-
-          {/* ── CENTER: Logo (bigger, perfectly centered) ── */}
-          <div className="flex justify-center items-center">
-            <Link to="/" className="group flex items-center gap-2.5" aria-label="ZenBid Pro Home">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#F58220] to-[#E07110] flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition-transform">
-                ZB
-              </div>
-              <div className="flex flex-col text-left">
-                <div className="flex items-center gap-1.5">
-                  <span className="font-extrabold text-xl tracking-tight text-[#1F2937] leading-none">
-                    ZenBid<span className="text-[#F58220]">.Pro</span>
+                <div>
+                  <span className="text-base font-bold text-white tracking-tight flex items-center gap-1.5">
+                    Contractor OS<span className="text-[10px] text-blue-400 font-mono">TM</span>
                   </span>
-                  <span className="text-[9px] bg-[#F58220]/15 text-[#F58220] border border-[#F58220]/30 font-black px-1.5 py-0.5 rounded-md uppercase tracking-wider">
-                    OWNERSHIP READY
+                  <span className="text-[10px] text-slate-400 block -mt-1 font-medium">
+                    Enterprise SaaS Platform
                   </span>
                 </div>
-                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-tight">
-                  Turnkey Concrete SaaS
-                </span>
-              </div>
-            </Link>
-          </div>
-
-          {/* ── RIGHT: CTA Buttons + Admin ── */}
-          <div className="flex items-center justify-end gap-3">
-            {/* Desktop CTAs */}
-            <div className="hidden lg:flex items-center gap-2.5">
-              <button
-                onClick={() => scrollToSection('blog')}
-                className="text-sm font-semibold text-[#374151] hover:text-[#F58220] transition-colors duration-200 whitespace-nowrap"
-              >
-                {language === 'ES' ? 'Guías' : 'Blog'}
-              </button>
-
-              <Link
-                to="/admin"
-                className="text-xs bg-[#1F2937] hover:bg-[#F58220] text-white px-3 py-1.5 rounded-lg font-bold transition-all duration-200 shadow-sm whitespace-nowrap"
-              >
-                CRM
               </Link>
 
-              <a
-                href={`tel:${companyDetails.phone1.replace(/\D/g, '')}`}
-                className="btn-lara-secondary px-3.5 py-2 rounded-xl text-xs uppercase tracking-wider flex items-center gap-1.5 whitespace-nowrap"
-              >
-                <Phone className="w-3.5 h-3.5 text-[#F58220]" />
-                <span>Call Now</span>
-              </a>
+              {/* Tenant Switcher Dropdown */}
+              <div className="relative">
+                <button
+                  onClick={() => {
+                    setIsTenantDropdownOpen(!isTenantDropdownOpen);
+                    setIsRoleDropdownOpen(false);
+                  }}
+                  className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-medium text-slate-200 hover:bg-white/10 hover:border-white/20 transition-all"
+                >
+                  <Building2 className="w-3.5 h-3.5 text-blue-400" />
+                  <span className="max-w-[140px] truncate">{currentTenant.name}</span>
+                  <ChevronDown className="w-3 h-3 text-slate-400" />
+                </button>
 
-              <button
-                onClick={() => openEstimateModal()}
-                className="btn-lara-primary px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider flex items-center gap-1.5 whitespace-nowrap"
-              >
-                <Calendar className="w-3.5 h-3.5" />
-                <span>{language === 'ES' ? 'Cotizar' : 'Free Estimate'}</span>
-              </button>
+                {isTenantDropdownOpen && (
+                  <div className="absolute left-0 mt-2 w-64 bg-[#0f172a] border border-white/10 rounded-xl shadow-2xl p-2 z-50 animate-fadeIn">
+                    <div className="px-2 py-1 text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
+                      Switch Organization Tenant
+                    </div>
+                    <div className="space-y-1 mt-1">
+                      {availableTenants.map((t) => (
+                        <button
+                          key={t.id}
+                          onClick={() => {
+                            switchTenant(t.id);
+                            setIsTenantDropdownOpen(false);
+                          }}
+                          className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition-colors ${
+                            t.id === currentTenant.id
+                              ? 'bg-blue-600/20 text-blue-300 border border-blue-500/40'
+                              : 'text-slate-300 hover:bg-white/5 hover:text-white'
+                          }`}
+                        >
+                          <span className="truncate">{t.name}</span>
+                          <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-white/10 text-slate-400">
+                            {t.plan}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
 
-            {/* Mobile: Call pill + Hamburger */}
-            <a
-              href={`tel:${companyDetails.phone1.replace(/\D/g, '')}`}
-              className="lg:hidden flex items-center gap-1 bg-[#F58220]/10 hover:bg-[#F58220] text-[#F58220] hover:text-white border border-[#F58220]/30 px-3 py-1.5 rounded-xl text-xs font-bold transition-all duration-200"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Call</span>
-            </a>
+            {/* Middle Nav Links */}
+            <nav className="hidden xl:flex items-center gap-1">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`px-3 py-2 rounded-xl text-xs font-medium flex items-center gap-2 transition-all ${
+                      isActive
+                        ? 'bg-blue-600/15 text-blue-400 border border-blue-500/30'
+                        : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
+                    }`}
+                  >
+                    <Icon className="w-3.5 h-3.5" />
+                    <span>{item.label}</span>
+                  </Link>
+                );
+              })}
+            </nav>
 
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2.5 rounded-xl bg-gray-100 text-[#1F2937] hover:bg-[#F58220] hover:text-white transition-all duration-200 border border-gray-200 min-h-[44px] min-w-[44px] flex items-center justify-center"
-              aria-label="Toggle Navigation Menu"
-              aria-expanded={mobileMenuOpen}
-            >
-              {mobileMenuOpen ? (
-                <X className="w-5 h-5" aria-hidden="true" />
-              ) : (
-                <Menu className="w-5 h-5" aria-hidden="true" />
-              )}
-            </button>
+            {/* Right Actions: Cmd+K & Role Switcher */}
+            <div className="flex items-center gap-3">
+              {/* Cmd+K Hotkey Trigger Button */}
+              <button
+                onClick={() => setIsCommandBarOpen(true)}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-blue-500/40 text-slate-400 hover:text-white text-xs font-medium transition-all"
+              >
+                <Search className="w-3.5 h-3.5 text-blue-400" />
+                <span className="hidden sm:inline">Search...</span>
+                <kbd className="hidden sm:inline-block px-1.5 py-0.5 rounded bg-white/10 text-[10px] font-mono text-slate-300">
+                  ⌘K
+                </kbd>
+              </button>
+
+              {/* RBAC Role Switcher */}
+              <div className="relative">
+                <button
+                  onClick={() => {
+                    setIsRoleDropdownOpen(!isRoleDropdownOpen);
+                    setIsTenantDropdownOpen(false);
+                  }}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-indigo-500/30 text-xs font-medium text-indigo-300 hover:bg-indigo-500/20 transition-all"
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
+                  <span className="hidden sm:inline max-w-[120px] truncate">{activeRole}</span>
+                  <ChevronDown className="w-3 h-3 text-indigo-400" />
+                </button>
+
+                {isRoleDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-56 bg-[#0f172a] border border-white/10 rounded-xl shadow-2xl p-2 z-50 animate-fadeIn">
+                    <div className="px-2 py-1 text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
+                      Simulate User Role
+                    </div>
+                    <div className="space-y-1 mt-1">
+                      {availableRoles.map((role) => (
+                        <button
+                          key={role}
+                          onClick={() => {
+                            switchRole(role);
+                            setIsRoleDropdownOpen(false);
+                          }}
+                          className={`w-full text-left px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-2 transition-colors ${
+                            role === activeRole
+                              ? 'bg-indigo-600/30 text-indigo-300 border border-indigo-500/50'
+                              : 'text-slate-300 hover:bg-white/5 hover:text-white'
+                          }`}
+                        >
+                          <User className="w-3 h-3 text-indigo-400" />
+                          <span>{role}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Mobile Hamburger Toggle */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="xl:hidden p-2 text-slate-400 hover:text-white rounded-xl hover:bg-white/5"
+              >
+                {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
+            </div>
           </div>
         </div>
-      </nav>
 
-      {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-gray-200 shadow-xl animate-fadeIn">
-          {/* Orange accent top strip */}
-          <div className="h-0.5 bg-gradient-to-r from-[#F58220] via-[#FF8E2B] to-[#F58220]" />
-
-          <div className="p-5 space-y-4">
-            {/* Navigation Grid */}
-            <div className="grid grid-cols-2 gap-2 text-sm font-semibold">
-              {[
-                { label: language === 'ES' ? 'Inicio' : 'Home', section: 'hero' },
-                {
-                  label: language === 'ES' ? 'Servicios (14)' : 'Services (14)',
-                  section: 'services'
-                },
-                { label: 'CAD Estimator', section: 'cad-estimator', accent: true },
-                { label: 'Photo Estimator', section: 'photo-estimator', accent: true },
-                { label: 'Customer Portal', section: 'customer-portal' },
-                { label: language === 'ES' ? 'Flota' : 'Fleet', section: 'fleet' },
-                { label: language === 'ES' ? 'Proyectos' : 'Projects', section: 'projects' },
-                { label: language === 'ES' ? 'Guías' : 'Blog', section: 'blog' }
-              ].map((item) => (
-                <button
-                  key={item.section}
-                  onClick={() => scrollToSection(item.section)}
-                  className={`text-left py-2.5 px-3 rounded-xl text-sm font-semibold transition-colors ${
-                    item.accent
-                      ? 'bg-[#F58220]/10 text-[#F58220] border border-[#F58220]/20 hover:bg-[#F58220]/20'
-                      : 'bg-gray-50 text-[#1F2937] hover:bg-gray-100 border border-gray-200'
+        {/* Mobile Navigation Drawer */}
+        {isMobileMenuOpen && (
+          <div className="xl:hidden border-t border-white/10 bg-[#090d16] p-4 space-y-2 animate-fadeIn">
+            <div className="px-2 py-1 text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
+              Tenant: {currentTenant.name}
+            </div>
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = location.pathname === item.path;
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`w-full px-4 py-2.5 rounded-xl text-xs font-medium flex items-center gap-3 transition-colors ${
+                    isActive
+                      ? 'bg-blue-600/20 text-blue-300 border border-blue-500/40'
+                      : 'text-slate-300 hover:bg-white/5'
                   }`}
                 >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Admin Link */}
-            <Link
-              to="/admin"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center w-full py-2.5 px-3 bg-[#1F2937] text-white rounded-xl text-sm font-bold hover:bg-[#374151] transition-colors"
-            >
-              CRM Admin Portal
-            </Link>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col gap-2 pt-1">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  openEstimateModal();
-                }}
-                className="w-full btn-lara-primary py-3.5 rounded-xl text-sm text-center uppercase tracking-wider font-bold"
-              >
-                {language === 'ES' ? 'Presupuesto Gratis' : '⚡ Get Free Estimate'}
-              </button>
-              <a
-                href={`tel:${companyDetails.phone1.replace(/\D/g, '')}`}
-                className="w-full btn-lara-secondary py-3 rounded-xl text-sm text-center uppercase tracking-wider font-bold flex items-center justify-center gap-2"
-              >
-                <Phone className="w-4 h-4 text-[#F58220]" />
-                <span>{companyDetails.phone1}</span>
-              </a>
-            </div>
-
-            {/* Language Toggle */}
-            <button
-              onClick={() => setLanguage(language === 'EN' ? 'ES' : 'EN')}
-              className="w-full flex items-center justify-center gap-2 py-2 text-xs font-bold text-gray-500 hover:text-[#F58220] border-t border-gray-100 pt-3 transition-colors"
-            >
-              <Globe className="w-3.5 h-3.5" />
-              <span>{language === 'EN' ? 'Switch to Español' : 'Switch to English'}</span>
-            </button>
+                  <Icon className="w-4 h-4 text-blue-400" />
+                  <span>{item.label}</span>
+                </Link>
+              );
+            })}
           </div>
-        </div>
-      )}
-    </header>
+        )}
+      </header>
+
+      {/* Global Command Palette Modal */}
+      <CommandBar isOpen={isCommandBarOpen} onClose={() => setIsCommandBarOpen(false)} />
+    </>
   );
 };
