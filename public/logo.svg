@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="cos-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+    <linearGradient id="cos-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+  </defs>
+  <!-- Main Outer Hex Shield -->
+  <polygon points="50,10 88,32 88,76 50,98 12,76 12,32" fill="#090d16" stroke="url(#cos-grad)" stroke-width="4" stroke-linejoin="round" />
+  <!-- Inner Dynamic Grid / Structural Precision Line -->
+  <polygon points="50,22 78,38 78,70 50,86 22,70 22,38" fill="rgba(59, 130, 246, 0.08)" stroke="url(#cos-accent)" stroke-width="2" stroke-linejoin="round" />
+  <!-- Core Blueprint / Operating Grid Node -->
+  <path d="M50 22V50L78 70M50 50L22 70" stroke="url(#cos-grad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Central Pulse Indicator -->
+  <circle cx="50" cy="50" r="5" fill="#38bdf8" />
+</svg>
